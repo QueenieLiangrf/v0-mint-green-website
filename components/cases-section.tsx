@@ -202,7 +202,7 @@ export default function CasesSection() {
               >
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between mb-4">
-                    <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20">
+                    <Badge variant="secondary" className="bg-primary text-primary-foreground border-primary/20">
                       {caseItem.type}
                     </Badge>
                     <div className="p-2 rounded-lg bg-primary/10 text-primary">
@@ -225,7 +225,7 @@ export default function CasesSection() {
                     </div>
 
                     <div>
-                      <h4 className="text-sm font-medium text-chart-3 mb-2">成效</h4>
+                      <h4 className="text-sm font-medium text-primary mb-2">成效</h4>
                       <p className="text-sm text-muted-foreground mb-3 text-pretty">{caseItem.result}</p>
 
                       <div className="grid grid-cols-1 gap-2">

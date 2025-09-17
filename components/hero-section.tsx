@@ -77,7 +77,12 @@ export function HeroSection() {
                   <Sparkles className="w-8 h-8 text-white" />
                 </div>
 
-                <h1 className="text-3xl sm:text-4xl font-bold text-white leading-tight drop-shadow-lg">一键咨询</h1>
+                <h1
+                  className="text-3xl sm:text-4xl font-bold text-white leading-tight"
+                  style={{ textShadow: "2px 2px 4px rgba(0,0,0,0.5)" }}
+                >
+                  一键咨询
+                </h1>
 
                 <div className="text-xl text-white font-medium drop-shadow-md">
                   <div className="flex items-center justify-center gap-2 mb-2">
@@ -127,7 +132,7 @@ export function HeroSection() {
           <div className="space-y-6">
             <div className="bg-card rounded-3xl p-8 shadow-xl card-hover">
               <div className="space-y-6">
-                <div className="inline-flex items-center rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
+                <div className="inline-flex items-center rounded-full bg-primary text-white px-4 py-2 text-sm font-medium">
                   <Zap className="mr-2 h-4 w-4" />
                   核心服务项目
                 </div>
