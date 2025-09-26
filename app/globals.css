@@ -11,7 +11,7 @@
   --card-foreground: #1e293b; /* 卡片文字颜色 */
   --popover: #ffffff; /* 弹出框背景 */
   --popover-foreground: #1e293b; /* 弹出框文字 */
-  --primary: #4caf50; /* 薄荷绿色主色 */
+  --primary: rgb(25, 195, 173); /* 薄荷绿色主色 */
   --primary-foreground: #ffffff; /* 主色上的白色文字 */
   --secondary: #e2e8f0; /* 浅灰色次要色 */
   --secondary-foreground: #1e293b; /* 次要色上的深色文字 */

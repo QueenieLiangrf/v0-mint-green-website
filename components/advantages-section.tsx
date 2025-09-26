@@ -24,7 +24,7 @@ export function AdvantagesSection() {
       icon: Shield,
       title: "技术硬实力保障",
       description:
-        "核心开发团队成员来自头部互联网企业，拥有10年以上工作经验，保障软件运行稳定（故障率低于0.5%）、数据安全（符合等保2.0标准）。",
+        "保障软件运行稳定（故障率低于0.5%）、数据安全（符合等保2.0标准）。",
       highlight: "故障率<0.5%",
       number: "<0.5%",
       numberLabel: "故障率",

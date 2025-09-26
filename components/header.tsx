@@ -14,11 +14,11 @@ export function Header() {
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">
             <Image
-              src="/images/logo.png"
+              src="/images/logov2.jpg"
               alt="至索科技 Extreme Exploration"
-              width={300}
-              height={80}
-              className="h-12 w-auto"
+              width={240}
+              height={60}
+              className="h-10 w-auto"
             />
           </div>
 
