@@ -1,7 +1,30 @@
+"use client"
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Target, Wrench, Shield, Headphones } from "lucide-react"
+import { useEffect, useRef, useState } from "react"
 
 export function AdvantagesSection() {
+  const [isVisible, setIsVisible] = useState(false)
+  const sectionRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+        }
+      },
+      { threshold: 0.3 },
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => observer.disconnect()
+  }, [])
+
   const advantages = [
     {
       icon: Target,
@@ -23,8 +46,7 @@ export function AdvantagesSection() {
     {
       icon: Shield,
       title: "技术硬实力保障",
-      description:
-        "保障软件运行稳定（故障率低于0.5%）、数据安全（符合等保2.0标准）。",
+      description: "保障软件运行稳定（故障率低于0.5%）、数据安全（符合等保2.0标准）。",
       highlight: "故障率<0.5%",
       number: "<0.5%",
       numberLabel: "故障率",
@@ -41,7 +63,7 @@ export function AdvantagesSection() {
   ]
 
   return (
-    <section id="advantages" className="py-20">
+    <section id="advantages" className="py-20" ref={sectionRef}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl mb-4">我们的核心优势</h2>
@@ -54,7 +76,18 @@ export function AdvantagesSection() {
           {advantages.map((advantage, index) => (
             <Card
               key={index}
-              className="group hover:shadow-lg transition-all duration-300 border-border hover:border-primary/20"
+              className={`group hover:shadow-lg transition-all duration-700 border-border hover:border-primary/20 ${
+                isVisible
+                  ? "opacity-100 translate-x-0 translate-y-0 scale-100"
+                  : "opacity-0 translate-x-0 translate-y-0 scale-75"
+              }`}
+              style={{
+                transform: isVisible
+                  ? "translate(0, 0) scale(1)"
+                  : `translate(${index % 2 === 0 ? "-50px" : "50px"}, ${index < 2 ? "-30px" : "30px"}) scale(0.8)`,
+                transitionDelay: `${index * 150}ms`,
+                transitionTimingFunction: "cubic-bezier(0.34, 1.56, 0.64, 1)",
+              }}
             >
               <CardHeader>
                 <div className="flex items-start space-x-4">

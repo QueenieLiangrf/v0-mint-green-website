@@ -4,9 +4,11 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import { useState, useEffect } from "react"
 import Image from "next/image"
+import { ChatDialog } from "./chat-dialog"
 
 export function HeroSection() {
   const [currentStation, setCurrentStation] = useState(0)
+  const [isChatOpen, setIsChatOpen] = useState(false)
 
   const stations = [
     {
@@ -26,7 +28,7 @@ export function HeroSection() {
     },
   ]
 
-  const cases = [
+  const casesData = [
     {
       id: 1,
       title: "AI家政服务",
@@ -34,8 +36,6 @@ export function HeroSection() {
       image: "/images/case-ai-home.png",
       description: "智能家政服务平台，提供VIP会员体系和便民服务",
       tech: ["React Native", "AI算法", "云服务"],
-      frameStyle: "golden-large",
-      position: { top: "10%", left: "15%", rotation: "-5deg" },
     },
     {
       id: 2,
@@ -44,8 +44,6 @@ export function HeroSection() {
       image: "/images/case-erp.png",
       description: "全功能电商ERP管理系统，支持退货管理和数据分析",
       tech: ["Vue.js", "Node.js", "MySQL"],
-      frameStyle: "black-medium",
-      position: { top: "5%", left: "60%", rotation: "3deg" },
     },
     {
       id: 3,
@@ -54,8 +52,6 @@ export function HeroSection() {
       image: "/images/case-crm.png",
       description: "AI驱动的客户关系管理系统，提供智能分析和预测",
       tech: ["React", "Python", "TensorFlow"],
-      frameStyle: "white-small",
-      position: { top: "35%", left: "5%", rotation: "8deg" },
     },
     {
       id: 4,
@@ -64,8 +60,6 @@ export function HeroSection() {
       image: "/images/case-delivery.png",
       description: "新鲜食材配送平台，用户积分体系和配送管理",
       tech: ["Flutter", "Spring Boot", "Redis"],
-      frameStyle: "wooden-medium",
-      position: { top: "30%", left: "45%", rotation: "-3deg" },
     },
     {
       id: 5,
@@ -74,8 +68,6 @@ export function HeroSection() {
       image: "/images/case-contacts1.png",
       description: "企业内部通讯录系统，支持部门管理和员工查找",
       tech: ["React Native", "Express", "MongoDB"],
-      frameStyle: "golden-small",
-      position: { top: "60%", left: "20%", rotation: "-8deg" },
     },
     {
       id: 6,
@@ -84,9 +76,17 @@ export function HeroSection() {
       image: "/images/case-contacts2.png",
       description: "部门协作管理平台，支持团队沟通和项目管理",
       tech: ["Next.js", "GraphQL", "PostgreSQL"],
-      frameStyle: "white-large",
-      position: { top: "55%", left: "65%", rotation: "6deg" },
     },
+  ]
+
+  const createInfiniteColumn = (cases: typeof casesData) => {
+    return [...cases, ...cases, ...cases] // 三倍重复确保无缝滚动
+  }
+
+  const caseColumns = [
+    createInfiniteColumn([casesData[0], casesData[3]]), // 第一列
+    createInfiniteColumn([casesData[1], casesData[4]]), // 第二列
+    createInfiniteColumn([casesData[2], casesData[5]]), // 第三列
   ]
 
   useEffect(() => {
@@ -120,16 +120,10 @@ export function HeroSection() {
                 <Button
                   size="lg"
                   className="bg-primary text-white hover:bg-primary/90 font-semibold px-8 py-4 rounded-full shadow-lg text-lg"
-                >
-                  立即免费咨询
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="font-semibold px-8 py-4 rounded-full text-lg bg-transparent"
+                  onClick={() => setIsChatOpen(true)}
                 >
                   了解我们的服务
+                  <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </div>
             </div>
@@ -155,56 +149,93 @@ export function HeroSection() {
           </div>
 
           <div className="space-y-6">
-            <div className="bg-card rounded-3xl p-8 shadow-xl card-hover">
-              <div className="space-y-6">
-                <div className="text-center">
-                  <h3 className="text-2xl font-bold text-card-foreground mb-2">成功案例展示</h3>
-                  <p className="text-muted-foreground">精选项目案例</p>
-                </div>
+            <div className="space-y-6">
+              <div className="text-center">
+                <h3 className="text-2xl font-bold text-card-foreground mb-2">成功案例展示</h3>
+                <p className="text-muted-foreground">精选项目案例</p>
+              </div>
 
-                <div className="grid grid-cols-3 gap-4">
-                  {cases.map((caseItem) => (
+              <div className="grid grid-cols-3 gap-4 h-80 overflow-hidden">
+                {caseColumns.map((column, columnIndex) => (
+                  <div key={columnIndex} className="relative overflow-hidden">
                     <div
-                      key={caseItem.id}
-                      className="group cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                      className="infinite-scroll-column"
+                      style={{
+                        animationDelay: `${columnIndex * -2}s`, // 每列不同的延迟
+                        animationDuration: `${15 + columnIndex * 3}s`, // 每列不同的速度
+                      }}
                     >
-                      <div className="relative overflow-hidden rounded-lg bg-white shadow-sm">
-                        <Image
-                          src={caseItem.image || "/placeholder.svg"}
-                          alt={caseItem.title}
-                          width={120}
-                          height={160}
-                          className="w-full h-32 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3">
-                          <h4 className="font-bold text-white text-xs mb-1">{caseItem.title}</h4>
-                          <p className="text-xs text-white/80 mb-1">{caseItem.category}</p>
-                          <div className="flex flex-wrap gap-1">
-                            {caseItem.tech.slice(0, 2).map((tech, techIndex) => (
-                              <span key={techIndex} className="text-xs bg-white/20 text-white px-1 py-0.5 rounded">
-                                {tech}
-                              </span>
-                            ))}
+                      {column.map((caseItem, itemIndex) => (
+                        <div key={`${caseItem.id}-${itemIndex}`} className="case-item group cursor-pointer">
+                          <div className="relative overflow-hidden rounded-lg bg-white shadow-sm h-full transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                            <Image
+                              src={caseItem.image || "/placeholder.svg"}
+                              alt={caseItem.title}
+                              width={120}
+                              height={160}
+                              className="w-full h-full object-cover"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                              <h4 className="font-bold text-white text-sm mb-2">{caseItem.title}</h4>
+                              <p className="text-xs text-white/80 mb-2">{caseItem.category}</p>
+                              <p className="text-xs text-white/70 mb-3 line-clamp-2">{caseItem.description}</p>
+                              <div className="flex flex-wrap gap-1">
+                                {caseItem.tech.slice(0, 2).map((tech, techIndex) => (
+                                  <span key={techIndex} className="text-xs bg-white/20 text-white px-2 py-1 rounded">
+                                    {tech}
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
+                  </div>
+                ))}
+              </div>
 
-                <div className="text-center">
-                  <Button variant="outline" className="bg-transparent">
-                    查看更多案例
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </div>
+              <div className="text-center">
+                <Button variant="outline" className="bg-transparent">
+                  查看更多案例
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
               </div>
             </div>
           </div>
         </div>
       </div>
 
+      <ChatDialog isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
+
       <style jsx>{`
+        /* 添加无缝滚动动画样式 */
+        .infinite-scroll-column {
+          display: flex;
+          flex-direction: column;
+          animation: infiniteScroll linear infinite;
+          will-change: transform;
+        }
+
+        .case-item {
+          height: 160px;
+          margin-bottom: 16px;
+          flex-shrink: 0;
+        }
+
+        @keyframes infiniteScroll {
+          0% {
+            transform: translateY(0);
+          }
+          100% {
+            transform: translateY(-66.666%); /* 移动2/3的距离，因为我们有3倍重复 */
+          }
+        }
+
+        .infinite-scroll-column:hover {
+          animation-play-state: paused;
+        }
+
         .paper-plane-container {
           position: relative;
           height: 120px;

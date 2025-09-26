@@ -3,6 +3,7 @@ import { HeroSection } from "@/components/hero-section"
 import { ServicesSection } from "@/components/services-section"
 import { AdvantagesSection } from "@/components/advantages-section"
 import { ProcessSection } from "@/components/process-section"
+import { IndustriesSection } from "@/components/industries-section"
 import CasesSection from "@/components/cases-section"
 import { Footer } from "@/components/footer"
 
@@ -17,6 +18,7 @@ export default function HomePage() {
             <ServicesSection />
             <AdvantagesSection />
             <ProcessSection />
+            <IndustriesSection />
             <CasesSection />
           </main>
         </div>
