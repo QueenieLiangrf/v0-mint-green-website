@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Code, Brain, Database, Smartphone, ArrowRight } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 
 export function ServicesSection() {
   const [isVisible, setIsVisible] = useState(false)
@@ -29,7 +29,6 @@ export function ServicesSection() {
   }, [])
 
   const mainService = {
-    icon: Code,
     title: "软件定制开发",
     subtitle: "CUSTOM DEVELOPMENT",
     description: "基于企业实际业务逻辑的深度定制开发，从需求分析到产品交付的全流程服务",
@@ -41,62 +40,52 @@ export function ServicesSection() {
 
   const services = [
     {
-      icon: Code,
       title: "软件定制开发",
       description: "基于企业实际业务逻辑的深度定制开发",
       detailedDescription: "基于企业实际业务逻辑的深度定制开发，从需求分析到产品交付的全流程服务",
       features: ["需求深度拆解", "技术灵活适配", "多端适配支持", "云端/本地部署", "敏捷开发流程", "质量保证体系"],
-      gradient: "from-green-500 to-green-600",
-      bgPattern: "bg-gradient-to-br from-green-500/80 to-green-600/90",
+      gradient: "from-cyan-400 to-blue-500",
+      bgPattern: "bg-gradient-to-br from-cyan-400/80 to-blue-500/90",
     },
     {
-      icon: Brain,
       title: "AI智能体",
       description: "AI模型训练与智能应用开发",
       detailedDescription: "基于最新AI技术，为企业打造智能化解决方案，提升业务效率和用户体验",
       features: ["自然语言处理", "机器学习模型", "智能对话系统", "数据分析预测"],
-      gradient: "from-green-400 via-green-500 to-green-600",
-      bgPattern: "bg-gradient-to-br from-green-400/20 to-green-600/30",
+      gradient: "from-teal-400 to-teal-600",
+      bgPattern: "bg-gradient-to-br from-teal-400/80 to-teal-600/90",
     },
     {
-      icon: Database,
       title: "系统集成",
       description: "企业级系统集成解决方案",
       detailedDescription: "整合企业现有系统，实现数据互通和业务流程优化，提升整体运营效率",
       features: ["API接口开发", "数据同步", "流程自动化", "系统监控"],
-      gradient: "from-gray-700 via-gray-800 to-black",
-      bgPattern: "bg-gradient-to-br from-gray-700/80 to-black/90",
+      gradient: "from-green-400 to-green-600",
+      bgPattern: "bg-gradient-to-br from-green-400/80 to-green-600/90",
     },
     {
-      icon: ArrowRight,
       title: "技术咨询服务",
       description: "专业技术咨询与解决方案",
       detailedDescription: "提供专业的技术咨询服务，帮助企业制定技术战略，优化技术架构，解决技术难题",
       features: ["技术架构设计", "性能优化建议", "技术选型指导", "团队技术培训", "代码审查服务", "技术风险评估"],
-      gradient: "from-green-700 via-green-800 to-black",
-      bgPattern: "bg-gradient-to-br from-green-700/80 to-black/90",
+      gradient: "from-blue-500 to-blue-700",
+      bgPattern: "bg-gradient-to-br from-blue-500/80 to-blue-700/90",
     },
     {
-      icon: Smartphone,
       title: "移动应用",
       description: "跨平台移动应用开发",
       detailedDescription: "原生和跨平台移动应用开发，覆盖iOS和Android平台，提供优质用户体验",
       features: ["原生开发", "跨平台方案", "UI/UX设计", "应用商店发布", "性能优化", "用户体验测试"],
-      gradient: "from-green-600 via-green-700 to-green-800",
-      bgPattern: "bg-gradient-to-br from-green-600/80 to-green-800/90",
+      gradient: "from-emerald-400 to-emerald-600",
+      bgPattern: "bg-gradient-to-br from-emerald-400/80 to-emerald-600/90",
     },
     {
-      icon: () => (
-        <div className="w-12 h-12 flex items-center justify-center">
-          <img src="/web-app-icon.png" alt="Web应用" className="w-10 h-10 object-contain" />
-        </div>
-      ),
       title: "Web应用",
       description: "现代化Web应用开发",
       detailedDescription: "响应式Web应用开发，采用最新前端技术，确保性能和用户体验的完美平衡",
       features: ["响应式设计", "前端框架", "性能优化", "SEO优化", "安全防护", "云端部署"],
-      gradient: "from-cyan-400 via-teal-500 to-green-500",
-      bgPattern: "bg-gradient-to-br from-cyan-400/80 via-teal-500/85 to-green-500/90",
+      gradient: "from-cyan-500 to-teal-500",
+      bgPattern: "bg-gradient-to-br from-cyan-500/80 to-teal-500/90",
     },
   ]
 
@@ -104,7 +93,7 @@ export function ServicesSection() {
     <section id="services" className="py-20 bg-gray-50 relative overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-16">
-          <div className="inline-block px-4 py-2 bg-green-500/10 text-green-700 text-sm font-medium rounded-full mb-4">
+          <div className="inline-block px-4 py-2 text-sm font-medium rounded-full mb-4 text-card bg-primary">
             核心服务项目
           </div>
           <h2 className="text-4xl font-bold tracking-tight text-foreground mb-4">
@@ -137,31 +126,9 @@ export function ServicesSection() {
                 <CardContent className="p-6 h-full flex flex-col justify-between relative z-10">
                   <div className="flex items-start justify-between">
                     <div className="w-full">
-                      {service.title === "Web应用" ? (
-                        <div className="flex items-center mb-3">
-                          {typeof service.icon === "function" ? (
-                            <service.icon />
-                          ) : (
-                            <service.icon className="w-8 h-8 text-white" />
-                          )}
-                          <h3 className="font-bold text-white text-lg ml-3 group-hover:text-white/90 transition-colors">
-                            {service.title}
-                          </h3>
-                        </div>
-                      ) : (
-                        <>
-                          <div className="mb-3">
-                            {typeof service.icon === "function" ? (
-                              <service.icon />
-                            ) : (
-                              <service.icon className="w-8 h-8 text-white" />
-                            )}
-                          </div>
-                          <h3 className="font-bold text-white text-lg mb-1 group-hover:text-white/90 transition-colors">
-                            {service.title}
-                          </h3>
-                        </>
-                      )}
+                      <h3 className="font-bold text-white text-lg mb-3 group-hover:text-white/90 transition-colors">
+                        {service.title}
+                      </h3>
                       <p className="text-white/80 text-sm leading-relaxed mb-4">
                         {hoveredCard === index ? service.detailedDescription : service.description}
                       </p>

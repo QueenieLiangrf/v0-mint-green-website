@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import { Card } from "@/components/ui/card"
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
 
 const industries = [
   {
@@ -65,6 +66,7 @@ const industries = [
 export function IndustriesSection() {
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
+  const [showQRCode, setShowQRCode] = useState(false)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -171,9 +173,18 @@ export function IndustriesSection() {
           className={`text-center mt-16 transition-all duration-1000 delay-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
           <p className="text-lg text-muted-foreground mb-6">无论您处于哪个行业，我们都能为您提供专业的数字化解决方案</p>
-          <button className="px-8 py-4 bg-gradient-to-r from-primary to-secondary text-primary-foreground rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300">
-            咨询行业解决方案
-          </button>
+          <Dialog open={showQRCode} onOpenChange={setShowQRCode}>
+            <DialogTrigger asChild>
+              <button className="px-8 py-4 bg-gradient-to-r from-primary to-secondary text-primary-foreground rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300">
+                咨询行业解决方案
+              </button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-md">
+              <div className="flex flex-col items-center justify-center p-6">
+                <img src="/customer-service-qr.png" alt="Customer Service QR Code" className="w-full max-w-sm h-auto" />
+              </div>
+            </DialogContent>
+          </Dialog>
         </div>
       </div>
     </section>
