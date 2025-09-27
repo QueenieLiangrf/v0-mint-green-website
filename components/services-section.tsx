@@ -1,11 +1,14 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Code, Brain, Database, Smartphone, Globe, Shield } from "lucide-react"
+import { Card, CardContent } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { Code, Brain, Database, Smartphone, ArrowRight } from "lucide-react"
 
 export function ServicesSection() {
   const [isVisible, setIsVisible] = useState(false)
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null)
+  const [isMainCardHovered, setIsMainCardHovered] = useState(false)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -25,161 +28,174 @@ export function ServicesSection() {
     return () => observer.disconnect()
   }, [])
 
+  const mainService = {
+    icon: Code,
+    title: "软件定制开发",
+    subtitle: "CUSTOM DEVELOPMENT",
+    description: "基于企业实际业务逻辑的深度定制开发，从需求分析到产品交付的全流程服务",
+    shortDescription: "基于企业实际业务逻辑的深度定制开发",
+    features: ["需求深度拆解", "技术灵活适配", "多端适配支持", "云端/本地部署"],
+    image: "/professional-software-developer-working-on-compute.jpg",
+    gradient: "from-green-500 to-green-600",
+  }
+
   const services = [
     {
       icon: Code,
       title: "软件定制开发",
       description: "基于企业实际业务逻辑的深度定制开发",
-      features: ["需求深度拆解", "技术灵活适配", "多端适配支持", "云端/本地部署"],
-      gradient: "from-blue-500 to-cyan-500",
-      shadowColor: "shadow-blue-500/25",
+      detailedDescription: "基于企业实际业务逻辑的深度定制开发，从需求分析到产品交付的全流程服务",
+      features: ["需求深度拆解", "技术灵活适配", "多端适配支持", "云端/本地部署", "敏捷开发流程", "质量保证体系"],
+      gradient: "from-green-500 to-green-600",
+      bgPattern: "bg-gradient-to-br from-green-500/80 to-green-600/90",
     },
     {
       icon: Brain,
-      title: "AI智能体开发",
-      description: "AI模型训练、算法优化到智能应用落地",
-      features: ["AI模型训练", "算法优化", "智能应用开发", "业务场景适配"],
-      gradient: "from-purple-500 to-pink-500",
-      shadowColor: "shadow-purple-500/25",
+      title: "AI智能体",
+      description: "AI模型训练与智能应用开发",
+      detailedDescription: "基于最新AI技术，为企业打造智能化解决方案，提升业务效率和用户体验",
+      features: ["自然语言处理", "机器学习模型", "智能对话系统", "数据分析预测"],
+      gradient: "from-green-400 via-green-500 to-green-600",
+      bgPattern: "bg-gradient-to-br from-green-400/20 to-green-600/30",
     },
     {
       icon: Database,
-      title: "系统集成服务",
-      description: "企业级系统集成与数据互通解决方案",
-      features: ["ERP/CRM对接", "数据同步", "接口开发", "系统整合"],
-      gradient: "from-green-500 to-emerald-500",
-      shadowColor: "shadow-green-500/25",
+      title: "系统集成",
+      description: "企业级系统集成解决方案",
+      detailedDescription: "整合企业现有系统，实现数据互通和业务流程优化，提升整体运营效率",
+      features: ["API接口开发", "数据同步", "流程自动化", "系统监控"],
+      gradient: "from-gray-700 via-gray-800 to-black",
+      bgPattern: "bg-gradient-to-br from-gray-700/80 to-black/90",
+    },
+    {
+      icon: ArrowRight,
+      title: "技术咨询服务",
+      description: "专业技术咨询与解决方案",
+      detailedDescription: "提供专业的技术咨询服务，帮助企业制定技术战略，优化技术架构，解决技术难题",
+      features: ["技术架构设计", "性能优化建议", "技术选型指导", "团队技术培训", "代码审查服务", "技术风险评估"],
+      gradient: "from-green-700 via-green-800 to-black",
+      bgPattern: "bg-gradient-to-br from-green-700/80 to-black/90",
     },
     {
       icon: Smartphone,
-      title: "移动应用开发",
-      description: "小程序、APP、H5多端应用开发",
-      features: ["微信小程序", "iOS/Android APP", "H5应用", "跨平台开发"],
-      gradient: "from-orange-500 to-red-500",
-      shadowColor: "shadow-orange-500/25",
+      title: "移动应用",
+      description: "跨平台移动应用开发",
+      detailedDescription: "原生和跨平台移动应用开发，覆盖iOS和Android平台，提供优质用户体验",
+      features: ["原生开发", "跨平台方案", "UI/UX设计", "应用商店发布", "性能优化", "用户体验测试"],
+      gradient: "from-green-600 via-green-700 to-green-800",
+      bgPattern: "bg-gradient-to-br from-green-600/80 to-green-800/90",
     },
     {
-      icon: Globe,
-      title: "Web应用开发",
-      description: "现代化Web应用与管理系统开发",
-      features: ["响应式设计", "管理后台", "用户系统", "数据可视化"],
-      gradient: "from-indigo-500 to-blue-500",
-      shadowColor: "shadow-indigo-500/25",
-    },
-    {
-      icon: Shield,
-      title: "技术咨询服务",
-      description: "技术架构设计与数字化转型咨询",
-      features: ["架构设计", "技术选型", "性能优化", "安全评估"],
-      gradient: "from-teal-500 to-cyan-500",
-      shadowColor: "shadow-teal-500/25",
+      icon: () => (
+        <div className="w-12 h-12 flex items-center justify-center">
+          <img src="/web-app-icon.png" alt="Web应用" className="w-10 h-10 object-contain" />
+        </div>
+      ),
+      title: "Web应用",
+      description: "现代化Web应用开发",
+      detailedDescription: "响应式Web应用开发，采用最新前端技术，确保性能和用户体验的完美平衡",
+      features: ["响应式设计", "前端框架", "性能优化", "SEO优化", "安全防护", "云端部署"],
+      gradient: "from-cyan-400 via-teal-500 to-green-500",
+      bgPattern: "bg-gradient-to-br from-cyan-400/80 via-teal-500/85 to-green-500/90",
     },
   ]
 
   return (
-    <section id="services" className="py-20 bg-muted/30 relative overflow-hidden">
-      <style jsx>{`
-        @keyframes spreadFromCenter {
-          0% {
-            transform: translate(-50%, -50%) scale(0.3);
-            opacity: 0;
-          }
-          50% {
-            transform: translate(-50%, -50%) scale(1.1);
-            opacity: 0.7;
-          }
-          100% {
-            transform: translate(0, 0) scale(1);
-            opacity: 1;
-          }
-        }
-        
-        .card-spread {
-          animation: spreadFromCenter 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-        }
-        
-        .card-spread-delay-1 { animation-delay: 0.1s; }
-        .card-spread-delay-2 { animation-delay: 0.2s; }
-        .card-spread-delay-3 { animation-delay: 0.3s; }
-        .card-spread-delay-4 { animation-delay: 0.4s; }
-        .card-spread-delay-5 { animation-delay: 0.5s; }
-      `}</style>
-
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
-      <div className="absolute top-20 left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 right-10 w-40 h-40 bg-secondary/10 rounded-full blur-3xl" />
-
+    <section id="services" className="py-20 bg-gray-50 relative overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl mb-4">核心服务项目</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-            从软件定制开发到AI智能体服务，我们提供全方位的技术解决方案
+          <div className="inline-block px-4 py-2 bg-green-500/10 text-green-700 text-sm font-medium rounded-full mb-4">
+            核心服务项目
+          </div>
+          <h2 className="text-4xl font-bold tracking-tight text-foreground mb-4">
+            发现数字化转型的
+            <br />
+            无限可能
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+            从软件定制开发到AI智能体服务，我们提供全方位的技术解决方案，助力企业实现数字化转型
           </p>
+          <Button className="bg-green-600 text-white hover:bg-green-700 rounded-full px-8 py-6 text-base font-medium">
+            了解我们的服务
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </Button>
         </div>
 
-        <div className="relative">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+        <div className="bg-white rounded-3xl p-8 shadow-lg border border-gray-200/50">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, index) => (
               <Card
                 key={index}
-                className={`group hover:shadow-2xl transition-all duration-500 border-border hover:border-primary/30 
-                           hover:-translate-y-2 bg-card/80 backdrop-blur-sm relative overflow-hidden
-                           ${index % 2 === 1 ? "lg:mt-8" : ""}
-                           ${isVisible ? `card-spread card-spread-delay-${index}` : "opacity-0"}`}
-                style={{
-                  transformOrigin: "center center",
-                }}
+                className={`border-0 shadow-none relative overflow-hidden cursor-pointer group transition-all duration-500 ease-out ${service.bgPattern} hover:shadow-xl ${
+                  hoveredCard === index ? "h-64" : "h-32"
+                }`}
+                onMouseEnter={() => setHoveredCard(index)}
+                onMouseLeave={() => setHoveredCard(null)}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent" />
 
-                <CardHeader className="relative">
-                  <div className="relative mb-4">
-                    <div
-                      className={`flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br ${service.gradient} 
-                                    shadow-lg ${service.shadowColor} group-hover:shadow-xl group-hover:scale-110 
-                                    transition-all duration-500 relative overflow-hidden`}
-                    >
-                      {/* 内部光泽效果 */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-transparent rounded-2xl" />
-                      <div className="absolute top-1 left-1 w-6 h-6 bg-white/20 rounded-full blur-sm" />
-                      <service.icon className="h-8 w-8 text-white relative z-10 drop-shadow-sm" />
-                    </div>
-                    {/* 图标阴影 */}
-                    <div
-                      className={`absolute top-2 left-2 h-16 w-16 rounded-2xl bg-gradient-to-br ${service.gradient} 
-                                    opacity-20 blur-md -z-10 group-hover:blur-lg transition-all duration-500`}
-                    />
-                  </div>
+                <CardContent className="p-6 h-full flex flex-col justify-between relative z-10">
+                  <div className="flex items-start justify-between">
+                    <div className="w-full">
+                      {service.title === "Web应用" ? (
+                        <div className="flex items-center mb-3">
+                          {typeof service.icon === "function" ? (
+                            <service.icon />
+                          ) : (
+                            <service.icon className="w-8 h-8 text-white" />
+                          )}
+                          <h3 className="font-bold text-white text-lg ml-3 group-hover:text-white/90 transition-colors">
+                            {service.title}
+                          </h3>
+                        </div>
+                      ) : (
+                        <>
+                          <div className="mb-3">
+                            {typeof service.icon === "function" ? (
+                              <service.icon />
+                            ) : (
+                              <service.icon className="w-8 h-8 text-white" />
+                            )}
+                          </div>
+                          <h3 className="font-bold text-white text-lg mb-1 group-hover:text-white/90 transition-colors">
+                            {service.title}
+                          </h3>
+                        </>
+                      )}
+                      <p className="text-white/80 text-sm leading-relaxed mb-4">
+                        {hoveredCard === index ? service.detailedDescription : service.description}
+                      </p>
 
-                  <CardTitle className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
-                    {service.title}
-                  </CardTitle>
-                  <CardDescription className="text-muted-foreground leading-relaxed">
-                    {service.description}
-                  </CardDescription>
-                </CardHeader>
-
-                <CardContent className="relative">
-                  <ul className="space-y-3">
-                    {service.features.map((feature, featureIndex) => (
-                      <li
-                        key={featureIndex}
-                        className="flex items-center text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300"
+                      <div
+                        className={`transition-all duration-500 ease-out ${
+                          hoveredCard === index
+                            ? "opacity-100 max-h-40 translate-y-0"
+                            : "opacity-0 max-h-0 translate-y-4"
+                        } overflow-hidden`}
                       >
-                        <div
-                          className={`h-2 w-2 rounded-full bg-gradient-to-r ${service.gradient} mr-3 
-                                        shadow-sm group-hover:shadow-md transition-all duration-300`}
-                        />
-                        <span className="font-medium">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div
-                    className={`mt-6 h-1 w-0 bg-gradient-to-r ${service.gradient} rounded-full 
-                                 group-hover:w-full transition-all duration-700 ease-out`}
-                  />
+                        <div className="space-y-2 mt-4">
+                          {service.features.map((feature, featureIndex) => (
+                            <div key={featureIndex} className="flex items-center space-x-2">
+                              <div className="w-1.5 h-1.5 bg-white/60 rounded-full" />
+                              <span className="text-white/80 text-xs">{feature}</span>
+                            </div>
+                          ))}
+                        </div>
+                        <Button
+                          size="sm"
+                          className="mt-4 bg-white/20 text-white hover:bg-white/30 border-white/30 rounded-full text-xs"
+                        >
+                          了解更多
+                          <ArrowRight className="w-3 h-3 ml-1" />
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
                 </CardContent>
+
+                {/* 装饰性图案 */}
+                <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-white/10 rounded-full blur-xl" />
+                <div className="absolute -top-2 -left-2 w-8 h-8 bg-white/20 rounded-full blur-sm" />
               </Card>
             ))}
           </div>

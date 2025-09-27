@@ -18,8 +18,7 @@ export function Footer() {
               />
             </div>
             <p className="text-sm text-gray-600 mb-4 leading-relaxed max-w-md">
-              至索科技专注于软件开发与信息技术服务领域，
-              致力于为客户提供前沿、高效且定制化的软件解决方案。
+              至索科技专注于软件开发与信息技术服务领域， 致力于为客户提供前沿、高效且定制化的软件解决方案。
             </p>
             <div className="space-y-2">
               <div className="flex items-center text-sm text-gray-600">
@@ -28,11 +27,11 @@ export function Footer() {
               </div>
               <div className="flex items-center text-sm text-gray-600">
                 <Phone className="h-4 w-4 mr-2 text-primary" />
-                400-XXX-XXXX
+                4001037431
               </div>
               <div className="flex items-center text-sm text-gray-600">
                 <Mail className="h-4 w-4 mr-2 text-primary" />
-                contact@extreme-exploration.com
+                contact@ultexplor.tech
               </div>
             </div>
           </div>
@@ -104,7 +103,19 @@ export function Footer() {
 
         <div className="border-t border-gray-200 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm text-gray-600">© 2024 广州至索科技有限公司. 保留所有权利.</p>
+            <div className="text-center md:text-left">
+              <p className="text-sm text-gray-600">© 2025 广州至索科技有限公司. 保留所有权利.</p>
+              <p className="text-sm text-gray-500 mt-1">
+                <a
+                  href="https://beian.miit.gov.cn/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition-colors"
+                >
+                  粤ICP备2025475520号-1
+                </a>
+              </p>
+            </div>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a href="#" className="text-sm text-gray-600 hover:text-primary transition-colors">
                 隐私政策

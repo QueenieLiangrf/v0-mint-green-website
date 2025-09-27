@@ -19,9 +19,9 @@ export default function HomePage() {
             <AdvantagesSection />
             <ProcessSection />
             <IndustriesSection />
-            <CasesSection />
           </main>
         </div>
+        <CasesSection />
       </div>
       <Footer />
     </div>

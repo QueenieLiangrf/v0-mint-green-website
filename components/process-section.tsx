@@ -1,63 +1,160 @@
 "use client"
-import { Search, FileText, Code, Rocket, Settings, CheckCircle, Play } from "lucide-react"
-import { useEffect, useState } from "react"
+import { Play, CheckCircle } from "lucide-react"
+import { useState, useEffect } from "react"
+
+const ProcessIcon = ({ type, isActive }: { type: string; isActive: boolean }) => {
+  const baseClasses = `w-12 h-12 transition-all duration-700 ${isActive ? "scale-110" : ""}`
+
+  switch (type) {
+    case "research":
+      return (
+        <div className={baseClasses}>
+          <div className="relative w-full h-full">
+            <div className="absolute inset-0 bg-gradient-to-br from-white to-gray-100 rounded-lg shadow-lg transform rotate-3">
+              <div className="w-full h-full bg-gradient-to-br from-[#00D4AA] to-[#20B2AA] rounded-lg p-2">
+                <div className="w-full h-2 bg-white/80 rounded mb-1"></div>
+                <div className="w-3/4 h-1 bg-white/60 rounded mb-1"></div>
+                <div className="w-full h-1 bg-white/60 rounded mb-1"></div>
+                <div className="w-2/3 h-1 bg-white/60 rounded"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    case "design":
+      return (
+        <div className={baseClasses}>
+          <div className="relative w-full h-full">
+            <div className="absolute inset-0 bg-gradient-to-br from-white to-gray-100 rounded-lg shadow-lg transform -rotate-2">
+              <div className="w-full h-full bg-gradient-to-br from-[#4169E1] to-[#00CED1] rounded-lg p-2">
+                <div className="w-6 h-6 bg-white/80 rounded-full mx-auto mb-1"></div>
+                <div className="flex justify-center gap-1">
+                  <div className="w-2 h-2 bg-white/60 rounded"></div>
+                  <div className="w-2 h-2 bg-white/60 rounded"></div>
+                  <div className="w-2 h-2 bg-white/60 rounded"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    case "development":
+      return (
+        <div className={baseClasses}>
+          <div className="relative w-full h-full">
+            <div className="absolute inset-0 bg-gradient-to-br from-white to-gray-100 rounded-lg shadow-lg transform rotate-1">
+              <div className="w-full h-full bg-gradient-to-br from-[#90EE90] to-[#20B2AA] rounded-lg p-2">
+                <div className="w-full h-1 bg-white/80 rounded mb-1"></div>
+                <div className="w-2/3 h-1 bg-white/60 rounded mb-1 ml-2"></div>
+                <div className="w-3/4 h-1 bg-white/60 rounded mb-1 ml-1"></div>
+                <div className="w-1/2 h-1 bg-white/60 rounded ml-3"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    case "testing":
+      return (
+        <div className={baseClasses}>
+          <div className="relative w-full h-full">
+            <div className="absolute inset-0 bg-gradient-to-br from-white to-gray-100 rounded-lg shadow-lg transform -rotate-1">
+              <div className="w-full h-full bg-gradient-to-br from-[#00CED1] to-[#4169E1] rounded-lg p-2">
+                <div className="w-8 h-8 bg-white/80 rounded-full mx-auto flex items-center justify-center">
+                  <div className="w-3 h-3 bg-[#90EE90] rounded-full"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    case "support":
+      return (
+        <div className={baseClasses}>
+          <div className="relative w-full h-full">
+            <div className="absolute inset-0 bg-gradient-to-br from-white to-gray-100 rounded-lg shadow-lg transform rotate-2">
+              <div className="w-full h-full bg-gradient-to-br from-[#20B2AA] to-[#00D4AA] rounded-lg p-2">
+                <div className="w-6 h-6 bg-white/80 rounded-full mx-auto mb-1 flex items-center justify-center">
+                  <div className="w-2 h-2 bg-[#00CED1] rounded-full"></div>
+                </div>
+                <div className="w-full h-1 bg-white/60 rounded"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    case "upgrade":
+      return (
+        <div className={baseClasses}>
+          <div className="relative w-full h-full">
+            <div className="absolute inset-0 bg-gradient-to-br from-white to-gray-100 rounded-lg shadow-lg transform -rotate-3">
+              <div className="w-full h-full bg-gradient-to-br from-[#4169E1] to-[#00D4AA] rounded-lg p-2">
+                <div className="flex justify-center mb-1">
+                  <div className="w-0 h-0 border-l-2 border-r-2 border-b-3 border-transparent border-b-white/80"></div>
+                </div>
+                <div className="w-full h-1 bg-white/60 rounded mb-1"></div>
+                <div className="w-2/3 h-1 bg-white/60 rounded mx-auto"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    default:
+      return <div className={baseClasses}></div>
+  }
+}
 
 export function ProcessSection() {
-  const [scrollProgress, setScrollProgress] = useState(0)
+  const [activeIndex, setActiveIndex] = useState(0)
+  const [isHovered, setIsHovered] = useState(false)
+
+  useEffect(() => {
+    if (!isHovered) {
+      const interval = setInterval(() => {
+        setActiveIndex((prev) => (prev + 1) % processes.length)
+      }, 3000) // 每3秒切换一次
+
+      return () => clearInterval(interval)
+    }
+  }, [isHovered])
 
   const processes = [
     {
-      icon: Search,
+      iconType: "research",
       title: "需求调研",
       description: "深入了解业务流程，识别核心痛点",
       duration: "1-2周",
-      time: "第1-2周",
     },
     {
-      icon: FileText,
+      iconType: "design",
       title: "方案设计",
       description: "输出详细技术方案和项目计划",
       duration: "1周",
-      time: "第3周",
     },
     {
-      icon: Code,
+      iconType: "development",
       title: "开发实施",
       description: "敏捷开发，定期交付可用版本",
       duration: "按需",
-      time: "按需",
     },
     {
-      icon: Rocket,
+      iconType: "testing",
       title: "测试上线",
       description: "全面测试，平滑上线部署",
       duration: "按需",
-      time: "按需",
     },
     {
-      icon: Settings,
+      iconType: "support",
       title: "运维支持",
       description: "7×24小时技术支持和维护",
       duration: "持续",
-      time: "持续服务",
     },
     {
-      icon: CheckCircle,
+      iconType: "upgrade",
       title: "迭代升级",
       description: "基于反馈持续优化和功能扩展",
       duration: "按需",
-      time: "按需迭代",
     },
   ]
-
-  const extendedProcesses = [...processes, ...processes, ...processes]
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setScrollProgress((prev) => (prev + 0.5) % 100)
-    }, 100)
-    return () => clearInterval(interval)
-  }, [])
 
   return (
     <section id="process" className="py-20 relative overflow-hidden">
@@ -79,51 +176,145 @@ export function ProcessSection() {
           </p>
         </div>
 
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="relative overflow-hidden rounded-3xl bg-background/95 backdrop-blur-sm border-0 shadow-2xl">
-            <div className="flex gap-2 animate-scroll-horizontal hover:pause-animation">
-              {extendedProcesses.map((process, index) => (
-                <div key={index} className="flex-shrink-0 w-80 p-4">
-                  <div className="bg-background/80 backdrop-blur-sm rounded-2xl p-6 border border-border/50 shadow-sm hover:shadow-lg hover:border-primary/30 transition-all duration-300 h-full">
-                    <div className="flex flex-col items-center text-center">
-                      {/* 图标 */}
-                      <div className="w-20 h-20 bg-gradient-to-br from-primary/20 to-primary/10 rounded-2xl flex items-center justify-center shadow-lg mb-4 hover:scale-110 transition-transform duration-300">
-                        <div className="w-16 h-16 bg-gradient-to-br from-primary/30 to-primary/20 rounded-xl flex items-center justify-center shadow-inner">
-                          <process.icon className="h-8 w-8 text-primary" />
+            <div className="p-8">
+              <div className="relative">
+                <div
+                  className="relative"
+                  onMouseEnter={() => setIsHovered(true)}
+                  onMouseLeave={() => setIsHovered(false)}
+                >
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 lg:gap-4 relative">
+                    {processes.map((process, index) => {
+                      const isActive = activeIndex === index
+                      const isPrevious = activeIndex > index
+                      const isNext = activeIndex < index
+
+                      return (
+                        <div key={index} className="flex flex-col items-center relative">
+                          {/* 流程步骤卡片 */}
+                          <div
+                            className={`relative transition-all duration-700 cursor-pointer ${
+                              isActive
+                                ? "transform scale-110 z-20"
+                                : isPrevious
+                                  ? "transform scale-95 opacity-70"
+                                  : "transform scale-100 opacity-80"
+                            }`}
+                            onMouseEnter={() => setActiveIndex(index)}
+                          >
+                            {/* 步骤编号圆圈 */}
+                            <div
+                              className={`absolute -top-3 -left-3 w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-all duration-500 z-30 ${
+                                isActive
+                                  ? "bg-primary text-primary-foreground shadow-lg shadow-primary/50 scale-110"
+                                  : isPrevious
+                                    ? "bg-primary/80 text-primary-foreground"
+                                    : "bg-muted text-muted-foreground"
+                              }`}
+                            >
+                              {index + 1}
+                            </div>
+
+                            <div
+                              className={`bg-background/90 backdrop-blur-sm rounded-2xl p-6 border-2 transition-all duration-700 shadow-lg hover:shadow-xl w-full h-64 flex flex-col items-center text-center relative overflow-hidden ${
+                                isActive
+                                  ? "border-primary shadow-2xl shadow-primary/30 bg-gradient-to-br from-primary/10 to-primary/5"
+                                  : isPrevious
+                                    ? "border-primary/60 shadow-lg shadow-primary/20 bg-primary/5"
+                                    : "border-border/50 hover:border-primary/40"
+                              }`}
+                            >
+                              {/* 背景装饰 */}
+                              {isActive && (
+                                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-primary/10 opacity-50"></div>
+                              )}
+
+                              <div className="relative z-10 flex flex-col items-center h-full">
+                                <div
+                                  className={`w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg mb-4 transition-all duration-700 overflow-hidden ${
+                                    isActive
+                                      ? "bg-gradient-to-br from-primary/40 to-primary/30 scale-110 shadow-primary/30"
+                                      : isPrevious
+                                        ? "bg-gradient-to-br from-primary/30 to-primary/20 scale-105"
+                                        : "bg-gradient-to-br from-primary/20 to-primary/10"
+                                  }`}
+                                >
+                                  <ProcessIcon type={process.iconType} isActive={isActive} />
+                                </div>
+
+                                {/* 标题 */}
+                                <h3
+                                  className={`text-lg font-bold mb-3 transition-all duration-500 ${
+                                    isActive
+                                      ? "text-primary scale-105"
+                                      : isPrevious
+                                        ? "text-primary/90"
+                                        : "text-foreground/70"
+                                  }`}
+                                >
+                                  {process.title}
+                                </h3>
+
+                                {/* 描述 */}
+                                <p
+                                  className={`text-sm leading-relaxed mb-4 flex-1 transition-all duration-500 text-pretty ${
+                                    isActive
+                                      ? "text-muted-foreground"
+                                      : isPrevious
+                                        ? "text-muted-foreground/80"
+                                        : "text-muted-foreground/60"
+                                  }`}
+                                >
+                                  {process.description}
+                                </p>
+
+                                {/* 耗时 */}
+                                <div
+                                  className={`inline-flex items-center gap-2 px-3 py-2 rounded-full transition-all duration-500 ${
+                                    isActive
+                                      ? "bg-primary/30 border-2 border-primary/50 shadow-md"
+                                      : isPrevious
+                                        ? "bg-primary/20 border border-primary/30"
+                                        : "bg-muted/50 border border-muted"
+                                  }`}
+                                >
+                                  <span className="text-xs font-medium text-muted-foreground">耗时:</span>
+                                  <span
+                                    className={`text-sm font-bold transition-all duration-500 ${
+                                      isActive ? "text-primary" : isPrevious ? "text-primary/90" : "text-primary/70"
+                                    }`}
+                                  >
+                                    {process.duration}
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
-                      </div>
+                      )
+                    })}
+                  </div>
 
-                      {/* 时间标签 */}
-                      <div className="text-sm font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full mb-4">
-                        {process.time}
-                      </div>
-
-                      {/* 标题 */}
-                      <h3 className="text-xl font-bold text-foreground mb-3 hover:text-primary transition-colors duration-300">
-                        {process.title}
-                      </h3>
-
-                      {/* 描述 */}
-                      <p className="text-muted-foreground leading-relaxed mb-4 flex-1">{process.description}</p>
-
-                      {/* 耗时 */}
-                      <div className="inline-flex items-center gap-2 px-3 py-1 bg-muted/50 rounded-full">
-                        <span className="text-xs font-medium text-muted-foreground">耗时:</span>
-                        <span className="text-sm font-semibold text-primary">{process.duration}</span>
-                      </div>
-                    </div>
+                  {/* 进度指示器 */}
+                  <div className="flex justify-center mt-8 gap-2">
+                    {processes.map((_, index) => (
+                      <div
+                        key={index}
+                        className={`w-3 h-3 rounded-full transition-all duration-500 cursor-pointer ${
+                          activeIndex === index
+                            ? "bg-primary scale-125 shadow-lg shadow-primary/50"
+                            : activeIndex > index
+                              ? "bg-primary/60"
+                              : "bg-muted/50"
+                        }`}
+                        onClick={() => setActiveIndex(index)}
+                      />
+                    ))}
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="mt-6 flex justify-center">
-            <div className="w-full max-w-md bg-muted/30 rounded-full h-2 overflow-hidden">
-              <div
-                className="h-full bg-gradient-to-r from-primary to-primary/70 rounded-full transition-all duration-100 ease-linear"
-                style={{ width: `${scrollProgress}%` }}
-              />
+              </div>
             </div>
           </div>
         </div>
@@ -136,25 +327,6 @@ export function ProcessSection() {
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes scroll-horizontal {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-33.333%);
-          }
-        }
-        
-        .animate-scroll-horizontal {
-          animation: scroll-horizontal 20s linear infinite;
-        }
-        
-        .pause-animation:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
     </section>
   )
 }
