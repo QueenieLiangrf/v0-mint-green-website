@@ -29,7 +29,8 @@
   --chart-3: #7fffd4; /* 图表颜色3 - 浅青色 */
   --chart-4: #40e0d0; /* 图表颜色4 - 绿松石色 */
   --chart-5: #48cae4; /* 图表颜色5 - 天蓝色 */
-  --radius: 1rem; /* 更大的圆角，匹配fusion设计 */
+  /* Updated border radius from 1rem to 8px for more subtle rounded corners */
+  --radius: 8px; /* 更小的圆角，8px */
   --sidebar: #ffffff;
   --sidebar-foreground: #1a1a1a;
   --sidebar-primary: #00d4aa;
@@ -138,7 +139,8 @@
 
 /* 添加现代卡片式设计的样式类 */
 .fusion-card {
-  @apply bg-card rounded-2xl shadow-lg border border-border/50 transition-all duration-300;
+  /* Updated rounded classes to use smaller radius */
+  @apply bg-card rounded-lg shadow-lg border border-border/50 transition-all duration-300;
 }
 
 .fusion-card:hover {
@@ -146,7 +148,8 @@
 }
 
 .fusion-card-large {
-  @apply bg-card rounded-3xl shadow-xl border border-border/50 p-8 transition-all duration-300;
+  /* Updated rounded classes to use smaller radius */
+  @apply bg-card rounded-xl shadow-xl border border-border/50 p-8 transition-all duration-300;
 }
 
 .fusion-card-large:hover {
