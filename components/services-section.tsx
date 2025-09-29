@@ -53,7 +53,7 @@ export function ServicesSection() {
       title: "技术咨询服务",
       description: "专业技术咨询与解决方案",
       detailedDescription: "提供专业的技术咨询服务，帮助企业制定技术战略，优化技术架构，解决技术难题",
-      features: ["技术架构��计", "性能优化建议", "技术选型指导", "团队技术培训", "代码审查服务", "技术风险评估"],
+      features: ["技术架构设计", "性能优化建议", "技术选型指导", "团队技术培训", "代码审查服务", "技术风险评估"],
       gradient: "from-primary/80 to-secondary/80",
       bgPattern: "bg-white",
     },
