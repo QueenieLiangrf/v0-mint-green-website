@@ -2,11 +2,11 @@
 
 import { Button } from "@/components/ui/button"
 import { useState, useEffect } from "react"
-import { ChatDialog } from "./chat-dialog"
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
 
 export function HeroSection() {
   const [currentStation, setCurrentStation] = useState(0)
-  const [isChatOpen, setIsChatOpen] = useState(false)
+  const [showQRCode, setShowQRCode] = useState(false)
 
   const stations = [
     {
@@ -48,7 +48,7 @@ export function HeroSection() {
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-balance leading-tight">
                 <div className="space-y-2">
                   <div className="text-foreground">软件定制开发与</div>
-                  <div className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                  <div className="bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent">
                     AI智能体服务专家
                   </div>
                 </div>
@@ -58,14 +58,32 @@ export function HeroSection() {
                 <p>
                   聚焦 <span className="text-primary font-semibold">AI + 软件创新</span>，赋能业务价值升级
                 </p>
-                <Button
-                  size="lg"
-                  className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-                  onClick={() => setIsChatOpen(true)}
-                >
-                  了解我们的服务，开启数字化转型之旅
-                  <span className="ml-2">→</span>
-                </Button>
+                <div>
+                  <Dialog open={showQRCode} onOpenChange={setShowQRCode}>
+                    <DialogTrigger asChild>
+                      <Button
+                        size="lg"
+                        className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+                      >
+                        了解我们的服务，开启数字化转型之旅
+                        <span className="ml-2">→</span>
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent className="sm:max-w-md">
+                      <div className="flex flex-col items-center justify-center p-6">
+                        <img
+                          src="/customer-service-qr.png"
+                          alt="Customer Service QR Code"
+                          className="w-full max-w-sm h-auto"
+                        />
+                        <div className="mt-4 text-center space-y-2">
+                          <p className="text-sm font-medium text-foreground">请用微信扫描二维码咨询客服</p>
+                          <p className="text-xs text-muted-foreground">或者拨打咨询电话：4001037431</p>
+                        </div>
+                      </div>
+                    </DialogContent>
+                  </Dialog>
+                </div>
               </div>
             </div>
           </div>
@@ -73,9 +91,15 @@ export function HeroSection() {
           {/* 右侧视频区域 */}
           <div className="relative flex items-center justify-center">
             <div className="relative w-full max-w-lg">
-              <div className="absolute -top-4 -left-4 w-8 h-8 rounded-full bg-primary/30 animate-pulse" />
-              <div className="absolute -bottom-4 -right-4 w-6 h-6 rounded-full bg-secondary/40 animate-pulse delay-1000" />
-              <div className="absolute top-1/2 -right-8 w-4 h-4 rounded-full bg-accent/50 animate-pulse delay-500" />
+              <div className="absolute -top-4 -left-4 w-8 h-8 text-primary/30 animate-pulse"></div>
+              <div className="absolute -bottom-4 -right-4 w-6 h-6 text-secondary/40 animate-pulse delay-1000">
+                <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full"></svg>
+              </div>
+              <div className="absolute top-1/2 -right-8 w-4 h-4 text-accent/50 animate-pulse delay-500">
+                <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                  <path d="M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.22,8.95 2.27,9.22 2.46,9.37L4.57,11C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.22,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.68 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z" />
+                </svg>
+              </div>
 
               <video
                 src="https://blobs.vusercontent.net/blob/u1774431695_Software_customization_development_and_AI_agents__1cc54faa-3377-4380-9708-66886f1f29b7_3-GKaSFEcgNG4E1sdHTtNWg57sdpEPs1.mp4"
@@ -83,7 +107,7 @@ export function HeroSection() {
                 loop
                 muted
                 playsInline
-                className="w-full h-auto rounded-2xl shadow-2xl"
+                className="w-full h-auto"
                 style={{ maxHeight: "400px", objectFit: "cover" }}
               />
             </div>
@@ -112,13 +136,11 @@ export function HeroSection() {
         </div>
         <div className="fusion-card p-6 text-center">
           <div className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-2">
-            2h
+            &gt;2h
           </div>
           <div className="text-sm text-muted-foreground">故障响应</div>
         </div>
       </div>
-
-      <ChatDialog isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
     </section>
   )
 }

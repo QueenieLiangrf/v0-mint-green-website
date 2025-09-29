@@ -87,7 +87,7 @@ export function AdvantagesSection() {
   ]
 
   return (
-    <section id="advantages" className="py-20 bg-[rgba(233,243,246,1)]" ref={sectionRef}>
+    <section id="advantages" className="py-20 bg-[rgba(233,243,246,1)] rounded-xl shadow-lg" ref={sectionRef}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 bg-[rgba(233,243,246,1)]">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl mb-4">我们的核心优势</h2>
@@ -164,6 +164,8 @@ export function AdvantagesSection() {
               <Card
                 key={index + 2}
                 className={`group hover:shadow-lg transition-all duration-700 border-border hover:border-primary/20 ${
+                  index === 1 ? "min-h-[280px]" : ""
+                } ${
                   isVisible
                     ? "opacity-100 translate-x-0 translate-y-0 scale-100"
                     : "opacity-0 translate-x-0 translate-y-0 scale-75"

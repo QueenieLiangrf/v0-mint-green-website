@@ -1,7 +1,15 @@
 "use client"
 import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
 import Image from "next/image"
+import { useState } from "react"
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
+
+const ArrowRightIcon = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <path d="M5 12h14" />
+    <path d="m12 5 7 7-7 7" />
+  </svg>
+)
 
 const casesData = [
   {
@@ -55,6 +63,8 @@ const casesData = [
 ]
 
 export default function CasesSection() {
+  const [showQRCode, setShowQRCode] = useState(false)
+
   const createInfiniteColumn = (cases: typeof casesData) => {
     return [...cases, ...cases, ...cases] // 三倍重复确保无缝滚动
   }
@@ -66,7 +76,7 @@ export default function CasesSection() {
   ]
 
   return (
-    <section className="py-24 bg-gradient-to-br from-background via-muted/30 to-background">
+    <section id="cases" className="py-24 bg-gradient-to-br from-background via-muted/30 to-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-foreground mb-4 text-balance">成功案例展示</h2>
@@ -117,10 +127,26 @@ export default function CasesSection() {
 
         <div className="text-center mt-16">
           <p className="text-lg text-muted-foreground mb-6">想了解更多案例详情或讨论您的项目需求？</p>
-          <Button size="lg" className="bg-primary hover:bg-primary/90">
-            联系我们咨询
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
+          <Dialog open={showQRCode} onOpenChange={setShowQRCode}>
+            <DialogTrigger asChild>
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-blue-500 to-green-500 hover:from-blue-600 hover:to-green-600 text-white"
+              >
+                联系我们咨询
+                <ArrowRightIcon className="ml-2 h-4 w-4" />
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-md">
+              <div className="flex flex-col items-center justify-center p-6">
+                <img src="/customer-service-qr.png" alt="Customer Service QR Code" className="w-full max-w-sm h-auto" />
+                <div className="mt-4 text-center space-y-2">
+                  <p className="text-sm font-medium text-foreground">请用微信扫描二维码咨询客服</p>
+                  <p className="text-xs text-muted-foreground">或者拨打咨询电话：4001037431</p>
+                </div>
+              </div>
+            </DialogContent>
+          </Dialog>
         </div>
       </div>
 

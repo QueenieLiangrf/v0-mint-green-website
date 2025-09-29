@@ -2,8 +2,6 @@
 
 import { useState, useEffect } from "react"
 import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
 
 export function ServicesSection() {
   const [isVisible, setIsVisible] = useState(false)
@@ -55,7 +53,7 @@ export function ServicesSection() {
       title: "技术咨询服务",
       description: "专业技术咨询与解决方案",
       detailedDescription: "提供专业的技术咨询服务，帮助企业制定技术战略，优化技术架构，解决技术难题",
-      features: ["技术架构设计", "性能优化建议", "技术选型指导", "团队技术培训", "代码审查服务", "技术风险评估"],
+      features: ["技术架构��计", "性能优化建议", "技术选型指导", "团队技术培训", "代码审查服务", "技术风险评估"],
       gradient: "from-primary/80 to-secondary/80",
       bgPattern: "bg-white",
     },
@@ -105,13 +103,6 @@ export function ServicesSection() {
                     </div>
                   ))}
                 </div>
-                <Button
-                  size="sm"
-                  className="mt-4 bg-primary/20 text-primary hover:bg-primary/30 border-primary/30 rounded-full text-xs backdrop-blur-sm"
-                >
-                  了解更多
-                  <ArrowRight className="w-3 h-3 ml-1" />
-                </Button>
               </div>
             </div>
           </div>
@@ -152,13 +143,6 @@ export function ServicesSection() {
                     </div>
                   ))}
                 </div>
-                <Button
-                  size="sm"
-                  className="mt-4 bg-secondary/20 text-secondary hover:bg-secondary/30 border-secondary/30 rounded-full text-xs backdrop-blur-sm"
-                >
-                  了解更多
-                  <ArrowRight className="w-3 h-3 ml-1" />
-                </Button>
               </div>
             </div>
           </div>
@@ -199,13 +183,6 @@ export function ServicesSection() {
                     </div>
                   ))}
                 </div>
-                <Button
-                  size="sm"
-                  className="mt-4 bg-accent/20 text-accent hover:bg-accent/30 border-accent/30 rounded-full text-xs backdrop-blur-sm"
-                >
-                  了解更多
-                  <ArrowRight className="w-3 h-3 ml-1" />
-                </Button>
               </div>
             </div>
           </div>
@@ -238,13 +215,6 @@ export function ServicesSection() {
                     </div>
                   ))}
                 </div>
-                <Button
-                  size="sm"
-                  className="mt-4 bg-primary/20 text-primary hover:bg-primary/30 border-primary/30 rounded-full text-xs backdrop-blur-sm"
-                >
-                  了解更多
-                  <ArrowRight className="w-3 h-3 ml-1" />
-                </Button>
               </div>
             </div>
           </div>
@@ -277,13 +247,6 @@ export function ServicesSection() {
                     </div>
                   ))}
                 </div>
-                <Button
-                  size="sm"
-                  className="mt-4 bg-secondary/20 text-secondary hover:bg-secondary/30 border-secondary/30 rounded-full text-xs backdrop-blur-sm"
-                >
-                  了解更多
-                  <ArrowRight className="w-3 h-3 ml-1" />
-                </Button>
               </div>
             </div>
           </div>
@@ -316,13 +279,6 @@ export function ServicesSection() {
                     </div>
                   ))}
                 </div>
-                <Button
-                  size="sm"
-                  className="mt-4 bg-accent/20 text-accent hover:bg-accent/30 border-accent/30 rounded-full text-xs backdrop-blur-sm"
-                >
-                  了解更多
-                  <ArrowRight className="w-3 h-3 ml-1" />
-                </Button>
               </div>
             </div>
           </div>
@@ -342,7 +298,7 @@ export function ServicesSection() {
   }
 
   return (
-    <section id="services" className="relative">
+    <section className="relative">
       <div className="absolute top-20 right-20 w-24 h-24 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 blur-xl float-animation" />
       <div
         className="absolute bottom-20 left-20 w-16 h-16 rounded-full bg-gradient-to-br from-accent/20 to-primary/20 blur-xl float-animation"
@@ -350,7 +306,7 @@ export function ServicesSection() {
       />
 
       <div className="fusion-card-large">
-        <div className="text-center mb-12">
+        <div id="services" className="text-center mb-12">
           <div className="inline-block px-6 py-3 text-sm font-medium rounded-full mb-6 bg-gradient-to-r from-primary to-secondary text-white shadow-lg">
             核心服务项目
           </div>
@@ -362,13 +318,9 @@ export function ServicesSection() {
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
             从软件定制开发到AI智能体服务，我们提供全方位的技术解决方案，助力企业实现数字化转型
           </p>
-          <Button className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white rounded-full px-8 py-6 text-base font-medium shadow-lg hover:shadow-xl transition-all duration-300">
-            了解我们的服务
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
         </div>
 
-        <div className="fusion-card p-8 relative overflow-hidden">
+        <div className="p-8 relative overflow-hidden bg-card border border-border/50 transition-all duration-300">
           <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-primary/5 via-secondary/3 to-transparent rounded-full -translate-y-32 translate-x-32" />
           <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-accent/5 via-primary/3 to-transparent rounded-full translate-y-24 -translate-x-24" />
 

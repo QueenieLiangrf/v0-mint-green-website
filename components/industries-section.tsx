@@ -8,7 +8,7 @@ const industries = [
   {
     id: 1,
     name: "金融科技",
-    description: "智能风控、数字支付、区块链应用",
+    description: "智能风控、数字支付",
     image: "/modern-financial-technology-office-with-digital-sc.jpg",
     color: "from-blue-500 to-cyan-500",
   },
@@ -16,7 +16,7 @@ const industries = [
     id: 2,
     name: "医疗健康",
     description: "远程诊疗、智能诊断、健康管理",
-    image: "/modern-hospital-with-digital-health-technology-and.jpg",
+    image: "/bright-clean-modern-hospital-interior-with-white-w.jpg",
     color: "from-green-500 to-emerald-500",
   },
   {
@@ -58,7 +58,7 @@ const industries = [
     id: 8,
     name: "餐饮服务",
     description: "智能点餐、供应链管理、客户分析",
-    image: "/modern-restaurant-with-digital-ordering-system-and.jpg",
+    image: "/modern-restaurant-interior-with-digital-menu-displays.jpg",
     color: "from-yellow-500 to-orange-500",
   },
 ]
@@ -87,6 +87,7 @@ export function IndustriesSection() {
 
   return (
     <section
+      id="industries"
       ref={sectionRef}
       className="py-20 px-6 bg-gradient-to-br from-background via-muted/20 to-background relative overflow-hidden"
     >
@@ -98,11 +99,13 @@ export function IndustriesSection() {
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* 标题区域 */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 relative">
           <div
             className={`transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
           >
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent mb-6">
+            <div className="absolute -top-[189px] right-0 z-10"></div>
+
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent mb-6">
               各行各业数字化解决方案
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
@@ -133,23 +136,6 @@ export function IndustriesSection() {
                 <div
                   className={`absolute inset-0 bg-gradient-to-t ${industry.color} opacity-20 group-hover:opacity-30 transition-opacity duration-500`}
                 ></div>
-
-                {/* 悬停时的遮罩 */}
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-500 flex items-center justify-center">
-                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-white text-center">
-                    <div className="w-12 h-12 mx-auto mb-2 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M13 7l5 5m0 0l-5 5m5-5H6"
-                        />
-                      </svg>
-                    </div>
-                    <p className="text-sm font-medium">了解更多</p>
-                  </div>
-                </div>
               </div>
 
               {/* 内容区域 */}
@@ -158,11 +144,6 @@ export function IndustriesSection() {
                   {industry.name}
                 </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{industry.description}</p>
-
-                {/* 底部装饰线 */}
-                <div
-                  className={`mt-4 h-1 w-0 group-hover:w-full bg-gradient-to-r ${industry.color} transition-all duration-500 rounded-full`}
-                ></div>
               </div>
             </Card>
           ))}
@@ -182,6 +163,10 @@ export function IndustriesSection() {
             <DialogContent className="sm:max-w-md">
               <div className="flex flex-col items-center justify-center p-6">
                 <img src="/customer-service-qr.png" alt="Customer Service QR Code" className="w-full max-w-sm h-auto" />
+                <div className="mt-4 text-center space-y-2">
+                  <p className="text-sm font-medium text-foreground">请用微信扫描二维码咨询客服</p>
+                  <p className="text-xs text-muted-foreground">或者拨打咨询电话：4001037431</p>
+                </div>
               </div>
             </DialogContent>
           </Dialog>
