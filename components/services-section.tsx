@@ -89,10 +89,10 @@ export function ServicesSection() {
         <CardContent className="p-4 h-full flex flex-col justify-between relative z-10">
           <div className="flex items-start justify-between h-full">
             <div className="w-1/2 pr-4">
-              <h3 className="font-extrabold text-black text-base mb-3 group-hover:text-black/90 transition-colors tracking-tight">
+              <h3 className="font-extrabold text-black text-sm mb-3 group-hover:text-black/90 transition-colors tracking-tight">
                 {services[0].title}
               </h3>
-              <p className="text-black/70 text-sm leading-relaxed">{services[0].detailedDescription}</p>
+              <p className="text-black/70 text-xs leading-relaxed">{services[0].detailedDescription}</p>
             </div>
 
             <div className="w-1/2 pl-4">
@@ -101,7 +101,7 @@ export function ServicesSection() {
                   {services[0].features.map((feature, featureIndex) => (
                     <div key={featureIndex} className="flex items-center space-x-2">
                       <div className="w-1.5 h-1.5 bg-primary/60 rounded-full flex-shrink-0" />
-                      <span className="text-black/70 text-sm">{feature}</span>
+                      <span className="text-black/70 text-xs">{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -131,10 +131,10 @@ export function ServicesSection() {
         <CardContent className="p-4 h-full flex flex-col justify-between relative z-10">
           <div className="flex items-start justify-between h-full">
             <div className="w-1/2 pr-4">
-              <h3 className="font-extrabold text-black text-base mb-3 group-hover:text-black/90 transition-colors tracking-tight">
+              <h3 className="font-extrabold text-black text-sm mb-3 group-hover:text-black/90 transition-colors tracking-tight">
                 {services[1].title}
               </h3>
-              <p className="text-black/70 text-sm leading-relaxed">{services[1].detailedDescription}</p>
+              <p className="text-black/70 text-xs leading-relaxed">{services[1].detailedDescription}</p>
             </div>
 
             <div className="w-1/2 pl-4">
@@ -143,7 +143,7 @@ export function ServicesSection() {
                   {services[1].features.map((feature, featureIndex) => (
                     <div key={featureIndex} className="flex items-center space-x-2">
                       <div className="w-1.5 h-1.5 bg-secondary/60 rounded-full flex-shrink-0" />
-                      <span className="text-black/70 text-sm">{feature}</span>
+                      <span className="text-black/70 text-xs">{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -165,10 +165,10 @@ export function ServicesSection() {
         <CardContent className="p-4 h-full flex flex-col justify-between relative z-10">
           <div className="flex items-start justify-between h-full">
             <div className="w-1/2 pr-4">
-              <h3 className="font-extrabold text-black text-base mb-3 group-hover:text-black/90 transition-colors tracking-tight">
+              <h3 className="font-extrabold text-black text-sm mb-3 group-hover:text-black/90 transition-colors tracking-tight">
                 {services[2].title}
               </h3>
-              <p className="text-black/70 text-sm leading-relaxed">{services[2].detailedDescription}</p>
+              <p className="text-black/70 text-xs leading-relaxed">{services[2].detailedDescription}</p>
             </div>
 
             <div className="w-1/2 pl-4">
@@ -177,7 +177,7 @@ export function ServicesSection() {
                   {services[2].features.map((feature, featureIndex) => (
                     <div key={featureIndex} className="flex items-center space-x-2">
                       <div className="w-1.5 h-1.5 bg-accent/60 rounded-full flex-shrink-0" />
-                      <span className="text-black/70 text-sm">{feature}</span>
+                      <span className="text-black/70 text-xs">{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -199,10 +199,10 @@ export function ServicesSection() {
         <CardContent className="p-4 h-full flex flex-col justify-between relative z-10">
           <div className="flex items-start justify-between h-full">
             <div className="w-1/2 pr-4">
-              <h3 className="font-extrabold text-black text-base mb-3 group-hover:text-black/90 transition-colors tracking-tight">
+              <h3 className="font-extrabold text-black text-sm mb-3 group-hover:text-black/90 transition-colors tracking-tight">
                 {services[3].title}
               </h3>
-              <p className="text-black/70 text-sm leading-relaxed">{services[3].detailedDescription}</p>
+              <p className="text-black/70 text-xs leading-relaxed">{services[3].detailedDescription}</p>
             </div>
 
             <div className="w-1/2 pl-4">
@@ -211,7 +211,7 @@ export function ServicesSection() {
                   {services[3].features.map((feature, featureIndex) => (
                     <div key={featureIndex} className="flex items-center space-x-2">
                       <div className="w-1.5 h-1.5 bg-primary/60 rounded-full flex-shrink-0" />
-                      <span className="text-black/70 text-sm">{feature}</span>
+                      <span className="text-black/70 text-xs">{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -233,10 +233,10 @@ export function ServicesSection() {
         <CardContent className="p-4 h-full flex flex-col justify-between relative z-10">
           <div className="flex items-start justify-between h-full">
             <div className="w-1/2 pr-4">
-              <h3 className="font-extrabold text-black text-base mb-3 group-hover:text-black/90 transition-colors tracking-tight">
+              <h3 className="font-extrabold text-black text-sm mb-3 group-hover:text-black/90 transition-colors tracking-tight">
                 {services[4].title}
               </h3>
-              <p className="text-black/70 text-sm leading-relaxed">{services[4].detailedDescription}</p>
+              <p className="text-black/70 text-xs leading-relaxed">{services[4].detailedDescription}</p>
             </div>
 
             <div className="w-1/2 pl-4">
@@ -245,7 +245,7 @@ export function ServicesSection() {
                   {services[4].features.map((feature, featureIndex) => (
                     <div key={featureIndex} className="flex items-center space-x-2">
                       <div className="w-1.5 h-1.5 bg-secondary/60 rounded-full flex-shrink-0" />
-                      <span className="text-black/70 text-sm">{feature}</span>
+                      <span className="text-black/70 text-xs">{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -267,10 +267,10 @@ export function ServicesSection() {
         <CardContent className="p-4 h-full flex flex-col justify-between relative z-10">
           <div className="flex items-start justify-between h-full">
             <div className="w-1/2 pr-4">
-              <h3 className="font-extrabold text-black text-base mb-3 group-hover:text-black/90 transition-colors tracking-tight">
+              <h3 className="font-extrabold text-black text-sm mb-3 group-hover:text-black/90 transition-colors tracking-tight">
                 {services[5].title}
               </h3>
-              <p className="text-black/70 text-sm leading-relaxed">{services[5].detailedDescription}</p>
+              <p className="text-black/70 text-xs leading-relaxed">{services[5].detailedDescription}</p>
             </div>
 
             <div className="w-1/2 pl-4">
@@ -279,7 +279,7 @@ export function ServicesSection() {
                   {services[5].features.map((feature, featureIndex) => (
                     <div key={featureIndex} className="flex items-center space-x-2">
                       <div className="w-1.5 h-1.5 bg-accent/60 rounded-full flex-shrink-0" />
-                      <span className="text-black/70 text-sm">{feature}</span>
+                      <span className="text-black/70 text-xs">{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -309,15 +309,15 @@ export function ServicesSection() {
 
       <div className="fusion-card-large relative z-10">
         <div id="services" className="text-center mb-8 sm:mb-12">
-          <div className="inline-block px-4 sm:px-6 py-2 sm:py-3 text-sm font-medium rounded-full mb-4 sm:mb-6 bg-gradient-to-r from-primary to-secondary text-white shadow-lg">
+          <div className="inline-block px-4 sm:px-6 py-2 sm:py-3 text-xs font-medium rounded-full mb-4 sm:mb-6 bg-gradient-to-r from-primary to-secondary text-white shadow-lg">
             核心服务项目
           </div>
-          <h2 className="text-base sm:text-base lg:text-base font-bold tracking-tight text-foreground mb-4 sm:mb-6">
+          <h2 className="text-sm sm:text-sm lg:text-sm font-bold tracking-tight text-foreground mb-4 sm:mb-6">
             发现数字化转型的
             <br />
             <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">无限可能</span>
           </h2>
-          <p className="text-sm sm:text-sm lg:text-base text-muted-foreground max-w-2xl mx-auto mb-6 sm:mb-8 leading-relaxed px-4">
+          <p className="text-xs sm:text-xs lg:text-sm text-muted-foreground max-w-2xl mx-auto mb-6 sm:mb-8 leading-relaxed px-4">
             从软件定制开发到AI智能体服务，我们提供全方位的技术解决方案，助力企业实现数字化转型
           </p>
         </div>
@@ -329,7 +329,6 @@ export function ServicesSection() {
       </div>
 
       {/* 核心优势部分 */}
-      
     </section>
   )
 }

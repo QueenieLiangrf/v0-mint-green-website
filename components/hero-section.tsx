@@ -45,7 +45,7 @@ export function HeroSection() {
           {/* 左侧内容 */}
           <div className="space-y-6 sm:space-y-8">
             <div className="space-y-4 sm:space-y-6">
-              <h1 className="text-sm sm:text-base md:text-base lg:text-base font-bold text-balance leading-tight">
+              <h1 className="text-xs sm:text-sm md:text-sm lg:text-sm font-bold text-balance leading-tight">
                 <div className="space-y-2">
                   <div className="text-foreground">软件定制开发与</div>
                   <div className="bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent">
@@ -54,7 +54,7 @@ export function HeroSection() {
                 </div>
               </h1>
 
-              <div className="space-y-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
+              <div className="space-y-4 text-xs sm:text-sm text-muted-foreground leading-relaxed">
                 <p>
                   聚焦 <span className="text-primary font-semibold">AI + 软件创新</span>，赋能业务价值升级
                 </p>
@@ -63,7 +63,7 @@ export function HeroSection() {
                     <DialogTrigger asChild>
                       <Button
                         size="lg"
-                        className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 text-sm"
+                        className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 text-xs"
                       >
                         <span className="hidden sm:inline">了解我们的服务，开启数字化转型之旅</span>
                         <span className="sm:hidden">开启数字化转型</span>
@@ -118,28 +118,28 @@ export function HeroSection() {
 
       <div className="grid grid-cols-4 gap-2 sm:gap-4 mt-4 sm:mt-6">
         <div className="fusion-card p-1 sm:p-3 text-center">
-          <div className="text-sm sm:text-base font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-1">
+          <div className="text-xs sm:text-sm font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-1">
             100%
           </div>
-          <div className="text-sm sm:text-sm text-muted-foreground whitespace-nowrap">业务对齐</div>
+          <div className="text-xs text-muted-foreground whitespace-nowrap">业务对齐</div>
         </div>
         <div className="fusion-card p-1 sm:p-3 text-center">
-          <div className="text-sm sm:text-base font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-1">
+          <div className="text-xs sm:text-sm font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-1">
             10+
           </div>
-          <div className="text-sm sm:text-sm text-muted-foreground whitespace-nowrap">年技术经验</div>
+          <div className="text-xs text-muted-foreground whitespace-nowrap">年技术经验</div>
         </div>
         <div className="fusion-card p-1 sm:p-3 text-center">
-          <div className="text-sm sm:text-base font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-1">
+          <div className="text-xs sm:text-sm font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-1">
             &gt;0.5%
           </div>
-          <div className="text-sm sm:text-sm text-muted-foreground whitespace-nowrap">故障率</div>
+          <div className="text-xs text-muted-foreground whitespace-nowrap">故障率</div>
         </div>
         <div className="fusion-card p-1 sm:p-3 text-center">
-          <div className="text-sm sm:text-base font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-1">
+          <div className="text-xs sm:text-sm font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-1">
             &gt;2h
           </div>
-          <div className="text-sm sm:text-sm text-muted-foreground whitespace-nowrap">故障响应</div>
+          <div className="text-xs text-muted-foreground whitespace-nowrap">故障响应</div>
         </div>
       </div>
     </section>
