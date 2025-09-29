@@ -115,7 +115,7 @@ export function IndustriesSection() {
         </div>
 
         {/* 行业网格 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {industries.map((industry, index) => (
             <Card
               key={industry.id}
@@ -127,7 +127,7 @@ export function IndustriesSection() {
               }}
             >
               {/* 图片区域 */}
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-32 overflow-hidden">
                 <img
                   src={industry.image || "/placeholder.svg"}
                   alt={industry.name}
@@ -139,11 +139,11 @@ export function IndustriesSection() {
               </div>
 
               {/* 内容区域 */}
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
+              <div className="p-4">
+                <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
                   {industry.name}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{industry.description}</p>
+                <p className="text-muted-foreground text-xs leading-relaxed">{industry.description}</p>
               </div>
             </Card>
           ))}

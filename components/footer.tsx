@@ -23,17 +23,17 @@ const MapPinIcon = ({ className }: { className?: string }) => (
 export function Footer() {
   return (
     <footer id="about" className="bg-white border-t">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {/* 公司信息 */}
-          <div className="col-span-1 md:col-span-2">
+          <div className="md:col-span-1">
             <div className="flex items-center space-x-2 mb-4">
               <Image
                 src="/images/logo.png"
                 alt="至索科技 Ultimate Exploration Technology"
                 width={200}
                 height={60}
-                className="h-8 w-auto object-contain"
+                className="h-6 sm:h-8 w-auto object-contain"
               />
             </div>
             <p className="text-sm text-gray-600 mb-4 leading-relaxed max-w-md">
@@ -41,69 +41,71 @@ export function Footer() {
             </p>
             <div className="space-y-2">
               <div className="flex items-center text-sm text-gray-600">
-                <MapPinIcon className="h-4 w-4 mr-2 text-primary" />
+                <MapPinIcon className="h-4 w-4 mr-2 text-primary flex-shrink-0" />
                 广州市天河区
               </div>
               <div className="flex items-center text-sm text-gray-600">
-                <PhoneIcon className="h-4 w-4 mr-2 text-primary" />
+                <PhoneIcon className="h-4 w-4 mr-2 text-primary flex-shrink-0" />
                 4001037431
               </div>
               <div className="flex items-center text-sm text-gray-600">
-                <MailIcon className="h-4 w-4 mr-2 text-primary" />
+                <MailIcon className="h-4 w-4 mr-2 text-primary flex-shrink-0" />
                 contact@ultexplor.tech
               </div>
             </div>
           </div>
 
-          {/* 服务项目 */}
-          <div>
-            <h3 className="text-sm font-semibold text-gray-900 mb-4">服务项目</h3>
-            <ul className="space-y-2">
-              <li>
-                <span className="text-sm text-gray-600">软件定制开发</span>
-              </li>
-              <li>
-                <span className="text-sm text-gray-600">AI智能体开发</span>
-              </li>
-              <li>
-                <span className="text-sm text-gray-600">系统集成服务</span>
-              </li>
-              <li>
-                <span className="text-sm text-gray-600">移动应用开发</span>
-              </li>
-              <li>
-                <span className="text-sm text-gray-600">技术咨询服务</span>
-              </li>
-            </ul>
-          </div>
+          <div className="md:col-span-2 grid grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
+            {/* 服务项目 */}
+            <div>
+              <h3 className="text-sm font-semibold text-gray-900 mb-4">服务项目</h3>
+              <ul className="space-y-2">
+                <li>
+                  <span className="text-xs sm:text-sm text-gray-600">软件定制开发</span>
+                </li>
+                <li>
+                  <span className="text-xs sm:text-sm text-gray-600">AI智能体开发</span>
+                </li>
+                <li>
+                  <span className="text-xs sm:text-sm text-gray-600">系统集成服务</span>
+                </li>
+                <li>
+                  <span className="text-xs sm:text-sm text-gray-600">移动应用开发</span>
+                </li>
+                <li>
+                  <span className="text-xs sm:text-sm text-gray-600">技术咨询服务</span>
+                </li>
+              </ul>
+            </div>
 
-          {/* 公司信息改为导航链接 */}
-          <div>
-            <h3 className="text-sm font-semibold text-gray-900 mb-4">{"公司信息"}</h3>
-            <ul className="space-y-2">
-              <li>
-                <span className="text-sm text-gray-600">服务项目</span>
-              </li>
-              <li>
-                <span className="text-sm text-gray-600">核心优势</span>
-              </li>
-              <li>
-                <span className="text-sm text-gray-600">服务流程</span>
-              </li>
-              <li>
-                <span className="text-sm text-gray-600">服务行业</span>
-              </li>
-              <li>
-                <span className="text-sm text-gray-600">成功案例</span>
-              </li>
-            </ul>
+            {/* 公司信息改为导航链接 */}
+            <div>
+              <h3 className="text-sm font-semibold text-gray-900 mb-4">{"公司信息"}</h3>
+              <ul className="space-y-2">
+                <li>
+                  <span className="text-xs sm:text-sm text-gray-600">服务项目</span>
+                </li>
+                <li>
+                  <span className="text-xs sm:text-sm text-gray-600">核心优势</span>
+                </li>
+                <li>
+                  <span className="text-xs sm:text-sm text-gray-600">服务流程</span>
+                </li>
+                <li>
+                  <span className="text-xs sm:text-sm text-gray-600">服务行业</span>
+                </li>
+                <li>
+                  <span className="text-xs sm:text-sm text-gray-600">成功案例</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
-        <div className="border-t border-gray-200 mt-8 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
+        <div className="border-t border-gray-200 mt-6 sm:mt-8 pt-6 sm:pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-center md:text-left">
-              <p className="text-sm text-gray-600">© 2025 广州至索科技有限公司. 保留所有权利.</p>
+              <p className="text-sm text-gray-600 whitespace-nowrap">© 2025 广州至索科技有限公司. 保留所有权利.</p>
               <p className="text-sm text-gray-500 mt-1">
                 <a
                   href="https://beian.miit.gov.cn/"
@@ -115,7 +117,7 @@ export function Footer() {
                 </a>
               </p>
             </div>
-            <div className="flex space-x-6 mt-4 md:mt-0">
+            <div className="flex space-x-6">
               <a href="#" className="text-sm text-gray-600 hover:text-primary transition-colors">
                 隐私政策
               </a>

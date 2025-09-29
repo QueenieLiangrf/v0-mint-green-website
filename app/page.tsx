@@ -12,8 +12,8 @@ export default function HomePage() {
     <div className="min-h-screen bg-background relative overflow-hidden">
       <Header />
 
-      <div className="container mx-auto px-6 py-12 pt-28 max-w-7xl relative z-10">
-        <main className="space-y-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 pt-20 sm:pt-28 max-w-7xl relative z-10">
+        <main className="space-y-12 sm:space-y-16">
           <HeroSection />
           <ServicesSection />
           <AdvantagesSection />
@@ -21,7 +21,7 @@ export default function HomePage() {
           <IndustriesSection />
         </main>
 
-        <div className="mt-16">
+        <div className="mt-12 sm:mt-16">
           <CasesSection />
         </div>
       </div>

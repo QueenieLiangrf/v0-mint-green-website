@@ -35,17 +35,17 @@ export function HeroSection() {
 
   return (
     <section className="relative">
-      <div className="absolute top-10 right-10 w-20 h-20 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 blur-xl" />
-      <div className="absolute bottom-20 left-10 w-32 h-32 rounded-full bg-gradient-to-br from-accent/20 to-primary/20 blur-xl" />
+      <div className="absolute top-5 sm:top-10 right-5 sm:right-10 w-12 h-12 sm:w-20 sm:h-20 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 blur-xl" />
+      <div className="absolute bottom-10 sm:bottom-20 left-5 sm:left-10 w-20 h-20 sm:w-32 sm:h-32 rounded-full bg-gradient-to-br from-accent/20 to-primary/20 blur-xl" />
 
-      <div className="fusion-card-large relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-primary/10 via-secondary/5 to-transparent rounded-full -translate-y-48 translate-x-48" />
+      <div className="fusion-card-large relative overflow-hidden -mt-5">
+        <div className="absolute top-0 right-0 w-48 h-48 sm:w-96 sm:h-96 bg-gradient-to-bl from-primary/10 via-secondary/5 to-transparent rounded-full -translate-y-24 sm:-translate-y-48 translate-x-24 sm:translate-x-48" />
 
-        <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* 左侧内容 */}
-          <div className="space-y-8">
-            <div className="space-y-6">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-balance leading-tight">
+          <div className="space-y-6 sm:space-y-8">
+            <div className="space-y-4 sm:space-y-6">
+              <h1 className="text-sm sm:text-base md:text-base lg:text-base font-bold text-balance leading-tight">
                 <div className="space-y-2">
                   <div className="text-foreground">软件定制开发与</div>
                   <div className="bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent">
@@ -54,7 +54,7 @@ export function HeroSection() {
                 </div>
               </h1>
 
-              <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
+              <div className="space-y-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
                 <p>
                   聚焦 <span className="text-primary font-semibold">AI + 软件创新</span>，赋能业务价值升级
                 </p>
@@ -63,9 +63,10 @@ export function HeroSection() {
                     <DialogTrigger asChild>
                       <Button
                         size="lg"
-                        className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+                        className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 text-sm"
                       >
-                        了解我们的服务，开启数字化转型之旅
+                        <span className="hidden sm:inline">了解我们的服务，开启数字化转型之旅</span>
+                        <span className="sm:hidden">开启数字化转型</span>
                         <span className="ml-2">→</span>
                       </Button>
                     </DialogTrigger>
@@ -78,7 +79,7 @@ export function HeroSection() {
                         />
                         <div className="mt-4 text-center space-y-2">
                           <p className="text-sm font-medium text-foreground">请用微信扫描二维码咨询客服</p>
-                          <p className="text-xs text-muted-foreground">或者拨打咨询电话：4001037431</p>
+                          <p className="text-sm text-muted-foreground">或者拨打咨询电话：4001037431</p>
                         </div>
                       </div>
                     </DialogContent>
@@ -89,13 +90,13 @@ export function HeroSection() {
           </div>
 
           {/* 右侧视频区域 */}
-          <div className="relative flex items-center justify-center">
+          <div className="relative flex items-center justify-center order-first lg:order-last">
             <div className="relative w-full max-w-lg">
-              <div className="absolute -top-4 -left-4 w-8 h-8 text-primary/30 animate-pulse"></div>
-              <div className="absolute -bottom-4 -right-4 w-6 h-6 text-secondary/40 animate-pulse delay-1000">
+              <div className="absolute -top-2 sm:-top-4 -left-2 sm:-left-4 w-6 h-6 sm:w-8 sm:h-8 text-primary/30 animate-pulse"></div>
+              <div className="absolute -bottom-2 sm:-bottom-4 -right-2 sm:-right-4 w-4 h-4 sm:w-6 sm:h-6 text-secondary/40 animate-pulse delay-1000">
                 <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full"></svg>
               </div>
-              <div className="absolute top-1/2 -right-8 w-4 h-4 text-accent/50 animate-pulse delay-500">
+              <div className="absolute top-1/2 -right-4 sm:-right-8 w-3 h-3 sm:w-4 sm:h-4 text-accent/50 animate-pulse delay-500">
                 <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
                   <path d="M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.22,8.95 2.27,9.22 2.46,9.37L4.57,11C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.22,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.68 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z" />
                 </svg>
@@ -107,38 +108,38 @@ export function HeroSection() {
                 loop
                 muted
                 playsInline
-                className="w-full h-auto"
-                style={{ maxHeight: "400px", objectFit: "cover" }}
+                className="w-full h-auto rounded-lg"
+                style={{ maxHeight: "300px", objectFit: "cover" }}
               />
             </div>
           </div>
         </div>
       </div>
 
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
-        <div className="fusion-card p-6 text-center">
-          <div className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-2">
+      <div className="grid grid-cols-4 gap-2 sm:gap-4 mt-4 sm:mt-6">
+        <div className="fusion-card p-1 sm:p-3 text-center">
+          <div className="text-sm sm:text-base font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-1">
             100%
           </div>
-          <div className="text-sm text-muted-foreground">业务对齐</div>
+          <div className="text-sm sm:text-sm text-muted-foreground whitespace-nowrap">业务对齐</div>
         </div>
-        <div className="fusion-card p-6 text-center">
-          <div className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-2">
+        <div className="fusion-card p-1 sm:p-3 text-center">
+          <div className="text-sm sm:text-base font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-1">
             10+
           </div>
-          <div className="text-sm text-muted-foreground">年技术经验</div>
+          <div className="text-sm sm:text-sm text-muted-foreground whitespace-nowrap">年技术经验</div>
         </div>
-        <div className="fusion-card p-6 text-center">
-          <div className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-2">
+        <div className="fusion-card p-1 sm:p-3 text-center">
+          <div className="text-sm sm:text-base font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-1">
             &gt;0.5%
           </div>
-          <div className="text-sm text-muted-foreground">故障率</div>
+          <div className="text-sm sm:text-sm text-muted-foreground whitespace-nowrap">故障率</div>
         </div>
-        <div className="fusion-card p-6 text-center">
-          <div className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-2">
+        <div className="fusion-card p-1 sm:p-3 text-center">
+          <div className="text-sm sm:text-base font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-1">
             &gt;2h
           </div>
-          <div className="text-sm text-muted-foreground">故障响应</div>
+          <div className="text-sm sm:text-sm text-muted-foreground whitespace-nowrap">故障响应</div>
         </div>
       </div>
     </section>
