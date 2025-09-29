@@ -4,75 +4,75 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* 现代卡片式设计的颜色系统 */
-  --background: #f1f5f9; /* 浅灰色背景 */
-  --foreground: #1e293b; /* 深色文字 */
-  --card: #ffffff; /* 白色卡片背景 */
-  --card-foreground: #1e293b; /* 卡片文字颜色 */
+  /* 更新为现代卡片式设计的颜色系统，基于提供的fusion设计 */
+  --background: #f5f5f5; /* 浅灰色背景，匹配fusion设计 */
+  --foreground: #1a1a1a; /* 深色文字 */
+  --card: #ffffff; /* 纯白色卡片背景 */
+  --card-foreground: #1a1a1a; /* 卡片文字颜色 */
   --popover: #ffffff; /* 弹出框背景 */
-  --popover-foreground: #1e293b; /* 弹出框文字 */
-  --primary: rgb(25, 195, 173); /* 薄荷绿色主色 */
+  --popover-foreground: #1a1a1a; /* 弹出框文字 */
+  --primary: #00d4aa; /* 青绿色主色，匹配fusion设计 */
   --primary-foreground: #ffffff; /* 主色上的白色文字 */
-  --secondary: #e2e8f0; /* 浅灰色次要色 */
-  --secondary-foreground: #1e293b; /* 次要色上的深色文字 */
-  --muted: #f8fafc; /* 静音背景 */
-  --muted-foreground: #64748b; /* 静音文字 */
-  --accent: #81c784; /* 强调色 - 浅薄荷绿色 */
-  --accent-foreground: #ffffff; /* 强调色文字 */
-  --destructive: #ef4444; /* 错误色 */
+  --secondary: #20b2aa; /* 青色次要色 */
+  --secondary-foreground: #ffffff; /* 次要色上的白色文字 */
+  --muted: #f8f9fa; /* 静音背景 */
+  --muted-foreground: #6c757d; /* 静音文字 */
+  --accent: #7fffd4; /* 强调色 - 浅青色 */
+  --accent-foreground: #1a1a1a; /* 强调色文字 */
+  --destructive: #dc3545; /* 错误色 */
   --destructive-foreground: #ffffff; /* 错误色文字 */
-  --border: #e2e8f0; /* 边框颜色 */
+  --border: #e9ecef; /* 边框颜色 */
   --input: #ffffff; /* 输入框背景 */
-  --ring: rgba(76, 175, 80, 0.3); /* 焦点环颜色 */
-  --chart-1: #4caf50; /* 图表颜色1 - 薄荷绿色 */
-  --chart-2: #81c784; /* 图表颜色2 - 浅薄荷绿色 */
-  --chart-3: #a5d6a7; /* 图表颜色3 - 更浅薄荷绿色 */
-  --chart-4: #74b9ff; /* 图表颜色4 - 蓝色 */
-  --chart-5: #a29bfe; /* 图表颜色5 - 紫色 */
-  --radius: 0.75rem; /* 更大的圆角 */
+  --ring: rgba(0, 212, 170, 0.3); /* 焦点环颜色 */
+  --chart-1: #00d4aa; /* 图表颜色1 - 青绿色 */
+  --chart-2: #20b2aa; /* 图表颜色2 - 青色 */
+  --chart-3: #7fffd4; /* 图表颜色3 - 浅青色 */
+  --chart-4: #40e0d0; /* 图表颜色4 - 绿松石色 */
+  --chart-5: #48cae4; /* 图表颜色5 - 天蓝色 */
+  --radius: 1rem; /* 更大的圆角，匹配fusion设计 */
   --sidebar: #ffffff;
-  --sidebar-foreground: #1e293b;
-  --sidebar-primary: #4caf50;
+  --sidebar-foreground: #1a1a1a;
+  --sidebar-primary: #00d4aa;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #f8fafc;
-  --sidebar-accent-foreground: #1e293b;
-  --sidebar-border: #e2e8f0;
-  --sidebar-ring: rgba(76, 175, 80, 0.3);
+  --sidebar-accent: #f8f9fa;
+  --sidebar-accent-foreground: #1a1a1a;
+  --sidebar-border: #e9ecef;
+  --sidebar-ring: rgba(0, 212, 170, 0.3);
 }
 
 .dark {
-  --background: #0f172a;
-  --foreground: #f8fafc;
-  --card: #1e293b;
-  --card-foreground: #f8fafc;
-  --popover: #1e293b;
-  --popover-foreground: #f8fafc;
-  --primary: #4caf50;
+  --background: #1a1a1a;
+  --foreground: #ffffff;
+  --card: #2d2d2d;
+  --card-foreground: #ffffff;
+  --popover: #2d2d2d;
+  --popover-foreground: #ffffff;
+  --primary: #00d4aa;
   --primary-foreground: #ffffff;
-  --secondary: #334155;
-  --secondary-foreground: #f8fafc;
-  --muted: #1e293b;
-  --muted-foreground: #94a3b8;
-  --accent: #81c784;
-  --accent-foreground: #ffffff;
-  --destructive: #ef4444;
+  --secondary: #20b2aa;
+  --secondary-foreground: #ffffff;
+  --muted: #2d2d2d;
+  --muted-foreground: #a0a0a0;
+  --accent: #7fffd4;
+  --accent-foreground: #1a1a1a;
+  --destructive: #dc3545;
   --destructive-foreground: #ffffff;
-  --border: #334155;
-  --input: #1e293b;
-  --ring: rgba(76, 175, 80, 0.3);
-  --chart-1: #4caf50;
-  --chart-2: #81c784;
-  --chart-3: #a5d6a7;
-  --chart-4: #74b9ff;
-  --chart-5: #a29bfe;
-  --sidebar: #1e293b;
-  --sidebar-foreground: #f8fafc;
-  --sidebar-primary: #4caf50;
+  --border: #404040;
+  --input: #2d2d2d;
+  --ring: rgba(0, 212, 170, 0.3);
+  --chart-1: #00d4aa;
+  --chart-2: #20b2aa;
+  --chart-3: #7fffd4;
+  --chart-4: #40e0d0;
+  --chart-5: #48cae4;
+  --sidebar: #2d2d2d;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #00d4aa;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #334155;
-  --sidebar-accent-foreground: #f8fafc;
-  --sidebar-border: #334155;
-  --sidebar-ring: rgba(76, 175, 80, 0.3);
+  --sidebar-accent: #404040;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #404040;
+  --sidebar-ring: rgba(0, 212, 170, 0.3);
 }
 
 @theme inline {
@@ -125,17 +125,42 @@
   }
 }
 
-/* 添加卡片悬停效果 */
-.card-hover {
-  transition: all 0.3s ease;
+/* 添加现代卡片式设计的样式类 */
+.fusion-card {
+  @apply bg-card rounded-2xl shadow-lg border border-border/50 transition-all duration-300;
 }
 
-.card-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+.fusion-card:hover {
+  @apply shadow-xl -translate-y-1;
 }
 
-/* 添加渐变动画 */
+.fusion-card-large {
+  @apply bg-card rounded-3xl shadow-xl border border-border/50 p-8 transition-all duration-300;
+}
+
+.fusion-card-large:hover {
+  @apply shadow-2xl -translate-y-2;
+}
+
+/* 3D装饰元素样式 */
+.decoration-3d {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.decoration-ring {
+  position: absolute;
+  border: 3px solid;
+  border-color: var(--primary);
+  border-radius: 50%;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+/* 渐变背景动画 */
 @keyframes gradient-shift {
   0%,
   100% {
@@ -147,7 +172,37 @@
 }
 
 .gradient-animate {
-  background: linear-gradient(-45deg, #2e7d32, #388e3c, #43a047, #4caf50);
+  background: linear-gradient(-45deg, #00d4aa, #20b2aa, #7fffd4, #40e0d0);
   background-size: 400% 400%;
-  animation: gradient-shift 6s ease infinite;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* 浮动动画 */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* 脉冲动画 */
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(0, 212, 170, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 212, 170, 0.6);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
 }

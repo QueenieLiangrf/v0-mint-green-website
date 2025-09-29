@@ -87,8 +87,8 @@ export function AdvantagesSection() {
   ]
 
   return (
-    <section id="advantages" className="py-20" ref={sectionRef}>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="advantages" className="py-20 bg-[rgba(233,243,246,1)]" ref={sectionRef}>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 bg-[rgba(233,243,246,1)]">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl mb-4">我们的核心优势</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
@@ -96,42 +96,104 @@ export function AdvantagesSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {advantages.map((advantage, index) => (
-            <Card
-              key={index}
-              className={`group hover:shadow-lg transition-all duration-700 border-border hover:border-primary/20 ${
-                isVisible
-                  ? "opacity-100 translate-x-0 translate-y-0 scale-100"
-                  : "opacity-0 translate-x-0 translate-y-0 scale-75"
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+          {/* 左侧：前2个优势卡片 */}
+          <div className="space-y-6">
+            {advantages.slice(0, 2).map((advantage, index) => (
+              <Card
+                key={index}
+                className={`group hover:shadow-lg transition-all duration-700 border-border hover:border-primary/20 ${
+                  isVisible
+                    ? "opacity-100 translate-x-0 translate-y-0 scale-100"
+                    : "opacity-0 translate-x-0 translate-y-0 scale-75"
+                }`}
+                style={{
+                  transform: isVisible ? "translate(0, 0) scale(1)" : "translate(-50px, -30px) scale(0.8)",
+                  transitionDelay: `${index * 150}ms`,
+                  transitionTimingFunction: "cubic-bezier(0.34, 1.56, 0.64, 1)",
+                }}
+              >
+                <CardHeader>
+                  <div className="flex items-start space-x-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors flex-shrink-0">
+                      <advantage.icon />
+                    </div>
+                    <div className="flex-1">
+                      <CardTitle className="text-xl font-semibold text-foreground mb-2">{advantage.title}</CardTitle>
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className="text-3xl font-bold text-primary">{advantage.number}</div>
+                        <div className="text-sm font-medium text-muted-foreground">{advantage.numberLabel}</div>
+                      </div>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground leading-relaxed">{advantage.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* 中间：视频 */}
+          <div className="flex justify-center">
+            <div
+              className={`transition-all duration-700 ${
+                isVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-8 scale-95"
               }`}
               style={{
-                transform: isVisible
-                  ? "translate(0, 0) scale(1)"
-                  : `translate(${index % 2 === 0 ? "-50px" : "50px"}, ${index < 2 ? "-30px" : "30px"}) scale(0.8)`,
-                transitionDelay: `${index * 150}ms`,
+                transitionDelay: "300ms",
                 transitionTimingFunction: "cubic-bezier(0.34, 1.56, 0.64, 1)",
               }}
             >
-              <CardHeader>
-                <div className="flex items-start space-x-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors flex-shrink-0">
-                    <advantage.icon />
-                  </div>
-                  <div className="flex-1">
-                    <CardTitle className="text-xl font-semibold text-foreground mb-2">{advantage.title}</CardTitle>
-                    <div className="flex items-center gap-3 mb-2">
-                      <div className="text-3xl font-bold text-primary">{advantage.number}</div>
-                      <div className="text-sm font-medium text-muted-foreground">{advantage.numberLabel}</div>
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full max-w-sm h-80 object-cover rounded-xl shadow-lg mt-16"
+              >
+                <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/social_u1774431695_system_integration_icon_--ar_7758_--video_1_fc165433-f436-4382-847f-3cb9134c80db_0-T606KA4ZJcTXFMN2YL1MFn2zWvQjfr.mp4" type="video/mp4" />
+                您的浏览器不支持视频播放。
+              </video>
+            </div>
+          </div>
+
+          {/* 右侧：后2个优势卡片 */}
+          <div className="space-y-6">
+            {advantages.slice(2, 4).map((advantage, index) => (
+              <Card
+                key={index + 2}
+                className={`group hover:shadow-lg transition-all duration-700 border-border hover:border-primary/20 ${
+                  isVisible
+                    ? "opacity-100 translate-x-0 translate-y-0 scale-100"
+                    : "opacity-0 translate-x-0 translate-y-0 scale-75"
+                }`}
+                style={{
+                  transform: isVisible ? "translate(0, 0) scale(1)" : "translate(50px, -30px) scale(0.8)",
+                  transitionDelay: `${(index + 2) * 150}ms`,
+                  transitionTimingFunction: "cubic-bezier(0.34, 1.56, 0.64, 1)",
+                }}
+              >
+                <CardHeader>
+                  <div className="flex items-start space-x-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors flex-shrink-0">
+                      <advantage.icon />
+                    </div>
+                    <div className="flex-1">
+                      <CardTitle className="text-xl font-semibold text-foreground mb-2">{advantage.title}</CardTitle>
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className="text-3xl font-bold text-primary">{advantage.number}</div>
+                        <div className="text-sm font-medium text-muted-foreground">{advantage.numberLabel}</div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground leading-relaxed">{advantage.description}</p>
-              </CardContent>
-            </Card>
-          ))}
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground leading-relaxed">{advantage.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
       </div>
     </section>
