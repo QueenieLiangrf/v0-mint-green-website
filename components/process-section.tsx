@@ -222,7 +222,7 @@ export function ProcessSection() {
                           >
                             {/* 步骤编号圆圈 */}
                             <div
-                              className={`absolute top-8 left-8 sm:top-10 sm:left-10 w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-[10px] font-bold transition-all duration-500 z-30 ${
+                              className={`absolute top-4 left-4 sm:top-5 sm:left-5 w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-[10px] font-bold transition-all duration-500 z-30 ${
                                 isActive
                                   ? "bg-primary text-primary-foreground shadow-lg shadow-primary/50 scale-110"
                                   : isPrevious
