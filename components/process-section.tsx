@@ -193,131 +193,129 @@ export function ProcessSection() {
         </div>
 
         <div className="max-w-7xl mx-auto">
-          <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-background/95 backdrop-blur-sm border-0 shadow-2xl">
-            <div className="p-4 sm:p-8 bg-card">
-              <div className="relative">
-                <div
-                  className="relative"
-                  onMouseEnter={() => setIsHovered(true)}
-                  onMouseLeave={() => setIsHovered(false)}
-                >
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 sm:gap-6 lg:gap-4 relative">
-                    {processes.map((process, index) => {
-                      const isActive = activeIndex === index
-                      const isPrevious = activeIndex > index
-                      const isNext = activeIndex < index
+          <div className="relative">
+            <div className="relative">
+              <div
+                className="relative"
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+              >
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 sm:gap-6 lg:gap-4 relative">
+                  {processes.map((process, index) => {
+                    const isActive = activeIndex === index
+                    const isPrevious = activeIndex > index
+                    const isNext = activeIndex < index
 
-                      return (
-                        <div key={index} className="flex flex-col items-center relative">
-                          {/* 步骤编号圆圈 */}
-                          <div
-                            className={`absolute top-8 left-8 sm:top-10 sm:left-10 w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-[10px] font-bold transition-all duration-500 z-30 ${
-                              isActive
-                                ? "bg-primary text-primary-foreground shadow-lg shadow-primary/50 scale-110"
-                                : isPrevious
-                                  ? "bg-primary/80 text-primary-foreground"
-                                  : "bg-muted text-muted-foreground"
-                            }`}
-                          >
-                            {index + 1}
-                          </div>
+                    return (
+                      <div key={index} className="flex flex-col items-center relative">
+                        {/* 步骤编号圆圈 */}
+                        <div
+                          className={`absolute top-8 left-8 sm:top-10 sm:left-10 w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-[10px] font-bold transition-all duration-500 z-30 ${
+                            isActive
+                              ? "bg-primary text-primary-foreground shadow-lg shadow-primary/50 scale-110"
+                              : isPrevious
+                                ? "bg-primary/80 text-primary-foreground"
+                                : "bg-muted text-muted-foreground"
+                          }`}
+                        >
+                          {index + 1}
+                        </div>
 
+                        <div
+                          className={`backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 border-2 transition-all duration-700 shadow-lg hover:shadow-xl w-full h-56 sm:h-64 flex flex-col items-center text-center relative overflow-hidden bg-gradient-to-br from-blue-500/10 to-green-500/10 scale-[0.45] origin-center cursor-pointer ${
+                            isActive
+                              ? "shadow-2xl shadow-blue-500/30 bg-gradient-to-br from-blue-500/20 to-green-500/15 transform scale-[0.495] z-20"
+                              : isPrevious
+                                ? "shadow-lg shadow-blue-500/20 bg-gradient-to-br from-blue-500/15 to-green-500/10 transform scale-[0.4275] opacity-70"
+                                : "transform scale-[0.45] opacity-80"
+                          }`}
+                          onMouseEnter={() => setActiveIndex(index)}
+                        >
                           {/* 背景装饰 */}
-                          <div
-                            className={`backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 border-2 transition-all duration-700 shadow-lg hover:shadow-xl w-full h-56 sm:h-64 flex flex-col items-center text-center relative overflow-hidden bg-gradient-to-br from-blue-500/10 to-green-500/10 scale-[0.45] origin-center cursor-pointer ml-8 sm:ml-10 ${
-                              isActive
-                                ? "shadow-2xl shadow-blue-500/30 bg-gradient-to-br from-blue-500/20 to-green-500/15 transform scale-[0.495] z-20"
-                                : isPrevious
-                                  ? "shadow-lg shadow-blue-500/20 bg-gradient-to-br from-blue-500/15 to-green-500/10 transform scale-[0.4275] opacity-70"
-                                  : "transform scale-[0.45] opacity-80"
-                            }`}
-                            onMouseEnter={() => setActiveIndex(index)}
-                          >
-                            {isActive && (
-                              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-transparent to-green-500/15 opacity-50 scale-[0.111] origin-center"></div>
-                            )}
+                          {isActive && (
+                            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-transparent to-green-500/15 opacity-50 scale-[0.111] origin-center"></div>
+                          )}
 
-                            <div className="relative z-10 flex flex-col items-center h-full">
-                              <div
-                                className={`w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg mb-3 sm:mb-4 transition-all duration-700 overflow-hidden ${
-                                  isActive
-                                    ? "bg-gradient-to-br from-blue-500/40 to-green-500/30 scale-110 shadow-blue-500/30"
-                                    : isPrevious
-                                      ? "bg-gradient-to-br from-blue-500/30 to-green-500/20 scale-105"
-                                      : "bg-gradient-to-br from-blue-500/20 to-green-500/10"
+                          <div className="relative z-10 flex flex-col items-center h-full">
+                            <div
+                              className={`w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg mb-3 sm:mb-4 transition-all duration-700 overflow-hidden ${
+                                isActive
+                                  ? "bg-gradient-to-br from-blue-500/40 to-green-500/30 scale-110 shadow-blue-500/30"
+                                  : isPrevious
+                                    ? "bg-gradient-to-br from-blue-500/30 to-green-500/20 scale-105"
+                                    : "bg-gradient-to-br from-blue-500/20 to-green-500/10"
+                              }`}
+                            >
+                              <ProcessIcon type={process.iconType} isActive={isActive} />
+                            </div>
+
+                            {/* 标题 */}
+                            <h3
+                              className={`text-base sm:text-lg font-bold mb-2 sm:mb-3 transition-all duration-500 ${
+                                isActive
+                                  ? "text-primary scale-105"
+                                  : isPrevious
+                                    ? "text-primary/90"
+                                    : "text-foreground/70"
+                              }`}
+                            >
+                              {process.title}
+                            </h3>
+
+                            {/* 描述 */}
+                            <p
+                              className={`text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4 flex-1 transition-all duration-500 text-pretty ${
+                                isActive
+                                  ? "text-muted-foreground"
+                                  : isPrevious
+                                    ? "text-muted-foreground/80"
+                                    : "text-muted-foreground/60"
+                              }`}
+                            >
+                              {process.description}
+                            </p>
+
+                            {/* 耗时 */}
+                            <div
+                              className={`inline-flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1 sm:py-2 rounded-full transition-all duration-500 ${
+                                isActive
+                                  ? "bg-primary/30 border-2 border-primary/50 shadow-md"
+                                  : isPrevious
+                                    ? "bg-primary/20 border border-primary/30"
+                                    : "bg-muted/50 border border-muted"
+                              }`}
+                            >
+                              <span className="text-xs font-medium text-muted-foreground">耗时:</span>
+                              <span
+                                className={`text-xs sm:text-sm font-bold transition-all duration-500 ${
+                                  isActive ? "text-primary" : isPrevious ? "text-primary/90" : "text-primary/70"
                                 }`}
                               >
-                                <ProcessIcon type={process.iconType} isActive={isActive} />
-                              </div>
-
-                              {/* 标题 */}
-                              <h3
-                                className={`text-base sm:text-lg font-bold mb-2 sm:mb-3 transition-all duration-500 ${
-                                  isActive
-                                    ? "text-primary scale-105"
-                                    : isPrevious
-                                      ? "text-primary/90"
-                                      : "text-foreground/70"
-                                }`}
-                              >
-                                {process.title}
-                              </h3>
-
-                              {/* 描述 */}
-                              <p
-                                className={`text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4 flex-1 transition-all duration-500 text-pretty ${
-                                  isActive
-                                    ? "text-muted-foreground"
-                                    : isPrevious
-                                      ? "text-muted-foreground/80"
-                                      : "text-muted-foreground/60"
-                                }`}
-                              >
-                                {process.description}
-                              </p>
-
-                              {/* 耗时 */}
-                              <div
-                                className={`inline-flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1 sm:py-2 rounded-full transition-all duration-500 ${
-                                  isActive
-                                    ? "bg-primary/30 border-2 border-primary/50 shadow-md"
-                                    : isPrevious
-                                      ? "bg-primary/20 border border-primary/30"
-                                      : "bg-muted/50 border border-muted"
-                                }`}
-                              >
-                                <span className="text-xs font-medium text-muted-foreground">耗时:</span>
-                                <span
-                                  className={`text-xs sm:text-sm font-bold transition-all duration-500 ${
-                                    isActive ? "text-primary" : isPrevious ? "text-primary/90" : "text-primary/70"
-                                  }`}
-                                >
-                                  {process.duration}
-                                </span>
-                              </div>
+                                {process.duration}
+                              </span>
                             </div>
                           </div>
                         </div>
-                      )
-                    })}
-                  </div>
+                      </div>
+                    )
+                  })}
+                </div>
 
-                  {/* 进度指示器 */}
-                  <div className="flex justify-center mt-6 sm:mt-8 gap-2">
-                    {processes.map((_, index) => (
-                      <div
-                        key={index}
-                        className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-500 cursor-pointer ${
-                          activeIndex === index
-                            ? "bg-primary scale-125 shadow-lg shadow-primary/50"
-                            : activeIndex > index
-                              ? "bg-primary/60"
-                              : "bg-muted/50"
-                        }`}
-                        onClick={() => setActiveIndex(index)}
-                      />
-                    ))}
-                  </div>
+                {/* 进度指示器 */}
+                <div className="flex justify-center mt-6 sm:mt-8 gap-2">
+                  {processes.map((_, index) => (
+                    <div
+                      key={index}
+                      className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-500 cursor-pointer ${
+                        activeIndex === index
+                          ? "bg-primary scale-125 shadow-lg shadow-primary/50"
+                          : activeIndex > index
+                            ? "bg-primary/60"
+                            : "bg-muted/50"
+                      }`}
+                      onClick={() => setActiveIndex(index)}
+                    />
+                  ))}
                 </div>
               </div>
             </div>
