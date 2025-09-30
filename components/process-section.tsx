@@ -39,7 +39,7 @@ const ProcessIcon = ({ type, isActive }: { type: string; isActive: boolean }) =>
           <div className="relative w-full h-full">
             <div className="absolute inset-0 bg-gradient-to-br from-white to-gray-100 rounded-lg shadow-lg transform -rotate-2">
               <div className="w-full h-full bg-gradient-to-br from-[#4169E1] to-[#00CED1] rounded-lg p-2">
-                <div className="w-full h-1 bg-white/80 rounded mb-1"></div>
+                <div className="w-6 h-6 bg-white/80 rounded-full mx-auto mb-1"></div>
                 <div className="flex justify-center gap-1">
                   <div className="w-2 h-2 bg-white/60 rounded"></div>
                   <div className="w-2 h-2 bg-white/60 rounded"></div>
@@ -222,7 +222,7 @@ export function ProcessSection() {
                           >
                             {/* 步骤编号圆圈 */}
                             <div
-                              className={`absolute -top-3 -left-3 sm:-top-4 sm:-left-4 w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-[10px] font-bold transition-all duration-500 z-30 ${
+                              className={`absolute top-8 left-8 sm:top-10 sm:left-10 w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-[10px] font-bold transition-all duration-500 z-30 ${
                                 isActive
                                   ? "bg-primary text-primary-foreground shadow-lg shadow-primary/50 scale-110"
                                   : isPrevious
