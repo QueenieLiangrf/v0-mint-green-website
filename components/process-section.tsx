@@ -201,7 +201,7 @@ export function ProcessSection() {
                   onMouseEnter={() => setIsHovered(true)}
                   onMouseLeave={() => setIsHovered(false)}
                 >
-                  <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 sm:gap-6 lg:gap-4 relative">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 sm:gap-6 lg:gap-4 relative">
                     {processes.map((process, index) => {
                       const isActive = activeIndex === index
                       const isPrevious = activeIndex > index
@@ -222,8 +222,9 @@ export function ProcessSection() {
                             {index + 1}
                           </div>
 
+                          {/* 背景装饰 */}
                           <div
-                            className={`backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 border-2 transition-all duration-700 shadow-lg hover:shadow-xl w-full h-56 sm:h-64 flex flex-col items-center text-center relative overflow-hidden bg-gradient-to-br from-blue-500/10 to-green-500/10 scale-[0.45] origin-center cursor-pointer ${
+                            className={`backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 border-2 transition-all duration-700 shadow-lg hover:shadow-xl w-full h-56 sm:h-64 flex flex-col items-center text-center relative overflow-hidden bg-gradient-to-br from-blue-500/10 to-green-500/10 scale-[0.45] origin-center cursor-pointer ml-8 sm:ml-10 ${
                               isActive
                                 ? "shadow-2xl shadow-blue-500/30 bg-gradient-to-br from-blue-500/20 to-green-500/15 transform scale-[0.495] z-20"
                                 : isPrevious
@@ -232,7 +233,6 @@ export function ProcessSection() {
                             }`}
                             onMouseEnter={() => setActiveIndex(index)}
                           >
-                            {/* 背景装饰 */}
                             {isActive && (
                               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-transparent to-green-500/15 opacity-50 scale-[0.111] origin-center"></div>
                             )}
