@@ -277,7 +277,7 @@ export function ProcessSection() {
 
                             {/* 耗时 */}
                             <div
-                              className={`inline-flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1 sm:py-2 rounded-full transition-all duration-500 ${
+                              className={`inline-flex items-center gap-1 sm:gap-2 px-3 sm:px-4 py-1 sm:py-2 rounded-full transition-all duration-500 whitespace-nowrap ${
                                 isActive
                                   ? "bg-primary/30 border-2 border-primary/50 shadow-md"
                                   : isPrevious
