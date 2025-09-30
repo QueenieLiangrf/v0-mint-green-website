@@ -201,7 +201,7 @@ export function ProcessSection() {
                   onMouseEnter={() => setIsHovered(true)}
                   onMouseLeave={() => setIsHovered(false)}
                 >
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 sm:gap-6 lg:gap-4 relative">
+                  <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 sm:gap-6 lg:gap-4 relative">
                     {processes.map((process, index) => {
                       const isActive = activeIndex === index
                       const isPrevious = activeIndex > index
