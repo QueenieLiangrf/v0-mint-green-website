@@ -222,18 +222,18 @@ export function ProcessSection() {
                         </div>
 
                         <div
-                          className={`backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 border-2 transition-all duration-700 shadow-lg hover:shadow-xl w-full h-56 sm:h-64 flex flex-col items-center text-center relative overflow-hidden bg-gradient-to-br from-blue-500/10 to-green-500/10 scale-[0.845] scale-x-[1.8] origin-center cursor-pointer ${
+                          className={`backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 border-2 transition-all duration-700 shadow-lg hover:shadow-xl w-full h-56 sm:h-64 flex flex-col items-center text-center relative overflow-hidden bg-gradient-to-br from-blue-500/10 to-green-500/10 scale-x-[1.8] origin-center cursor-pointer ${
                             isActive
-                              ? "shadow-2xl shadow-blue-500/30 bg-gradient-to-br from-blue-500/20 to-green-500/15 transform scale-[0.936] scale-x-[1.8] z-20"
+                              ? "shadow-2xl shadow-blue-500/30 bg-gradient-to-br from-blue-500/20 to-green-500/15 transform scale-x-[1.8] z-20"
                               : isPrevious
-                                ? "shadow-lg shadow-blue-500/20 bg-gradient-to-br from-blue-500/15 to-green-500/10 transform scale-[0.806] scale-x-[1.8] opacity-70"
-                                : "transform scale-[0.845] scale-x-[1.8] opacity-80"
+                                ? "shadow-lg shadow-blue-500/20 bg-gradient-to-br from-blue-500/15 to-green-500/10 transform scale-x-[1.8] opacity-70"
+                                : "transform scale-x-[1.8] opacity-80"
                           }`}
                           onMouseEnter={() => setActiveIndex(index)}
                         >
                           {/* 背景装饰 */}
                           {isActive && (
-                            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-transparent to-green-500/15 opacity-50 scale-[0.111] origin-center"></div>
+                            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-transparent to-green-500/15 opacity-50 origin-center"></div>
                           )}
 
                           <div className="relative z-10 flex flex-col items-center h-full">
