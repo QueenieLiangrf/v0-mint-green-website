@@ -38,10 +38,10 @@ export function HeroSection() {
       <div className="absolute top-10 right-10 w-20 h-20 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 blur-xl" />
       <div className="absolute bottom-20 left-10 w-32 h-32 rounded-full bg-gradient-to-br from-accent/20 to-primary/20 blur-xl" />
 
-      <div className="fusion-card-large relative overflow-hidden">
+      <div className="bg-card rounded-3xl shadow-xl border border-border/50 p-8 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 relative overflow-hidden min-h-[500px] sm:min-h-[600px]">
         <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-primary/10 via-secondary/5 to-transparent rounded-full -translate-y-48 translate-x-48" />
 
-        <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+        <div className="relative z-10 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[450px] sm:min-h-[550px]">
           {/* 左侧内容 */}
           <div className="space-y-8">
             <div className="space-y-6">
@@ -54,7 +54,7 @@ export function HeroSection() {
                 </div>
               </h1>
 
-              <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
+              <div className="space-y-4 text-base sm:text-lg text-muted-foreground leading-relaxed">
                 <p>
                   聚焦 <span className="text-primary font-semibold">AI + 软件创新</span>，赋能业务价值升级
                 </p>
@@ -89,8 +89,8 @@ export function HeroSection() {
           </div>
 
           {/* 右侧视频区域 */}
-          <div className="relative flex items-center justify-center">
-            <div className="relative w-full max-w-lg">
+          <div className="relative flex items-center justify-center h-full min-h-[350px] sm:min-h-[450px]">
+            <div className="relative w-full max-w-lg h-full flex items-center justify-center">
               <div className="absolute -top-4 -left-4 w-8 h-8 text-primary/30 animate-pulse"></div>
               <div className="absolute -bottom-4 -right-4 w-6 h-6 text-secondary/40 animate-pulse delay-1000">
                 <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full"></svg>
@@ -107,38 +107,38 @@ export function HeroSection() {
                 loop
                 muted
                 playsInline
-                className="w-full h-auto"
-                style={{ maxHeight: "400px", objectFit: "cover" }}
+                className="w-full h-auto rounded-lg shadow-xl"
+                style={{ maxHeight: "450px", objectFit: "contain" }}
               />
             </div>
           </div>
         </div>
       </div>
 
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
-        <div className="fusion-card p-6 text-center">
-          <div className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-2">
+      <div className="grid grid-cols-4 gap-2 sm:gap-6 mt-4 sm:mt-8">
+        <div className="bg-card rounded-2xl shadow-lg border border-border/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 p-1 sm:p-6 text-center">
+          <div className="text-sm sm:text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-1 sm:mb-2">
             100%
           </div>
-          <div className="text-sm text-muted-foreground">业务对齐</div>
+          <div className="text-[10px] sm:text-sm text-muted-foreground whitespace-nowrap">业务对齐</div>
         </div>
-        <div className="fusion-card p-6 text-center">
-          <div className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-2">
+        <div className="bg-card rounded-2xl shadow-lg border border-border/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 p-1 sm:p-6 text-center">
+          <div className="text-sm sm:text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-1 sm:mb-2">
             10+
           </div>
-          <div className="text-sm text-muted-foreground">年技术经验</div>
+          <div className="text-[10px] sm:text-sm text-muted-foreground whitespace-nowrap">年技术经验</div>
         </div>
-        <div className="fusion-card p-6 text-center">
-          <div className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-2">
+        <div className="bg-card rounded-2xl shadow-lg border border-border/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 p-1 sm:p-6 text-center">
+          <div className="text-sm sm:text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-1 sm:mb-2">
             &gt;0.5%
           </div>
-          <div className="text-sm text-muted-foreground">故障率</div>
+          <div className="text-[10px] sm:text-sm text-muted-foreground whitespace-nowrap">故障率</div>
         </div>
-        <div className="fusion-card p-6 text-center">
-          <div className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-2">
+        <div className="bg-card rounded-2xl shadow-lg border border-border/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 p-1 sm:p-6 text-center">
+          <div className="text-sm sm:text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-1 sm:mb-2">
             &gt;2h
           </div>
-          <div className="text-sm text-muted-foreground">故障响应</div>
+          <div className="text-[10px] sm:text-sm text-muted-foreground whitespace-nowrap">故障响应</div>
         </div>
       </div>
     </section>

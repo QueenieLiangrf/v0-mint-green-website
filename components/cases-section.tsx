@@ -46,19 +46,19 @@ const casesData = [
   },
   {
     id: 5,
-    title: "企业通讯录",
+    title: "办公协同系统",
     category: "办公协作",
     image: "/images/case-contacts1.png",
-    description: "企业内部通讯录系统，支持部门管理和员工查找",
-    tech: ["React Native", "Express", "MongoDB"],
+    description: "智能办公协同平台，集成审批、日程、AI助手等功能，提供数据概览和效率优化建议",
+    tech: ["React Native", "AI算法", "数据分析"],
   },
   {
     id: 6,
-    title: "团队协作平台",
+    title: "企业应用中心",
     category: "办公协作",
     image: "/images/case-contacts2.png",
-    description: "部门协作管理平台，支持团队沟通和项目管理",
-    tech: ["Next.js", "GraphQL", "PostgreSQL"],
+    description: "企业级应用中心平台，整合办公应用、AI工具和数据服务，提供一站式工作解决方案",
+    tech: ["Next.js", "微服务", "AI集成"],
   },
 ]
 
@@ -66,13 +66,13 @@ export default function CasesSection() {
   const [showQRCode, setShowQRCode] = useState(false)
 
   const createInfiniteColumn = (cases: typeof casesData) => {
-    return [...cases, ...cases, ...cases] // 三倍重复确保无缝滚动
+    return [...cases, ...cases, ...cases]
   }
 
   const caseColumns = [
-    createInfiniteColumn([casesData[0], casesData[3]]), // 第一列
-    createInfiniteColumn([casesData[1], casesData[4]]), // 第二列
-    createInfiniteColumn([casesData[2], casesData[5]]), // 第三列
+    createInfiniteColumn([casesData[0], casesData[3]]),
+    createInfiniteColumn([casesData[1], casesData[4]]),
+    createInfiniteColumn([casesData[2], casesData[5]]),
   ]
 
   return (
@@ -81,18 +81,18 @@ export default function CasesSection() {
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-foreground mb-4 text-balance">成功案例展示</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
-            精选项目案例，展示我们在各个领域的专业实力和创新能力
+            精选部分项目案例，展示我们在各个领域的专业实力和创新能力
           </p>
         </div>
 
-        <div className="grid grid-cols-3 gap-6 h-96 overflow-hidden max-w-4xl mx-auto">
+        <div className="grid grid-cols-3 gap-6 h-[800px] overflow-hidden max-w-4xl mx-auto">
           {caseColumns.map((column, columnIndex) => (
             <div key={columnIndex} className="relative overflow-hidden">
               <div
                 className="infinite-scroll-column"
                 style={{
-                  animationDelay: `${columnIndex * -2}s`, // 每列不同的延迟
-                  animationDuration: `${15 + columnIndex * 3}s`, // 每列不同的速度
+                  animationDelay: `${columnIndex * -2}s`,
+                  animationDuration: `${15 + columnIndex * 3}s`,
                 }}
               >
                 {column.map((caseItem, itemIndex) => (
@@ -102,7 +102,7 @@ export default function CasesSection() {
                         src={caseItem.image || "/placeholder.svg"}
                         alt={caseItem.title}
                         width={200}
-                        height={240}
+                        height={500}
                         className="w-full h-full object-cover"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
@@ -159,7 +159,7 @@ export default function CasesSection() {
         }
 
         .case-item {
-          height: 240px;
+          height: 600px;
           margin-bottom: 16px;
           flex-shrink: 0;
         }
@@ -169,7 +169,7 @@ export default function CasesSection() {
             transform: translateY(0);
           }
           100% {
-            transform: translateY(-66.666%); /* 移动2/3的距离，因为我们有3倍重复 */
+            transform: translateY(-66.666%);
           }
         }
 

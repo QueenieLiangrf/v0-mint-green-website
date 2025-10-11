@@ -305,7 +305,7 @@ export function ServicesSection() {
         style={{ animationDelay: "2s" }}
       />
 
-      <div className="fusion-card-large">
+      <div className="bg-card rounded-3xl shadow-xl border border-border/50 p-8 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
         <div id="services" className="text-center mb-12">
           <div className="inline-block px-6 py-3 text-sm font-medium rounded-full mb-6 bg-gradient-to-r from-primary to-secondary text-white shadow-lg">
             核心服务项目
@@ -320,14 +320,7 @@ export function ServicesSection() {
           </p>
         </div>
 
-        <div className="p-8 relative overflow-hidden bg-card border border-border/50 transition-all duration-300">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-primary/5 via-secondary/3 to-transparent rounded-full -translate-y-32 translate-x-32" />
-          <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-accent/5 via-primary/3 to-transparent rounded-full translate-y-24 -translate-x-24" />
-
-          <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {renderServiceItems()}
-          </div>
-        </div>
+        <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">{renderServiceItems()}</div>
       </div>
     </section>
   )
