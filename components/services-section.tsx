@@ -313,7 +313,9 @@ export function ServicesSection() {
           <h2 className="text-4xl font-bold tracking-tight text-foreground mb-6">
             发现数字化转型的
             <br />
-            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">无限可能</span>
+            <span className="text-blue-600 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              无限可能
+            </span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
             从软件定制开发到AI智能体服务，我们提供全方位的技术解决方案，助力企业实现数字化转型

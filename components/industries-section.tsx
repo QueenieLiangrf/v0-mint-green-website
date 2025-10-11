@@ -105,7 +105,7 @@ export function IndustriesSection() {
           >
             <div className="absolute -top-[189px] right-0 z-10"></div>
 
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-blue-600 bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent mb-6">
               各行各业数字化解决方案
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
