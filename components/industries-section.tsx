@@ -89,12 +89,12 @@ export function IndustriesSection() {
     <section
       id="industries"
       ref={sectionRef}
-      className="py-20 px-6 bg-gradient-to-br from-background via-muted/20 to-background relative overflow-hidden"
+      className="py-20 px-6 bg-gradient-to-br from-gray-50 via-blue-50/20 to-gray-50 relative overflow-hidden"
     >
       {/* 背景装饰 */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-green-500 rounded-full blur-3xl"></div>
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -105,10 +105,19 @@ export function IndustriesSection() {
           >
             <div className="absolute -top-[189px] right-0 z-10"></div>
 
-            <h2 className="text-4xl md:text-5xl font-bold text-blue-600 bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent mb-6">
+            <h2
+              className="text-4xl md:text-5xl font-bold mb-6"
+              style={{
+                background: "linear-gradient(to right, rgb(59, 130, 246), rgb(34, 197, 94))",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+                color: "rgb(59, 130, 246)", // fallback color
+              }}
+            >
               各行各业数字化解决方案
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               深耕多个行业领域，为不同行业提供定制化的数字化转型解决方案，助力企业实现智能化升级
             </p>
           </div>
@@ -119,7 +128,7 @@ export function IndustriesSection() {
           {industries.map((industry, index) => (
             <Card
               key={industry.id}
-              className={`group relative overflow-hidden border-0 bg-card/50 backdrop-blur-sm hover:bg-card/80 transition-all duration-700 hover:scale-105 hover:shadow-2xl cursor-pointer ${
+              className={`group relative overflow-hidden border-0 bg-white/50 backdrop-blur-sm hover:bg-white/80 transition-all duration-700 hover:scale-105 hover:shadow-2xl cursor-pointer ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
               }`}
               style={{
@@ -140,10 +149,10 @@ export function IndustriesSection() {
 
               {/* 内容区域 */}
               <div className="p-6">
-                <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
+                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">
                   {industry.name}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{industry.description}</p>
+                <p className="text-gray-600 text-sm leading-relaxed">{industry.description}</p>
               </div>
             </Card>
           ))}
@@ -153,10 +162,10 @@ export function IndustriesSection() {
         <div
           className={`text-center mt-16 transition-all duration-1000 delay-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
-          <p className="text-lg text-muted-foreground mb-6">无论您处于哪个行业，我们都能为您提供专业的数字化解决方案</p>
+          <p className="text-lg text-gray-600 mb-6">无论您处于哪个行业，我们都能为您提供专业的数字化解决方案</p>
           <Dialog open={showQRCode} onOpenChange={setShowQRCode}>
             <DialogTrigger asChild>
-              <button className="px-8 py-4 bg-gradient-to-r from-primary to-secondary text-primary-foreground rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300">
+              <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-green-600 text-white rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300">
                 咨询行业解决方案
               </button>
             </DialogTrigger>
@@ -164,8 +173,8 @@ export function IndustriesSection() {
               <div className="flex flex-col items-center justify-center p-6">
                 <img src="/customer-service-qr.png" alt="Customer Service QR Code" className="w-full max-w-sm h-auto" />
                 <div className="mt-4 text-center space-y-2">
-                  <p className="text-sm font-medium text-foreground">请用微信扫描二维码咨询客服</p>
-                  <p className="text-xs text-muted-foreground">或者拨打咨询电话：4001037431</p>
+                  <p className="text-sm font-medium text-gray-900">请用微信扫描二维码咨询客服</p>
+                  <p className="text-xs text-gray-600">或者拨打咨询电话：4001037431</p>
                 </div>
               </div>
             </DialogContent>
