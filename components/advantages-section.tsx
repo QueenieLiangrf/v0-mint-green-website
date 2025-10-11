@@ -87,11 +87,11 @@ export function AdvantagesSection() {
   ]
 
   return (
-    <section id="advantages" className="py-20 bg-slate-50 rounded-xl shadow-lg" ref={sectionRef}>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="advantages" className="py-20 bg-[rgba(233,243,246,1)] rounded-xl shadow-lg" ref={sectionRef}>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 bg-[rgba(233,243,246,1)]">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">我们的核心优势</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto text-pretty">
+          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl mb-4">我们的核心优势</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
             不同于传统"模块化拼凑"的伪定制，我们坚持从企业实际业务逻辑出发
           </p>
         </div>
@@ -102,7 +102,7 @@ export function AdvantagesSection() {
             {advantages.slice(0, 2).map((advantage, index) => (
               <Card
                 key={index}
-                className={`group hover:shadow-lg transition-all duration-700 bg-white border border-gray-200 hover:border-blue-300 ${
+                className={`group hover:shadow-lg transition-all duration-700 border-border hover:border-primary/20 ${
                   isVisible
                     ? "opacity-100 translate-x-0 translate-y-0 scale-100"
                     : "opacity-0 translate-x-0 translate-y-0 scale-75"
@@ -115,20 +115,20 @@ export function AdvantagesSection() {
               >
                 <CardHeader>
                   <div className="flex items-start space-x-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-50 group-hover:bg-blue-100 transition-colors flex-shrink-0">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors flex-shrink-0">
                       <advantage.icon />
                     </div>
                     <div className="flex-1">
-                      <CardTitle className="text-xl font-semibold text-gray-900 mb-2">{advantage.title}</CardTitle>
+                      <CardTitle className="text-xl font-semibold text-foreground mb-2">{advantage.title}</CardTitle>
                       <div className="flex items-center gap-3 mb-2">
-                        <div className="text-3xl font-bold text-blue-600">{advantage.number}</div>
-                        <div className="text-sm font-medium text-gray-600">{advantage.numberLabel}</div>
+                        <div className="text-3xl font-bold text-primary">{advantage.number}</div>
+                        <div className="text-sm font-medium text-muted-foreground">{advantage.numberLabel}</div>
                       </div>
                     </div>
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600 leading-relaxed">{advantage.description}</p>
+                  <p className="text-muted-foreground leading-relaxed">{advantage.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -163,7 +163,7 @@ export function AdvantagesSection() {
             {advantages.slice(2, 4).map((advantage, index) => (
               <Card
                 key={index + 2}
-                className={`group hover:shadow-lg transition-all duration-700 bg-white border border-gray-200 hover:border-blue-300 ${
+                className={`group hover:shadow-lg transition-all duration-700 border-border hover:border-primary/20 ${
                   index === 1 ? "min-h-[280px]" : ""
                 } ${
                   isVisible
@@ -178,20 +178,20 @@ export function AdvantagesSection() {
               >
                 <CardHeader>
                   <div className="flex items-start space-x-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-50 group-hover:bg-blue-100 transition-colors flex-shrink-0">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors flex-shrink-0">
                       <advantage.icon />
                     </div>
                     <div className="flex-1">
-                      <CardTitle className="text-xl font-semibold text-gray-900 mb-2">{advantage.title}</CardTitle>
+                      <CardTitle className="text-xl font-semibold text-foreground mb-2">{advantage.title}</CardTitle>
                       <div className="flex items-center gap-3 mb-2">
-                        <div className="text-3xl font-bold text-blue-600">{advantage.number}</div>
-                        <div className="text-sm font-medium text-gray-600">{advantage.numberLabel}</div>
+                        <div className="text-3xl font-bold text-primary">{advantage.number}</div>
+                        <div className="text-sm font-medium text-muted-foreground">{advantage.numberLabel}</div>
                       </div>
                     </div>
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600 leading-relaxed">{advantage.description}</p>
+                  <p className="text-muted-foreground leading-relaxed">{advantage.description}</p>
                 </CardContent>
               </Card>
             ))}
