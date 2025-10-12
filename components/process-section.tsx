@@ -1,5 +1,6 @@
 "use client"
 import { useState, useEffect } from "react"
+import { Search, Lightbulb, Code, TestTube, Headphones, TrendingUp, Play, CheckCircle } from "lucide-react"
 
 const PlayIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor">
@@ -15,103 +16,23 @@ const CheckCircleIcon = ({ className }: { className?: string }) => (
 )
 
 const ProcessIcon = ({ type, isActive }: { type: string; isActive: boolean }) => {
-  const baseClasses = `w-16 h-16 transition-all duration-700 ${isActive ? "scale-110" : ""}`
+  const iconClasses = `w-10 h-10 transition-all duration-700 ${isActive ? "text-blue-600 scale-110" : "text-blue-500"}`
 
   switch (type) {
     case "research":
-      return (
-        <div className={baseClasses}>
-          <div className="relative w-full h-full">
-            <div className="absolute inset-0 bg-gradient-to-br from-white to-gray-100 rounded-lg shadow-lg transform rotate-3">
-              <div className="w-full h-full bg-gradient-to-br from-[#00D4AA] to-[#20B2AA] rounded-lg p-2">
-                <div className="w-full h-2 bg-white/80 rounded mb-1"></div>
-                <div className="w-3/4 h-1 bg-white/60 rounded mb-1"></div>
-                <div className="w-full h-1 bg-white/60 rounded mb-1"></div>
-                <div className="w-2/3 h-1 bg-white/60 rounded"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )
+      return <Search className={iconClasses} />
     case "design":
-      return (
-        <div className={baseClasses}>
-          <div className="relative w-full h-full">
-            <div className="absolute inset-0 bg-gradient-to-br from-white to-gray-100 rounded-lg shadow-lg transform -rotate-2">
-              <div className="w-full h-full bg-gradient-to-br from-[#4169E1] to-[#00CED1] rounded-lg p-2">
-                <div className="w-6 h-6 bg-white/80 rounded-full mx-auto mb-1"></div>
-                <div className="flex justify-center gap-1">
-                  <div className="w-2 h-2 bg-white/60 rounded"></div>
-                  <div className="w-2 h-2 bg-white/60 rounded"></div>
-                  <div className="w-2 h-2 bg-white/60 rounded"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )
+      return <Lightbulb className={iconClasses} />
     case "development":
-      return (
-        <div className={baseClasses}>
-          <div className="relative w-full h-full">
-            <div className="absolute inset-0 bg-gradient-to-br from-white to-gray-100 rounded-lg shadow-lg transform rotate-1">
-              <div className="w-full h-full bg-gradient-to-br from-[#90EE90] to-[#20B2AA] rounded-lg p-2">
-                <div className="w-full h-1 bg-white/80 rounded mb-1"></div>
-                <div className="w-2/3 h-1 bg-white/60 rounded mb-1 ml-2"></div>
-                <div className="w-3/4 h-1 bg-white/60 rounded mb-1 ml-1"></div>
-                <div className="w-1/2 h-1 bg-white/60 rounded ml-3"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )
+      return <Code className={iconClasses} />
     case "testing":
-      return (
-        <div className={baseClasses}>
-          <div className="relative w-full h-full">
-            <div className="absolute inset-0 bg-gradient-to-br from-white to-gray-100 rounded-lg shadow-lg transform -rotate-1">
-              <div className="w-full h-full bg-gradient-to-br from-[#00CED1] to-[#4169E1] rounded-lg p-2">
-                <div className="w-8 h-8 bg-white/80 rounded-full mx-auto flex items-center justify-center">
-                  <div className="w-3 h-3 bg-[#90EE90] rounded-full"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )
+      return <TestTube className={iconClasses} />
     case "support":
-      return (
-        <div className={baseClasses}>
-          <div className="relative w-full h-full">
-            <div className="absolute inset-0 bg-gradient-to-br from-white to-gray-100 rounded-lg shadow-lg transform rotate-2">
-              <div className="w-full h-full bg-gradient-to-br from-[#20B2AA] to-[#00D4AA] rounded-lg p-2">
-                <div className="w-6 h-6 bg-white/80 rounded-full mx-auto mb-1 flex items-center justify-center">
-                  <div className="w-2 h-2 bg-[#00CED1] rounded-full"></div>
-                </div>
-                <div className="w-full h-1 bg-white/60 rounded"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )
+      return <Headphones className={iconClasses} />
     case "upgrade":
-      return (
-        <div className={baseClasses}>
-          <div className="relative w-full h-full">
-            <div className="absolute inset-0 bg-gradient-to-br from-white to-gray-100 rounded-lg shadow-lg transform -rotate-3">
-              <div className="w-full h-full bg-gradient-to-br from-[#4169E1] to-[#00D4AA] rounded-lg p-2">
-                <div className="flex justify-center mb-1">
-                  <div className="w-0 h-0 border-l-2 border-r-2 border-b-3 border-transparent border-b-white/80"></div>
-                </div>
-                <div className="w-full h-1 bg-white/60 rounded mb-1"></div>
-                <div className="w-2/3 h-1 bg-white/60 rounded mx-auto"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )
+      return <TrendingUp className={iconClasses} />
     default:
-      return <div className={baseClasses}></div>
+      return null
   }
 }
 
@@ -179,10 +100,10 @@ export function ProcessSection() {
               <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">全流程定制服务</h2>
             </div>
             <div className="flex gap-1">
-              <PlayIcon className="h-6 w-6 text-primary fill-primary" />
-              <PlayIcon className="h-5 w-5 text-primary/70 fill-primary/70" />
-              <PlayIcon className="h-6 w-6 text-primary fill-primary" />
-              <PlayIcon className="h-5 w-5 text-primary/70 fill-primary/70" />
+              <Play className="h-6 w-6 text-primary fill-primary" />
+              <Play className="h-5 w-5 text-primary/70 fill-primary/70" />
+              <Play className="h-6 w-6 text-primary fill-primary" />
+              <Play className="h-5 w-5 text-primary/70 fill-primary/70" />
             </div>
           </div>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
@@ -329,7 +250,7 @@ export function ProcessSection() {
         {/* 底部说明 */}
         <div className="mt-16 text-center">
           <div className="inline-flex items-center gap-2 px-6 py-3 bg-primary/10 rounded-full backdrop-blur-sm">
-            <CheckCircleIcon className="h-5 w-5 text-primary" />
+            <CheckCircle className="h-5 w-5 text-primary" />
             <span className="text-sm font-medium text-primary">全程透明可追溯，确保项目成功交付</span>
           </div>
         </div>
