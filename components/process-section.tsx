@@ -176,7 +176,6 @@ export function ProcessSection() {
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-4 mb-6">
             <div className="flex items-center gap-4 -ml-[189px]">
-              
               <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">全流程定制服务</h2>
             </div>
             <div className="flex gap-1">
@@ -263,10 +262,10 @@ export function ProcessSection() {
                                 <h3
                                   className={`text-lg font-bold mb-3 transition-all duration-500 ${
                                     isActive
-                                      ? "text-primary scale-105"
+                                      ? "text-blue-600 scale-105"
                                       : isPrevious
-                                        ? "text-primary/90"
-                                        : "text-foreground/70"
+                                        ? "text-blue-500"
+                                        : "text-gray-700"
                                   }`}
                                 >
                                   {process.title}
@@ -275,11 +274,7 @@ export function ProcessSection() {
                                 {/* 描述 */}
                                 <p
                                   className={`text-sm leading-relaxed mb-4 flex-1 transition-all duration-500 text-pretty ${
-                                    isActive
-                                      ? "text-muted-foreground"
-                                      : isPrevious
-                                        ? "text-muted-foreground/80"
-                                        : "text-muted-foreground/60"
+                                    isActive ? "text-gray-600" : isPrevious ? "text-gray-500" : "text-gray-500"
                                   }`}
                                 >
                                   {process.description}
@@ -295,10 +290,11 @@ export function ProcessSection() {
                                         : "bg-muted/50 border border-muted"
                                   }`}
                                 >
-                                  <span className="text-xs font-medium text-muted-foreground">耗时:</span>
+                                  {/* 耗时标签 */}
+                                  <span className="text-xs font-medium text-gray-500">耗时:</span>
                                   <span
                                     className={`text-sm font-bold transition-all duration-500 ${
-                                      isActive ? "text-primary" : isPrevious ? "text-primary/90" : "text-primary/70"
+                                      isActive ? "text-blue-600" : isPrevious ? "text-blue-500" : "text-blue-500"
                                     }`}
                                   >
                                     {process.duration}
