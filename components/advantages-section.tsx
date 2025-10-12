@@ -2,6 +2,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { useEffect, useRef, useState } from "react"
+import { Target, Settings, ShieldCheck, Headphones } from "lucide-react"
 
 export function AdvantagesSection() {
   const [isVisible, setIsVisible] = useState(false)
@@ -64,13 +65,7 @@ export function AdvantagesSection() {
 
   const advantages = [
     {
-      icon: () => (
-        <div className="relative w-12 h-12">
-          <div className="absolute inset-0 bg-gradient-to-br from-teal-400 to-teal-600 rounded-lg opacity-20 blur-sm"></div>
-          <div className="absolute top-1 left-1 w-10 h-10 bg-gradient-to-br from-teal-400 to-cyan-500 rounded-lg transform rotate-12"></div>
-          <div className="absolute top-2 left-2 w-8 h-8 bg-gradient-to-br from-white to-gray-100 rounded-lg transform -rotate-6"></div>
-        </div>
-      ),
+      icon: Target,
       title: "需求深度拆解",
       description:
         "深入企业一线业务流程，梳理核心痛点（如数据孤岛、流程冗余、客户管理低效等），输出可视化需求文档，确保软件功能与业务目标100%对齐。",
@@ -79,13 +74,7 @@ export function AdvantagesSection() {
       numberLabel: "业务对齐",
     },
     {
-      icon: () => (
-        <div className="relative w-12 h-12">
-          <div className="absolute inset-0 bg-gradient-to-br from-cyan-400 to-teal-600 rounded-full opacity-20 blur-sm"></div>
-          <div className="absolute top-1 left-1 w-10 h-10 bg-gradient-to-br from-cyan-400 to-teal-500 rounded-full"></div>
-          <div className="absolute top-3 left-3 w-6 h-6 bg-white rounded-full opacity-80"></div>
-        </div>
-      ),
+      icon: Settings,
       title: "技术灵活适配",
       description: '根据企业规模、预算及未来扩展性需求，灵活选择技术栈，既避免"过度技术投入"，也为后续升级预留空间。',
       highlight: "灵活技术选型",
@@ -93,13 +82,7 @@ export function AdvantagesSection() {
       numberLabel: "年技术经验",
     },
     {
-      icon: () => (
-        <div className="relative w-12 h-12">
-          <div className="absolute inset-0 bg-gradient-to-br from-teal-300 to-cyan-600 rounded-xl opacity-20 blur-sm"></div>
-          <div className="absolute top-0 left-0 w-12 h-12 bg-gradient-to-br from-teal-300 to-cyan-500 rounded-xl transform rotate-45"></div>
-          <div className="absolute top-2 left-2 w-8 h-8 bg-gradient-to-br from-white to-gray-100 rounded-lg transform -rotate-45"></div>
-        </div>
-      ),
+      icon: ShieldCheck,
       title: "技术硬实力保障",
       description: "保障软件运行稳定（故障率低于0.5%）、数据安全（符合等保2.0标准）。",
       highlight: "故障率<0.5%",
@@ -107,14 +90,7 @@ export function AdvantagesSection() {
       numberLabel: "故障率",
     },
     {
-      icon: () => (
-        <div className="relative w-12 h-12">
-          <div className="absolute inset-0 bg-gradient-to-br from-cyan-400 to-teal-500 rounded-2xl opacity-20 blur-sm"></div>
-          <div className="absolute top-1 left-1 w-10 h-10 bg-gradient-to-br from-cyan-400 to-teal-500 rounded-2xl transform rotate-6"></div>
-          <div className="absolute top-2 left-2 w-8 h-8 bg-gradient-to-br from-teal-200 to-cyan-300 rounded-xl transform -rotate-3"></div>
-          <div className="absolute top-4 left-4 w-4 h-4 bg-white rounded-full"></div>
-        </div>
-      ),
+      icon: Headphones,
       title: "售后无死角",
       description:
         "上线后提供运维服务，7×24小时技术支持热线+在线工单系统，故障响应不超过2小时，紧急问题4小时内提供解决方案。",
@@ -153,8 +129,8 @@ export function AdvantagesSection() {
               >
                 <CardHeader>
                   <div className="flex items-start space-x-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors flex-shrink-0">
-                      <advantage.icon />
+                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-blue-100 to-green-100 group-hover:bg-gradient-to-br group-hover:from-blue-200 group-hover:to-green-200 transition-colors flex-shrink-0">
+                      <advantage.icon className="h-6 w-6 text-blue-600" />
                     </div>
                     <div className="flex-1">
                       <CardTitle className="text-xl font-semibold text-foreground mb-2">{advantage.title}</CardTitle>
@@ -219,8 +195,8 @@ export function AdvantagesSection() {
               >
                 <CardHeader>
                   <div className="flex items-start space-x-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors flex-shrink-0">
-                      <advantage.icon />
+                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-blue-100 to-green-100 group-hover:bg-gradient-to-br group-hover:from-blue-200 group-hover:to-green-200 transition-colors flex-shrink-0">
+                      <advantage.icon className="h-6 w-6 text-blue-600" />
                     </div>
                     <div className="flex-1">
                       <CardTitle className="text-xl font-semibold text-foreground mb-2">{advantage.title}</CardTitle>
