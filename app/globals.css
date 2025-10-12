@@ -222,36 +222,36 @@
   animation: pulse-glow 3s ease-in-out infinite;
 }
 
-/* 渐变文字效果 - 带微信浏览器兼容性 */
+/* 渐变文字效果 - 改进的微信浏览器兼容性方案 */
 .gradient-text {
-  /* 默认使用纯色，确保在不支持的浏览器中可见 */
-  color: #2563eb;
+  /* 默认使用纯色作为fallback */
+  color: #2563eb !important;
   font-weight: 700;
+  /* 添加渐变背景 */
+  background: linear-gradient(to right, #3b82f6, #22c55e);
+  /* 尝试应用背景裁剪 */
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
-/* 只在支持background-clip: text的浏览器中应用渐变效果 */
-@supports (background-clip: text) or (-webkit-background-clip: text) {
+/* 只在明确支持的情况下才让文字透明 */
+@supports (-webkit-background-clip: text) {
   .gradient-text {
-    background: linear-gradient(to right, #3b82f6, #22c55e);
-    -webkit-background-clip: text;
-    background-clip: text;
     -webkit-text-fill-color: transparent;
-    color: transparent;
   }
 }
 
 /* 蓝绿渐变变体 */
 .gradient-text-blue-green {
-  color: #2563eb;
+  color: #2563eb !important;
   font-weight: 700;
+  background: linear-gradient(to right, #3b82f6, #22c55e);
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
-@supports (background-clip: text) or (-webkit-background-clip: text) {
+@supports (-webkit-background-clip: text) {
   .gradient-text-blue-green {
-    background: linear-gradient(to right, #3b82f6, #22c55e);
-    -webkit-background-clip: text;
-    background-clip: text;
     -webkit-text-fill-color: transparent;
-    color: transparent;
   }
 }
