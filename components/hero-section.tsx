@@ -1,12 +1,15 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
 
 export function HeroSection() {
   const [currentStation, setCurrentStation] = useState(0)
   const [showQRCode, setShowQRCode] = useState(false)
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const retryCountRef = useRef(0)
+  const maxRetries = 5
 
   const stations = [
     {
@@ -33,6 +36,39 @@ export function HeroSection() {
     return () => clearInterval(stationTimer)
   }, [stations.length])
 
+  useEffect(() => {
+    const attemptPlay = () => {
+      if (videoRef.current && retryCountRef.current < maxRetries) {
+        videoRef.current
+          .play()
+          .then(() => {
+            console.log("[v0] Hero video playing successfully")
+            retryCountRef.current = 0
+          })
+          .catch((error) => {
+            retryCountRef.current++
+            console.log(`[v0] Hero video autoplay attempt ${retryCountRef.current} failed:`, error)
+            if (retryCountRef.current < maxRetries) {
+              setTimeout(attemptPlay, 1000 * retryCountRef.current)
+            }
+          })
+      }
+    }
+
+    attemptPlay()
+
+    const video = videoRef.current
+    if (video) {
+      const handleCanPlay = () => {
+        if (video.paused) {
+          attemptPlay()
+        }
+      }
+      video.addEventListener("canplay", handleCanPlay)
+      return () => video.removeEventListener("canplay", handleCanPlay)
+    }
+  }, [])
+
   return (
     <section className="relative">
       <div className="absolute top-10 right-10 w-20 h-20 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 blur-xl" />
@@ -48,14 +84,7 @@ export function HeroSection() {
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-balance leading-tight">
                 <div className="space-y-2">
                   <div className="text-foreground">软件定制开发与</div>
-                  <div
-                    className="bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent"
-                    style={{
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                      color: "#2563eb", // 降级颜色：蓝色
-                    }}
-                  >
+                  <div className="text-blue-600 [background:linear-gradient(to_right,rgb(59_130_246),rgb(34_197_94))] [-webkit-background-clip:text] [background-clip:text] [-webkit-text-fill-color:transparent] [supports(background-clip:text)]:text-transparent">
                     AI智能体服务专家
                   </div>
                 </div>
@@ -109,11 +138,14 @@ export function HeroSection() {
               </div>
 
               <video
+                ref={videoRef}
                 src="https://blobs.vusercontent.net/blob/u1774431695_Software_customization_development_and_AI_agents__1cc54faa-3377-4380-9708-66886f1f29b7_3-GKaSFEcgNG4E1sdHTtNWg57sdpEPs1.mp4"
                 autoPlay
                 loop
                 muted
                 playsInline
+                preload="auto"
+                webkit-playsinline="true"
                 className="w-full h-auto rounded-lg shadow-xl"
                 style={{ maxHeight: "450px", objectFit: "contain" }}
               />
@@ -124,53 +156,25 @@ export function HeroSection() {
 
       <div className="grid grid-cols-4 gap-2 sm:gap-6 mt-4 sm:mt-8">
         <div className="bg-card rounded-2xl shadow-lg border border-border/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 p-1 sm:p-6 text-center">
-          <div
-            className="text-sm sm:text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-1 sm:mb-2"
-            style={{
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              color: "#2563eb",
-            }}
-          >
+          <div className="text-sm sm:text-3xl font-bold text-blue-600 [background:linear-gradient(to_right,rgb(59_130_246),rgb(34_197_94))] [-webkit-background-clip:text] [background-clip:text] [-webkit-text-fill-color:transparent] [supports(background-clip:text)]:text-transparent mb-1 sm:mb-2">
             100%
           </div>
           <div className="text-[10px] sm:text-sm text-muted-foreground whitespace-nowrap">业务对齐</div>
         </div>
         <div className="bg-card rounded-2xl shadow-lg border border-border/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 p-1 sm:p-6 text-center">
-          <div
-            className="text-sm sm:text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-1 sm:mb-2"
-            style={{
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              color: "#2563eb",
-            }}
-          >
+          <div className="text-sm sm:text-3xl font-bold text-blue-600 [background:linear-gradient(to_right,rgb(59_130_246),rgb(34_197_94))] [-webkit-background-clip:text] [background-clip:text] [-webkit-text-fill-color:transparent] [supports(background-clip:text)]:text-transparent mb-1 sm:mb-2">
             10+
           </div>
           <div className="text-[10px] sm:text-sm text-muted-foreground whitespace-nowrap">年技术经验</div>
         </div>
         <div className="bg-card rounded-2xl shadow-lg border border-border/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 p-1 sm:p-6 text-center">
-          <div
-            className="text-sm sm:text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-1 sm:mb-2"
-            style={{
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              color: "#2563eb",
-            }}
-          >
+          <div className="text-sm sm:text-3xl font-bold text-blue-600 [background:linear-gradient(to_right,rgb(59_130_246),rgb(34_197_94))] [-webkit-background-clip:text] [background-clip:text] [-webkit-text-fill-color:transparent] [supports(background-clip:text)]:text-transparent mb-1 sm:mb-2">
             &gt;0.5%
           </div>
           <div className="text-[10px] sm:text-sm text-muted-foreground whitespace-nowrap">故障率</div>
         </div>
         <div className="bg-card rounded-2xl shadow-lg border border-border/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 p-1 sm:p-6 text-center">
-          <div
-            className="text-sm sm:text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-1 sm:mb-2"
-            style={{
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              color: "#2563eb",
-            }}
-          >
+          <div className="text-sm sm:text-3xl font-bold text-blue-600 [background:linear-gradient(to_right,rgb(59_130_246),rgb(34_197_94))] [-webkit-background-clip:text] [background-clip:text] [-webkit-text-fill-color:transparent] [supports(background-clip:text)]:text-transparent mb-1 sm:mb-2">
             &gt;2h
           </div>
           <div className="text-[10px] sm:text-sm text-muted-foreground whitespace-nowrap">故障响应</div>

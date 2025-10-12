@@ -6,6 +6,9 @@ import { useEffect, useRef, useState } from "react"
 export function AdvantagesSection() {
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const retryCountRef = useRef(0)
+  const maxRetries = 5
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -23,6 +26,41 @@ export function AdvantagesSection() {
 
     return () => observer.disconnect()
   }, [])
+
+  useEffect(() => {
+    if (videoRef.current && isVisible) {
+      const attemptPlay = () => {
+        if (videoRef.current && retryCountRef.current < maxRetries) {
+          videoRef.current
+            .play()
+            .then(() => {
+              console.log("[v0] Advantages video playing successfully")
+              retryCountRef.current = 0
+            })
+            .catch((error) => {
+              retryCountRef.current++
+              console.log(`[v0] Advantages video autoplay attempt ${retryCountRef.current} failed:`, error)
+              if (retryCountRef.current < maxRetries) {
+                setTimeout(attemptPlay, 1000 * retryCountRef.current)
+              }
+            })
+        }
+      }
+
+      attemptPlay()
+
+      const video = videoRef.current
+      if (video) {
+        const handleCanPlay = () => {
+          if (video.paused) {
+            attemptPlay()
+          }
+        }
+        video.addEventListener("canplay", handleCanPlay)
+        return () => video.removeEventListener("canplay", handleCanPlay)
+      }
+    }
+  }, [isVisible])
 
   const advantages = [
     {
@@ -146,10 +184,13 @@ export function AdvantagesSection() {
               }}
             >
               <video
+                ref={videoRef}
                 autoPlay
                 loop
                 muted
                 playsInline
+                preload="auto"
+                webkit-playsinline="true"
                 className="w-full max-w-sm h-80 object-cover rounded-xl shadow-lg mt-16"
               >
                 <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/social_u1774431695_system_integration_icon_--ar_7758_--video_1_fc165433-f436-4382-847f-3cb9134c80db_0-T606KA4ZJcTXFMN2YL1MFn2zWvQjfr.mp4" type="video/mp4" />
