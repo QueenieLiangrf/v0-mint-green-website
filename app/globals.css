@@ -207,21 +207,6 @@
   animation: gradient-shift 8s ease infinite;
 }
 
-/* 浮动动画 */
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.float-animation {
-  animation: float 6s ease-in-out infinite;
-}
-
 /* 脉冲动画 */
 @keyframes pulse-glow {
   0%,
@@ -235,4 +220,38 @@
 
 .pulse-glow {
   animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* 渐变文字效果 - 带微信浏览器兼容性 */
+.gradient-text {
+  /* 默认使用纯色，确保在不支持的浏览器中可见 */
+  color: #2563eb;
+  font-weight: 700;
+}
+
+/* 只在支持background-clip: text的浏览器中应用渐变效果 */
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  .gradient-text {
+    background: linear-gradient(to right, #3b82f6, #22c55e);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+}
+
+/* 蓝绿渐变变体 */
+.gradient-text-blue-green {
+  color: #2563eb;
+  font-weight: 700;
+}
+
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  .gradient-text-blue-green {
+    background: linear-gradient(to right, #3b82f6, #22c55e);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
 }

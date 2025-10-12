@@ -84,9 +84,7 @@ export function HeroSection() {
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-balance leading-tight">
                 <div className="space-y-2">
                   <div className="text-foreground">软件定制开发与</div>
-                  <div className="text-blue-600 [background:linear-gradient(to_right,rgb(59_130_246),rgb(34_197_94))] [-webkit-background-clip:text] [background-clip:text] [-webkit-text-fill-color:transparent] [supports(background-clip:text)]:text-transparent">
-                    AI智能体服务专家
-                  </div>
+                  <div className="gradient-text-blue-green">AI智能体服务专家</div>
                 </div>
               </h1>
 
@@ -156,27 +154,19 @@ export function HeroSection() {
 
       <div className="grid grid-cols-4 gap-2 sm:gap-6 mt-4 sm:mt-8">
         <div className="bg-card rounded-2xl shadow-lg border border-border/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 p-1 sm:p-6 text-center">
-          <div className="text-sm sm:text-3xl font-bold text-blue-600 [background:linear-gradient(to_right,rgb(59_130_246),rgb(34_197_94))] [-webkit-background-clip:text] [background-clip:text] [-webkit-text-fill-color:transparent] [supports(background-clip:text)]:text-transparent mb-1 sm:mb-2">
-            100%
-          </div>
+          <div className="text-sm sm:text-3xl font-bold gradient-text mb-1 sm:mb-2">100%</div>
           <div className="text-[10px] sm:text-sm text-muted-foreground whitespace-nowrap">业务对齐</div>
         </div>
         <div className="bg-card rounded-2xl shadow-lg border border-border/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 p-1 sm:p-6 text-center">
-          <div className="text-sm sm:text-3xl font-bold text-blue-600 [background:linear-gradient(to_right,rgb(59_130_246),rgb(34_197_94))] [-webkit-background-clip:text] [background-clip:text] [-webkit-text-fill-color:transparent] [supports(background-clip:text)]:text-transparent mb-1 sm:mb-2">
-            10+
-          </div>
+          <div className="text-sm sm:text-3xl font-bold gradient-text mb-1 sm:mb-2">10+</div>
           <div className="text-[10px] sm:text-sm text-muted-foreground whitespace-nowrap">年技术经验</div>
         </div>
         <div className="bg-card rounded-2xl shadow-lg border border-border/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 p-1 sm:p-6 text-center">
-          <div className="text-sm sm:text-3xl font-bold text-blue-600 [background:linear-gradient(to_right,rgb(59_130_246),rgb(34_197_94))] [-webkit-background-clip:text] [background-clip:text] [-webkit-text-fill-color:transparent] [supports(background-clip:text)]:text-transparent mb-1 sm:mb-2">
-            &gt;0.5%
-          </div>
+          <div className="text-sm sm:text-3xl font-bold gradient-text mb-1 sm:mb-2">&gt;0.5%</div>
           <div className="text-[10px] sm:text-sm text-muted-foreground whitespace-nowrap">故障率</div>
         </div>
         <div className="bg-card rounded-2xl shadow-lg border border-border/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 p-1 sm:p-6 text-center">
-          <div className="text-sm sm:text-3xl font-bold text-blue-600 [background:linear-gradient(to_right,rgb(59_130_246),rgb(34_197_94))] [-webkit-background-clip:text] [background-clip:text] [-webkit-text-fill-color:transparent] [supports(background-clip:text)]:text-transparent mb-1 sm:mb-2">
-            &gt;2h
-          </div>
+          <div className="text-sm sm:text-3xl font-bold gradient-text mb-1 sm:mb-2">&gt;2h</div>
           <div className="text-[10px] sm:text-sm text-muted-foreground whitespace-nowrap">故障响应</div>
         </div>
       </div>
