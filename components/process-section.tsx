@@ -153,27 +153,27 @@ export function ProcessSection() {
                             </div>
 
                             <div
-                              className={`backdrop-blur-sm rounded-2xl p-6 border-2 transition-all duration-700 shadow-lg hover:shadow-xl w-full h-64 flex flex-col items-center text-center relative overflow-hidden bg-gradient-to-br from-blue-500/10 to-green-500/10 ${
+                              className={`backdrop-blur-sm rounded-2xl p-6 border-2 transition-all duration-700 shadow-lg hover:shadow-xl w-full h-64 flex flex-col items-center text-center relative overflow-hidden ${
                                 isActive
-                                  ? "shadow-2xl shadow-blue-500/30 bg-gradient-to-br from-blue-500/20 to-green-500/15"
+                                  ? "bg-gradient-to-br from-blue-100 to-green-50 border-blue-200 shadow-2xl shadow-blue-500/30"
                                   : isPrevious
-                                    ? "shadow-lg shadow-blue-500/20 bg-gradient-to-br from-blue-500/15 to-green-500/10"
-                                    : ""
+                                    ? "bg-gradient-to-br from-blue-50 to-green-50/50 border-blue-100 shadow-lg shadow-blue-500/20"
+                                    : "bg-gradient-to-br from-blue-50/80 to-green-50/60 border-gray-200"
                               }`}
                             >
                               {/* 背景装饰 */}
                               {isActive && (
-                                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-transparent to-green-500/15 opacity-50"></div>
+                                <div className="absolute inset-0 bg-gradient-to-br from-blue-400/10 via-transparent to-green-400/10 opacity-50"></div>
                               )}
 
                               <div className="relative z-10 flex flex-col items-center h-full">
                                 <div
                                   className={`w-20 h-20 rounded-2xl flex items-center justify-center shadow-lg mb-4 transition-all duration-700 overflow-hidden ${
                                     isActive
-                                      ? "bg-gradient-to-br from-blue-500/40 to-green-500/30 scale-110 shadow-blue-500/30"
+                                      ? "bg-gradient-to-br from-blue-200 to-green-100 scale-110 shadow-blue-500/30"
                                       : isPrevious
-                                        ? "bg-gradient-to-br from-blue-500/30 to-green-500/20 scale-105"
-                                        : "bg-gradient-to-br from-blue-500/20 to-green-500/10"
+                                        ? "bg-gradient-to-br from-blue-100 to-green-50 scale-105"
+                                        : "bg-gradient-to-br from-blue-50 to-green-50/50"
                                   }`}
                                 >
                                   <ProcessIcon type={process.iconType} isActive={isActive} />
