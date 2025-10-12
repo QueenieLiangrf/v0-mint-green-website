@@ -15,7 +15,7 @@ const CheckCircleIcon = ({ className }: { className?: string }) => (
 )
 
 const ProcessIcon = ({ type, isActive }: { type: string; isActive: boolean }) => {
-  const baseClasses = `w-12 h-12 transition-all duration-700 ${isActive ? "scale-110" : ""}`
+  const baseClasses = `w-16 h-16 transition-all duration-700 ${isActive ? "scale-110" : ""}`
 
   switch (type) {
     case "research":
@@ -247,7 +247,7 @@ export function ProcessSection() {
 
                               <div className="relative z-10 flex flex-col items-center h-full">
                                 <div
-                                  className={`w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg mb-4 transition-all duration-700 overflow-hidden ${
+                                  className={`w-20 h-20 rounded-2xl flex items-center justify-center shadow-lg mb-4 transition-all duration-700 overflow-hidden ${
                                     isActive
                                       ? "bg-gradient-to-br from-blue-500/40 to-green-500/30 scale-110 shadow-blue-500/30"
                                       : isPrevious
@@ -260,12 +260,8 @@ export function ProcessSection() {
 
                                 {/* 标题 */}
                                 <h3
-                                  className={`text-lg font-bold mb-3 transition-all duration-500 ${
-                                    isActive
-                                      ? "text-blue-600 scale-105"
-                                      : isPrevious
-                                        ? "text-blue-500"
-                                        : "text-gray-700"
+                                  className={`text-lg font-bold mb-3 transition-all duration-500 gradient-text-blue-green ${
+                                    isActive ? "scale-105" : ""
                                   }`}
                                 >
                                   {process.title}
