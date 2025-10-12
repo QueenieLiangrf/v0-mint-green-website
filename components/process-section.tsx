@@ -97,16 +97,16 @@ export function ProcessSection() {
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-4 mb-6">
             <div className="flex items-center gap-4 -ml-[189px]">
-              <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">全流程定制服务</h2>
+              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">全流程定制服务</h2>
             </div>
             <div className="flex gap-1">
-              <Play className="h-6 w-6 text-primary fill-primary" />
-              <Play className="h-5 w-5 text-primary/70 fill-primary/70" />
-              <Play className="h-6 w-6 text-primary fill-primary" />
-              <Play className="h-5 w-5 text-primary/70 fill-primary/70" />
+              <Play className="h-6 w-6 text-blue-600 fill-blue-600" />
+              <Play className="h-5 w-5 text-blue-500 fill-blue-500" />
+              <Play className="h-6 w-6 text-blue-600 fill-blue-600" />
+              <Play className="h-5 w-5 text-blue-500 fill-blue-500" />
             </div>
           </div>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto text-pretty">
             从0到1，全程可控，让企业无需担心"需求落地偏差"和"进度失控"等问题
           </p>
         </div>
@@ -249,9 +249,9 @@ export function ProcessSection() {
 
         {/* 底部说明 */}
         <div className="mt-16 text-center">
-          <div className="inline-flex items-center gap-2 px-6 py-3 bg-primary/10 rounded-full backdrop-blur-sm">
-            <CheckCircle className="h-5 w-5 text-primary" />
-            <span className="text-sm font-medium text-primary">全程透明可追溯，确保项目成功交付</span>
+          <div className="inline-flex items-center gap-2 px-6 py-3 bg-blue-50 rounded-full backdrop-blur-sm">
+            <CheckCircle className="h-5 w-5 text-blue-600" />
+            <span className="text-sm font-medium text-blue-600">全程透明可追溯，确保项目成功交付</span>
           </div>
         </div>
       </div>
