@@ -143,28 +143,39 @@ export function ProcessSection() {
                             <div
                               className={`absolute -top-3 -left-3 w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-all duration-500 z-30 ${
                                 isActive
-                                  ? "bg-primary text-primary-foreground shadow-lg shadow-primary/50 scale-110"
+                                  ? "bg-blue-600 text-white shadow-lg shadow-blue-500/50 scale-110"
                                   : isPrevious
-                                    ? "bg-primary/80 text-primary-foreground"
-                                    : "bg-muted text-muted-foreground"
+                                    ? "bg-blue-500 text-white"
+                                    : "bg-gray-300 text-gray-600"
                               }`}
                             >
                               {index + 1}
                             </div>
 
                             <div
-                              className={`backdrop-blur-sm rounded-2xl p-6 border-2 transition-all duration-700 shadow-lg hover:shadow-xl w-full h-64 flex flex-col items-center text-center relative overflow-hidden ${
+                              className={`backdrop-blur-sm rounded-2xl p-6 border-0 transition-all duration-700 w-full h-64 flex flex-col items-center text-center relative overflow-hidden ${
                                 isActive
-                                  ? "bg-gradient-to-br from-blue-100 to-green-50 border-blue-200 shadow-2xl shadow-blue-500/30"
+                                  ? "bg-gradient-to-br from-blue-100 to-green-50 shadow-2xl hover:shadow-3xl"
                                   : isPrevious
-                                    ? "bg-gradient-to-br from-blue-50 to-green-50/50 border-blue-100 shadow-lg shadow-blue-500/20"
-                                    : "bg-gradient-to-br from-blue-50/80 to-green-50/60 border-gray-200"
+                                    ? "bg-gradient-to-br from-blue-50 to-green-50/50 shadow-lg hover:shadow-xl"
+                                    : "bg-gradient-to-br from-blue-50/80 to-green-50/60 shadow-md hover:shadow-lg"
                               }`}
                             >
                               {/* 背景装饰 */}
-                              {isActive && (
-                                <div className="absolute inset-0 bg-gradient-to-br from-blue-400/10 via-transparent to-green-400/10 opacity-50"></div>
-                              )}
+                              <div
+                                className={`absolute -right-8 -top-8 w-32 h-32 rounded-full transition-all duration-700 ${
+                                  isActive
+                                    ? "bg-gradient-to-br from-blue-400/20 to-green-400/20"
+                                    : "bg-gradient-to-br from-blue-300/10 to-green-300/10"
+                                }`}
+                              />
+                              <div
+                                className={`absolute -left-8 -bottom-8 w-32 h-32 rounded-full transition-all duration-700 ${
+                                  isActive
+                                    ? "bg-gradient-to-br from-green-400/20 to-blue-400/20"
+                                    : "bg-gradient-to-br from-green-300/10 to-blue-300/10"
+                                }`}
+                              />
 
                               <div className="relative z-10 flex flex-col items-center h-full">
                                 <div
@@ -201,10 +212,10 @@ export function ProcessSection() {
                                 <div
                                   className={`inline-flex items-center gap-2 px-3 py-2 rounded-full transition-all duration-500 ${
                                     isActive
-                                      ? "bg-primary/30 border-2 border-primary/50 shadow-md"
+                                      ? "bg-blue-100 border-2 border-blue-300 shadow-md"
                                       : isPrevious
-                                        ? "bg-primary/20 border border-primary/30"
-                                        : "bg-muted/50 border border-muted"
+                                        ? "bg-blue-50 border border-blue-200"
+                                        : "bg-gray-100 border border-gray-200"
                                   }`}
                                 >
                                   {/* 耗时标签 */}
@@ -232,10 +243,10 @@ export function ProcessSection() {
                         key={index}
                         className={`w-3 h-3 rounded-full transition-all duration-500 cursor-pointer ${
                           activeIndex === index
-                            ? "bg-primary scale-125 shadow-lg shadow-primary/50"
+                            ? "bg-blue-600 scale-125 shadow-lg shadow-blue-500/50"
                             : activeIndex > index
-                              ? "bg-primary/60"
-                              : "bg-muted/50"
+                              ? "bg-blue-400"
+                              : "bg-gray-300"
                         }`}
                         onClick={() => setActiveIndex(index)}
                       />
