@@ -380,17 +380,15 @@ export function ServicesSection() {
 
       <div className="bg-card rounded-3xl shadow-xl border border-border/50 p-8 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
         <div id="services" className="text-center mb-12">
-          <div className="inline-block px-6 py-3 text-sm font-medium rounded-full mb-6 bg-gradient-to-r from-primary to-secondary text-white shadow-lg">
+          <div className="inline-block px-6 py-3 text-sm font-medium rounded-full mb-6 bg-gradient-to-r from-blue-500 to-green-500 text-white shadow-lg">
             核心服务项目
           </div>
-          <h2 className="text-4xl font-bold tracking-tight text-foreground mb-6">
+          <h2 className="text-4xl font-bold tracking-tight text-gray-900 mb-6">
             发现数字化转型的
             <br />
-            <span className="text-blue-600 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              无限可能
-            </span>
+            <span className="gradient-text-blue-green">无限可能</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8 leading-relaxed">
             从软件定制开发到AI智能体服务，我们提供全方位的技术解决方案，助力企业实现数字化转型
           </p>
         </div>
