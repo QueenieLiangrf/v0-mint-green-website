@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import { Card } from "@/components/ui/card"
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
+import { Phone, MessageCircle } from "lucide-react"
 
 const industries = [
   {
@@ -159,11 +160,54 @@ export function IndustriesSection() {
               </button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-md">
-              <div className="flex flex-col items-center justify-center p-6">
-                <img src="/customer-service-qr.png" alt="Customer Service QR Code" className="w-full max-w-sm h-auto" />
-                <div className="mt-4 text-center space-y-2">
-                  <p className="text-sm font-medium text-foreground">请用微信扫描二维码咨询客服</p>
-                  <p className="text-xs text-muted-foreground">或者拨打咨询电话：4001037431</p>
+              <div className="flex flex-col items-center justify-center p-6 space-y-4">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">联系我们</h3>
+                <p className="text-gray-600 text-center mb-4">选择以下方式与我们取得联系</p>
+
+                {/* 拨打电话卡片 */}
+                <div
+                  className="w-full p-6 rounded-xl cursor-pointer transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+                  style={{
+                    background: "linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%)",
+                  }}
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center shadow-lg">
+                      <Phone
+                        className="w-6 h-6 text-white"
+                        style={{ filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.2))" }}
+                      />
+                    </div>
+                    <div className="flex-1 text-left">
+                      <p className="text-white font-semibold mb-1">拨打咨询电话</p>
+                      <p className="text-white text-lg font-bold" style={{ textShadow: "0 2px 4px rgba(0,0,0,0.2)" }}>
+                        400-103-7431
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 在线咨询卡片 */}
+                <div
+                  className="w-full p-6 rounded-xl cursor-pointer transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+                  style={{
+                    background: "linear-gradient(135deg, #06b6d4 0%, #22c55e 100%)",
+                  }}
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center shadow-lg">
+                      <MessageCircle
+                        className="w-6 h-6 text-white"
+                        style={{ filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.2))" }}
+                      />
+                    </div>
+                    <div className="flex-1 text-left">
+                      <p className="text-white font-semibold mb-1">在线咨询</p>
+                      <p className="text-white text-sm" style={{ textShadow: "0 2px 4px rgba(0,0,0,0.2)" }}>
+                        点击右侧浮窗联系客服
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </DialogContent>

@@ -164,22 +164,6 @@ export function ProcessSection() {
                                     : "bg-gradient-to-br from-blue-50/80 to-green-50/60 shadow-md hover:shadow-lg"
                               }`}
                             >
-                              {/* 背景装饰 */}
-                              <div
-                                className={`absolute -right-8 -top-8 w-32 h-32 rounded-full transition-all duration-700 ${
-                                  isActive
-                                    ? "bg-gradient-to-br from-blue-400/20 to-green-400/20"
-                                    : "bg-gradient-to-br from-blue-300/10 to-green-300/10"
-                                }`}
-                              />
-                              <div
-                                className={`absolute -left-8 -bottom-8 w-32 h-32 rounded-full transition-all duration-700 ${
-                                  isActive
-                                    ? "bg-gradient-to-br from-green-400/20 to-blue-400/20"
-                                    : "bg-gradient-to-br from-green-300/10 to-blue-300/10"
-                                }`}
-                              />
-
                               <div className="relative z-10 flex flex-col items-center h-full">
                                 <div
                                   className={`w-20 h-20 rounded-2xl flex items-center justify-center shadow-lg mb-4 transition-all duration-700 overflow-hidden ${
@@ -265,7 +249,7 @@ export function ProcessSection() {
         <div className="mt-16 text-center">
           <div className="inline-flex items-center gap-2 px-6 py-3 bg-blue-50 rounded-full backdrop-blur-sm">
             <CheckCircle className="h-5 w-5 text-blue-600" />
-            <span className="text-sm font-medium text-blue-600">全程透明可追溯，确保项目成功交付</span>
+            <span className="text-sm font-medium gradient-text-blue-green">全程透明可追溯，确保项目成功交付</span>
           </div>
         </div>
       </div>

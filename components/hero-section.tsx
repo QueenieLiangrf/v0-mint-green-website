@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { useState, useEffect, useRef } from "react"
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
+import { Phone, MessageCircle } from "lucide-react"
 
 export function HeroSection() {
   const [currentStation, setCurrentStation] = useState(0)
@@ -104,15 +105,72 @@ export function HeroSection() {
                       </Button>
                     </DialogTrigger>
                     <DialogContent className="sm:max-w-md">
-                      <div className="flex flex-col items-center justify-center p-6">
-                        <img
-                          src="/customer-service-qr.png"
-                          alt="Customer Service QR Code"
-                          className="w-full max-w-sm h-auto"
-                        />
-                        <div className="mt-4 text-center space-y-2">
-                          <p className="text-sm font-medium text-foreground">请用微信扫描二维码咨询客服</p>
-                          <p className="text-xs text-muted-foreground">或者拨打咨询电话：4001037431</p>
+                      <div className="p-6 space-y-4">
+                        <h3 className="text-xl font-bold text-center mb-6 text-gray-900">联系我们</h3>
+                        <p className="text-gray-600 text-center mb-4">选择以下方式与我们取得联系</p>
+
+                        <div className="space-y-3">
+                          {/* 拨打电话卡片 */}
+                          <div
+                            className="p-6 rounded-xl cursor-pointer transition-all duration-300 hover:shadow-xl"
+                            style={{
+                              background: "linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%)",
+                            }}
+                          >
+                            <div className="flex items-center gap-4">
+                              <div className="w-14 h-14 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center shadow-lg">
+                                <Phone
+                                  className="w-7 h-7 text-white"
+                                  style={{ filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.2))" }}
+                                />
+                              </div>
+                              <div className="flex-1">
+                                <h4
+                                  className="font-bold text-white mb-1"
+                                  style={{ textShadow: "0 2px 4px rgba(0,0,0,0.1)" }}
+                                >
+                                  拨打咨询电话
+                                </h4>
+                                <p
+                                  className="text-2xl font-bold text-white"
+                                  style={{ textShadow: "0 2px 4px rgba(0,0,0,0.1)" }}
+                                >
+                                  400-103-7431
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* 在线咨询卡片 */}
+                          <div
+                            className="p-6 rounded-xl cursor-pointer transition-all duration-300 hover:shadow-xl"
+                            style={{
+                              background: "linear-gradient(135deg, #06b6d4 0%, #22c55e 100%)",
+                            }}
+                          >
+                            <div className="flex items-center gap-4">
+                              <div className="w-14 h-14 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center shadow-lg">
+                                <MessageCircle
+                                  className="w-7 h-7 text-white"
+                                  style={{ filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.2))" }}
+                                />
+                              </div>
+                              <div className="flex-1">
+                                <h4
+                                  className="font-bold text-white mb-1"
+                                  style={{ textShadow: "0 2px 4px rgba(0,0,0,0.1)" }}
+                                >
+                                  在线咨询
+                                </h4>
+                                <p
+                                  className="text-sm text-white/90"
+                                  style={{ textShadow: "0 1px 2px rgba(0,0,0,0.1)" }}
+                                >
+                                  点击右侧浮窗联系客服
+                                </p>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </DialogContent>
