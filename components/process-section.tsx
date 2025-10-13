@@ -141,13 +141,16 @@ export function ProcessSection() {
                           >
                             {/* 步骤编号圆圈 */}
                             <div
-                              className={`absolute -top-3 -left-3 w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-all duration-500 z-30 ${
-                                isActive
-                                  ? "bg-blue-600 text-white shadow-lg shadow-blue-500/50 scale-110"
-                                  : isPrevious
-                                    ? "bg-blue-500 text-white"
-                                    : "bg-gray-300 text-gray-600"
+                              className={`absolute -top-4 -left-4 w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-500 z-40 text-white ${
+                                isActive ? "shadow-lg shadow-blue-500/50 scale-110" : ""
                               }`}
+                              style={{
+                                background: isActive
+                                  ? "linear-gradient(135deg, #2563eb, #22c55e)"
+                                  : isPrevious
+                                    ? "linear-gradient(135deg, #3b82f6, #34d399)"
+                                    : "linear-gradient(135deg, #60a5fa, #6ee7b7)",
+                              }}
                             >
                               {index + 1}
                             </div>
