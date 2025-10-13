@@ -380,7 +380,7 @@ export function ServicesSection() {
 
       <div className="bg-card rounded-3xl shadow-xl border border-border/50 p-8 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
         <div id="services" className="text-center mb-12">
-          <div className="inline-block px-6 py-3 text-sm font-medium rounded-full mb-6 bg-gradient-to-r from-blue-500 to-green-500 text-white shadow-lg">
+          <div className="inline-block px-6 py-3 text-sm font-medium rounded-full mb-6 bg-blue-500 bg-gradient-to-r from-blue-500 to-green-500 text-white shadow-lg">
             核心服务项目
           </div>
           <h2 className="text-4xl font-bold tracking-tight text-gray-900 mb-6">
