@@ -255,3 +255,9 @@
     -webkit-text-fill-color: transparent;
   }
 }
+
+/* 添加竖排文字样式支持 */
+.writing-mode-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}

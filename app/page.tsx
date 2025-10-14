@@ -6,13 +6,14 @@ import { ProcessSection } from "@/components/process-section"
 import { IndustriesSection } from "@/components/industries-section"
 import CasesSection from "@/components/cases-section"
 import { Footer } from "@/components/footer"
+import { FloatingContact } from "@/components/floating-contact"
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
       <Header />
 
-      <div className="container mx-auto px-6 py-12 pt-28 max-w-7xl relative z-10">
+      <div className="container mx-auto px-6 py-12 pt-20 max-w-7xl relative z-10">
         <main className="space-y-16">
           <HeroSection />
           <ServicesSection />
@@ -27,6 +28,7 @@ export default function HomePage() {
       </div>
 
       <Footer />
+      <FloatingContact />
     </div>
   )
 }
