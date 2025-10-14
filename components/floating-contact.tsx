@@ -10,33 +10,7 @@ export function FloatingContact() {
   return (
     <>
       {/* 浮动联系按钮 */}
-      <button
-        onClick={() => setIsOpen(true)}
-        className="fixed right-8 z-50 flex flex-col items-center justify-center gap-2 px-5 py-4 text-white rounded-2xl transition-all duration-300 hover:scale-105 min-w-[70px] shadow-[0_8px_30px_rgb(59,130,246,0.3),0_8px_30px_rgb(34,197,94,0.3)] hover:shadow-[0_12px_40px_rgb(59,130,246,0.4),0_12px_40px_rgb(34,197,94,0.4)]"
-        style={{
-          top: "calc(50% - 160px)",
-          backgroundColor: "#3b82f6",
-          background: "linear-gradient(135deg, #3b82f6, #22c55e)",
-          boxShadow:
-            "inset 0 1px 0 0 rgba(255,255,255,0.3), 0 8px 30px rgba(59,130,246,0.3), 0 8px 30px rgba(34,197,94,0.3)",
-        }}
-        aria-label="联系我们"
-      >
-        <MessageCircle
-          className="w-6 h-6"
-          style={{
-            filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.2))",
-          }}
-        />
-        <span
-          className="text-sm font-medium writing-mode-vertical"
-          style={{
-            textShadow: "0 1px 2px rgba(0,0,0,0.2)",
-          }}
-        >
-          联系我们
-        </span>
-      </button>
+      null
 
       {/* 联系对话框 */}
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
