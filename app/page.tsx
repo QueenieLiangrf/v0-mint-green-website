@@ -7,6 +7,7 @@ import { IndustriesSection } from "@/components/industries-section"
 import CasesSection from "@/components/cases-section"
 import { Footer } from "@/components/footer"
 import { FloatingContact } from "@/components/floating-contact"
+import { VideoAutoplayManager } from "@/components/video-autoplay-manager"
 
 export default function HomePage() {
   return (
@@ -29,6 +30,7 @@ export default function HomePage() {
 
       <Footer />
       <FloatingContact />
+      <VideoAutoplayManager />
     </div>
   )
 }
