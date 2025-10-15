@@ -196,7 +196,6 @@ export function AdvantagesSection() {
                 muted
                 playsInline
                 preload="auto"
-                x-webkit-airplay="allow"
                 className="w-full max-w-sm h-80 object-cover rounded-xl shadow-lg mt-16 pointer-events-none select-none"
                 style={{
                   WebkitUserSelect: "none",

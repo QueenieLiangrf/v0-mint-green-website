@@ -183,7 +183,6 @@ export function ServicesSection() {
           muted
           playsInline
           preload="auto"
-          x-webkit-airplay="allow"
           className="w-full h-80 object-cover rounded-lg pointer-events-none select-none"
           style={{
             WebkitUserSelect: "none",
@@ -236,7 +235,6 @@ export function ServicesSection() {
           muted
           playsInline
           preload="auto"
-          x-webkit-airplay="allow"
           className="w-full h-80 object-cover rounded-lg pointer-events-none select-none"
           style={{
             WebkitUserSelect: "none",
@@ -345,6 +343,26 @@ export function ServicesSection() {
     )
 
     items.push(
+      <div key="video-3" className="flex items-center justify-center">
+        <video
+          ref={(el) => (videoRefs.current[videoIndex++] = el)}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          className="w-full h-80 object-cover rounded-lg pointer-events-none select-none"
+          style={{
+            WebkitUserSelect: "none",
+            userSelect: "none",
+          }}
+        >
+          <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/social_u1774431695_technology_consulting_icon_--ar_7758_--video_1_21022898-08e4-420d-8ac7-355f8d364bc3_3-BKyVAtMJJdGcMlCmKusxn8hEyzOdpv.mp4" type="video/mp4" />
+        </video>
+      </div>,
+    )
+
+    items.push(
       <Card
         key="service-5"
         className={`border-0 shadow-lg relative overflow-hidden cursor-pointer group transition-all duration-500 ease-out ${services[5].bgPattern} hover:shadow-2xl hover:-translate-y-2 h-80`}
@@ -374,27 +392,6 @@ export function ServicesSection() {
           </div>
         </CardContent>
       </Card>,
-    )
-
-    items.push(
-      <div key="video-3" className="flex items-center justify-center">
-        <video
-          ref={(el) => (videoRefs.current[videoIndex++] = el)}
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          x-webkit-airplay="allow"
-          className="w-full h-80 object-cover rounded-lg pointer-events-none select-none"
-          style={{
-            WebkitUserSelect: "none",
-            userSelect: "none",
-          }}
-        >
-          <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/social_u1774431695_technology_consulting_icon_--ar_7758_--video_1_21022898-08e4-420d-8ac7-355f8d364bc3_3-BKyVAtMJJdGcMlCmKusxn8hEyzOdpv.mp4" type="video/mp4" />
-        </video>
-      </div>,
     )
 
     return items

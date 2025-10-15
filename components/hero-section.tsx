@@ -230,7 +230,6 @@ export function HeroSection() {
                 muted
                 playsInline
                 preload="auto"
-                x-webkit-airplay="allow"
                 className="w-full h-auto rounded-lg shadow-xl pointer-events-none select-none"
                 style={{
                   maxHeight: "450px",
