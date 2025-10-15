@@ -56,17 +56,46 @@ export function HeroSection() {
       }
     }
 
-    attemptPlay()
-
     const video = videoRef.current
     if (video) {
+      // 立即尝试播放
+      attemptPlay()
+
+      // 监听多个视频加载事件
+      const handleLoadedMetadata = () => attemptPlay()
+      const handleLoadedData = () => attemptPlay()
       const handleCanPlay = () => {
         if (video.paused) {
           attemptPlay()
         }
       }
+      const handleCanPlayThrough = () => attemptPlay()
+
+      video.addEventListener("loadedmetadata", handleLoadedMetadata)
+      video.addEventListener("loadeddata", handleLoadedData)
       video.addEventListener("canplay", handleCanPlay)
-      return () => video.removeEventListener("canplay", handleCanPlay)
+      video.addEventListener("canplaythrough", handleCanPlayThrough)
+
+      // 监听用户交互事件来触发播放（Safari需要）
+      const handleUserInteraction = () => {
+        if (video.paused) {
+          attemptPlay()
+        }
+      }
+
+      document.addEventListener("click", handleUserInteraction, { once: true })
+      document.addEventListener("touchstart", handleUserInteraction, { once: true })
+      document.addEventListener("scroll", handleUserInteraction, { once: true })
+
+      return () => {
+        video.removeEventListener("loadedmetadata", handleLoadedMetadata)
+        video.removeEventListener("loadeddata", handleLoadedData)
+        video.removeEventListener("canplay", handleCanPlay)
+        video.removeEventListener("canplaythrough", handleCanPlayThrough)
+        document.removeEventListener("click", handleUserInteraction)
+        document.removeEventListener("touchstart", handleUserInteraction)
+        document.removeEventListener("scroll", handleUserInteraction)
+      }
     }
   }, [])
 

@@ -58,12 +58,30 @@ export function ServicesSection() {
 
           attemptPlay()
 
+          const handleLoadedMetadata = () => attemptPlay()
+          const handleLoadedData = () => attemptPlay()
           const handleCanPlay = () => {
             if (video.paused) {
               attemptPlay()
             }
           }
+          const handleCanPlayThrough = () => attemptPlay()
+
+          video.addEventListener("loadedmetadata", handleLoadedMetadata)
+          video.addEventListener("loadeddata", handleLoadedData)
           video.addEventListener("canplay", handleCanPlay)
+          video.addEventListener("canplaythrough", handleCanPlayThrough)
+
+          // 监听用户交互事件来触发播放（Safari需要）
+          const handleUserInteraction = () => {
+            if (video.paused) {
+              attemptPlay()
+            }
+          }
+
+          document.addEventListener("click", handleUserInteraction, { once: true })
+          document.addEventListener("touchstart", handleUserInteraction, { once: true })
+          document.addEventListener("scroll", handleUserInteraction, { once: true })
         }
       })
     }
