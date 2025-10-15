@@ -169,7 +169,7 @@ export function AdvantagesSection() {
                 muted
                 playsInline
                 preload="auto"
-                webkit-playsinline="true"
+                x-webkit-airplay="allow"
                 className="w-full max-w-sm h-80 object-cover rounded-xl shadow-lg mt-16"
               >
                 <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/social_u1774431695_system_integration_icon_--ar_7758_--video_1_fc165433-f436-4382-847f-3cb9134c80db_0-T606KA4ZJcTXFMN2YL1MFn2zWvQjfr.mp4" type="video/mp4" />

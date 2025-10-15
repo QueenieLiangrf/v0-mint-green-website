@@ -165,7 +165,7 @@ export function ServicesSection() {
           muted
           playsInline
           preload="auto"
-          webkit-playsinline="true"
+          x-webkit-airplay="allow"
           className="w-full h-80 object-cover rounded-lg"
         >
           <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/social_u1774431695_web_icon_--ar_7758_--video_1_1bc8d9c9-a839-459d-ace8-1827f06477d4_0-iv2Av8mqyoirLbd3ziT6DuWdFFuDbc.mp4" type="video/mp4" />
@@ -214,7 +214,7 @@ export function ServicesSection() {
           muted
           playsInline
           preload="auto"
-          webkit-playsinline="true"
+          x-webkit-airplay="allow"
           className="w-full h-80 object-cover rounded-lg"
         >
           <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/social_u1774431695_apps_icon_--ar_7758_--video_1_bb8f0470-625e-4006-a976-f27afe1771c6_2-yk01iHKFNZtizKq1ccm03V0zlg33r8.mp4" type="video/mp4" />
@@ -359,7 +359,7 @@ export function ServicesSection() {
           muted
           playsInline
           preload="auto"
-          webkit-playsinline="true"
+          x-webkit-airplay="allow"
           className="w-full h-80 object-cover rounded-lg"
         >
           <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/social_u1774431695_technology_consulting_icon_--ar_7758_--video_1_21022898-08e4-420d-8ac7-355f8d364bc3_3-BKyVAtMJJdGcMlCmKusxn8hEyzOdpv.mp4" type="video/mp4" />
