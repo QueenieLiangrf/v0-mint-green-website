@@ -1,16 +1,13 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect } from "react"
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
 import { Phone, MessageCircle } from "lucide-react"
 
 export function HeroSection() {
   const [currentStation, setCurrentStation] = useState(0)
   const [showQRCode, setShowQRCode] = useState(false)
-  const videoRef = useRef<HTMLVideoElement>(null)
-  const retryCountRef = useRef(0)
-  const maxRetries = 5
 
   const stations = [
     {
@@ -36,68 +33,6 @@ export function HeroSection() {
     }, 4000)
     return () => clearInterval(stationTimer)
   }, [stations.length])
-
-  useEffect(() => {
-    const attemptPlay = () => {
-      if (videoRef.current && retryCountRef.current < maxRetries) {
-        videoRef.current
-          .play()
-          .then(() => {
-            console.log("[v0] Hero video playing successfully")
-            retryCountRef.current = 0
-          })
-          .catch((error) => {
-            retryCountRef.current++
-            console.log(`[v0] Hero video autoplay attempt ${retryCountRef.current} failed:`, error)
-            if (retryCountRef.current < maxRetries) {
-              setTimeout(attemptPlay, 1000 * retryCountRef.current)
-            }
-          })
-      }
-    }
-
-    const video = videoRef.current
-    if (video) {
-      // 立即尝试播放
-      attemptPlay()
-
-      // 监听多个视频加载事件
-      const handleLoadedMetadata = () => attemptPlay()
-      const handleLoadedData = () => attemptPlay()
-      const handleCanPlay = () => {
-        if (video.paused) {
-          attemptPlay()
-        }
-      }
-      const handleCanPlayThrough = () => attemptPlay()
-
-      video.addEventListener("loadedmetadata", handleLoadedMetadata)
-      video.addEventListener("loadeddata", handleLoadedData)
-      video.addEventListener("canplay", handleCanPlay)
-      video.addEventListener("canplaythrough", handleCanPlayThrough)
-
-      // 监听用户交互事件来触发播放（Safari需要）
-      const handleUserInteraction = () => {
-        if (video.paused) {
-          attemptPlay()
-        }
-      }
-
-      document.addEventListener("click", handleUserInteraction, { once: true })
-      document.addEventListener("touchstart", handleUserInteraction, { once: true })
-      document.addEventListener("scroll", handleUserInteraction, { once: true })
-
-      return () => {
-        video.removeEventListener("loadedmetadata", handleLoadedMetadata)
-        video.removeEventListener("loadeddata", handleLoadedData)
-        video.removeEventListener("canplay", handleCanPlay)
-        video.removeEventListener("canplaythrough", handleCanPlayThrough)
-        document.removeEventListener("click", handleUserInteraction)
-        document.removeEventListener("touchstart", handleUserInteraction)
-        document.removeEventListener("scroll", handleUserInteraction)
-      }
-    }
-  }, [])
 
   return (
     <section className="relative">
@@ -223,19 +158,16 @@ export function HeroSection() {
               </div>
 
               <video
-                ref={videoRef}
                 src="https://blobs.vusercontent.net/blob/u1774431695_Software_customization_development_and_AI_agents__1cc54faa-3377-4380-9708-66886f1f29b7_3-GKaSFEcgNG4E1sdHTtNWg57sdpEPs1.mp4"
                 autoPlay
                 loop
                 muted
                 playsInline
                 preload="auto"
-                className="w-full h-auto rounded-lg shadow-xl pointer-events-none select-none"
+                className="w-full h-auto rounded-lg shadow-xl"
                 style={{
                   maxHeight: "450px",
                   objectFit: "contain",
-                  WebkitUserSelect: "none",
-                  userSelect: "none",
                 }}
               />
             </div>

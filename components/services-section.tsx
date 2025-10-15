@@ -1,13 +1,10 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 
 export function ServicesSection() {
   const [isVisible, setIsVisible] = useState(false)
-  const videoRefs = useRef<(HTMLVideoElement | null)[]>([])
-  const retryCountsRef = useRef<number[]>([])
-  const maxRetries = 5
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -26,66 +23,6 @@ export function ServicesSection() {
 
     return () => observer.disconnect()
   }, [])
-
-  useEffect(() => {
-    if (isVisible) {
-      videoRefs.current.forEach((video, index) => {
-        if (video) {
-          if (!retryCountsRef.current[index]) {
-            retryCountsRef.current[index] = 0
-          }
-
-          const attemptPlay = () => {
-            if (video && retryCountsRef.current[index] < maxRetries) {
-              video
-                .play()
-                .then(() => {
-                  console.log(`[v0] Service video ${index} playing successfully`)
-                  retryCountsRef.current[index] = 0
-                })
-                .catch((error) => {
-                  retryCountsRef.current[index]++
-                  console.log(
-                    `[v0] Service video ${index} autoplay attempt ${retryCountsRef.current[index]} failed:`,
-                    error,
-                  )
-                  if (retryCountsRef.current[index] < maxRetries) {
-                    setTimeout(attemptPlay, 1000 * retryCountsRef.current[index])
-                  }
-                })
-            }
-          }
-
-          attemptPlay()
-
-          const handleLoadedMetadata = () => attemptPlay()
-          const handleLoadedData = () => attemptPlay()
-          const handleCanPlay = () => {
-            if (video.paused) {
-              attemptPlay()
-            }
-          }
-          const handleCanPlayThrough = () => attemptPlay()
-
-          video.addEventListener("loadedmetadata", handleLoadedMetadata)
-          video.addEventListener("loadeddata", handleLoadedData)
-          video.addEventListener("canplay", handleCanPlay)
-          video.addEventListener("canplaythrough", handleCanPlayThrough)
-
-          // 监听用户交互事件来触发播放（Safari需要）
-          const handleUserInteraction = () => {
-            if (video.paused) {
-              attemptPlay()
-            }
-          }
-
-          document.addEventListener("click", handleUserInteraction, { once: true })
-          document.addEventListener("touchstart", handleUserInteraction, { once: true })
-          document.addEventListener("scroll", handleUserInteraction, { once: true })
-        }
-      })
-    }
-  }, [isVisible])
 
   const services = [
     {
@@ -140,7 +77,6 @@ export function ServicesSection() {
 
   const renderServiceItems = () => {
     const items = []
-    let videoIndex = 0
 
     items.push(
       <Card
@@ -176,19 +112,7 @@ export function ServicesSection() {
 
     items.push(
       <div key="video-1" className="flex items-center justify-center">
-        <video
-          ref={(el) => (videoRefs.current[videoIndex++] = el)}
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          className="w-full h-80 object-cover rounded-lg pointer-events-none select-none"
-          style={{
-            WebkitUserSelect: "none",
-            userSelect: "none",
-          }}
-        >
+        <video autoPlay loop muted playsInline preload="auto" className="w-full h-80 object-cover rounded-lg">
           <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/social_u1774431695_web_icon_--ar_7758_--video_1_1bc8d9c9-a839-459d-ace8-1827f06477d4_0-iv2Av8mqyoirLbd3ziT6DuWdFFuDbc.mp4" type="video/mp4" />
         </video>
       </div>,
@@ -228,19 +152,7 @@ export function ServicesSection() {
 
     items.push(
       <div key="video-2" className="flex items-center justify-center">
-        <video
-          ref={(el) => (videoRefs.current[videoIndex++] = el)}
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          className="w-full h-80 object-cover rounded-lg pointer-events-none select-none"
-          style={{
-            WebkitUserSelect: "none",
-            userSelect: "none",
-          }}
-        >
+        <video autoPlay loop muted playsInline preload="auto" className="w-full h-80 object-cover rounded-lg">
           <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/social_u1774431695_apps_icon_--ar_7758_--video_1_bb8f0470-625e-4006-a976-f27afe1771c6_2-yk01iHKFNZtizKq1ccm03V0zlg33r8.mp4" type="video/mp4" />
         </video>
       </div>,
@@ -344,19 +256,7 @@ export function ServicesSection() {
 
     items.push(
       <div key="video-3" className="flex items-center justify-center">
-        <video
-          ref={(el) => (videoRefs.current[videoIndex++] = el)}
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          className="w-full h-80 object-cover rounded-lg pointer-events-none select-none"
-          style={{
-            WebkitUserSelect: "none",
-            userSelect: "none",
-          }}
-        >
+        <video autoPlay loop muted playsInline preload="auto" className="w-full h-80 object-cover rounded-lg">
           <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/social_u1774431695_technology_consulting_icon_--ar_7758_--video_1_21022898-08e4-420d-8ac7-355f8d364bc3_3-BKyVAtMJJdGcMlCmKusxn8hEyzOdpv.mp4" type="video/mp4" />
         </video>
       </div>,

@@ -7,9 +7,6 @@ import { Target, Settings, ShieldCheck, Headphones } from "lucide-react"
 export function AdvantagesSection() {
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
-  const videoRef = useRef<HTMLVideoElement>(null)
-  const retryCountRef = useRef(0)
-  const maxRetries = 5
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -27,68 +24,6 @@ export function AdvantagesSection() {
 
     return () => observer.disconnect()
   }, [])
-
-  useEffect(() => {
-    if (videoRef.current && isVisible) {
-      const attemptPlay = () => {
-        if (videoRef.current && retryCountRef.current < maxRetries) {
-          videoRef.current
-            .play()
-            .then(() => {
-              console.log("[v0] Advantages video playing successfully")
-              retryCountRef.current = 0
-            })
-            .catch((error) => {
-              retryCountRef.current++
-              console.log(`[v0] Advantages video autoplay attempt ${retryCountRef.current} failed:`, error)
-              if (retryCountRef.current < maxRetries) {
-                setTimeout(attemptPlay, 1000 * retryCountRef.current)
-              }
-            })
-        }
-      }
-
-      const video = videoRef.current
-      if (video) {
-        attemptPlay()
-
-        const handleLoadedMetadata = () => attemptPlay()
-        const handleLoadedData = () => attemptPlay()
-        const handleCanPlay = () => {
-          if (video.paused) {
-            attemptPlay()
-          }
-        }
-        const handleCanPlayThrough = () => attemptPlay()
-
-        video.addEventListener("loadedmetadata", handleLoadedMetadata)
-        video.addEventListener("loadeddata", handleLoadedData)
-        video.addEventListener("canplay", handleCanPlay)
-        video.addEventListener("canplaythrough", handleCanPlayThrough)
-
-        // 监听用户交互事件来触发播放（Safari需要）
-        const handleUserInteraction = () => {
-          if (video.paused) {
-            attemptPlay()
-          }
-        }
-
-        document.addEventListener("click", handleUserInteraction, { once: true })
-        document.addEventListener("touchstart", handleUserInteraction, { once: true })
-        document.addEventListener("scroll", handleUserInteraction, { once: true })
-
-        return () => {
-          video.removeEventListener("loadedmetadata", handleLoadedMetadata)
-          video.removeEventListener("loadeddata", handleLoadedData)
-          video.removeEventListener("canplay", handleCanPlay)
-          video.removeEventListener("canplaythrough", handleCanPlayThrough)
-          document.removeEventListener("click", handleUserInteraction)
-          document.removeEventListener("touchstart", handleUserInteraction)
-          document.removeEventListener("scroll", handleUserInteraction)
-        }
-      }
-    }
-  }, [isVisible])
 
   const advantages = [
     {
@@ -190,17 +125,12 @@ export function AdvantagesSection() {
               }}
             >
               <video
-                ref={videoRef}
                 autoPlay
                 loop
                 muted
                 playsInline
                 preload="auto"
-                className="w-full max-w-sm h-80 object-cover rounded-xl shadow-lg mt-16 pointer-events-none select-none"
-                style={{
-                  WebkitUserSelect: "none",
-                  userSelect: "none",
-                }}
+                className="w-full max-w-sm h-80 object-cover rounded-xl shadow-lg mt-16"
               >
                 <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/social_u1774431695_system_integration_icon_--ar_7758_--video_1_fc165433-f436-4382-847f-3cb9134c80db_0-T606KA4ZJcTXFMN2YL1MFn2zWvQjfr.mp4" type="video/mp4" />
                 您的浏览器不支持视频播放。
