@@ -231,8 +231,13 @@ export function HeroSection() {
                 playsInline
                 preload="auto"
                 x-webkit-airplay="allow"
-                className="w-full h-auto rounded-lg shadow-xl"
-                style={{ maxHeight: "450px", objectFit: "contain" }}
+                className="w-full h-auto rounded-lg shadow-xl pointer-events-none select-none"
+                style={{
+                  maxHeight: "450px",
+                  objectFit: "contain",
+                  WebkitUserSelect: "none",
+                  userSelect: "none",
+                }}
               />
             </div>
           </div>

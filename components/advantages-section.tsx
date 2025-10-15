@@ -197,7 +197,11 @@ export function AdvantagesSection() {
                 playsInline
                 preload="auto"
                 x-webkit-airplay="allow"
-                className="w-full max-w-sm h-80 object-cover rounded-xl shadow-lg mt-16"
+                className="w-full max-w-sm h-80 object-cover rounded-xl shadow-lg mt-16 pointer-events-none select-none"
+                style={{
+                  WebkitUserSelect: "none",
+                  userSelect: "none",
+                }}
               >
                 <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/social_u1774431695_system_integration_icon_--ar_7758_--video_1_fc165433-f436-4382-847f-3cb9134c80db_0-T606KA4ZJcTXFMN2YL1MFn2zWvQjfr.mp4" type="video/mp4" />
                 您的浏览器不支持视频播放。
