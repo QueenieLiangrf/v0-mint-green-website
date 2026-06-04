@@ -26,7 +26,7 @@ export default function RootLayout({
             var _hmt = _hmt || [];
             (function() {
               var hm = document.createElement("script");
-              hm.src = "https://hm.baidu.com/hm.js?c2e915eb8baba9be92cf2d6f508e0ba3";
+              hm.src = "https://hm.baidu.com/hm.js?022915268636396e820f2d6f508e0633";
               var s = document.getElementsByTagName("script")[0];
               s.parentNode.insertBefore(hm, s);
             })();
