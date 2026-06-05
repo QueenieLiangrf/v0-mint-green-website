@@ -1,16 +1,16 @@
-# 使用官方Node.js 18镜像作为基础镜像
-FROM node:18-alpine AS base
+# 使用官方Node.js 20镜像作为基础镜像（支持更好的ES模块）
+FROM node:20-alpine AS base
 
 # 安装依赖阶段
 FROM base AS deps
-RUN apk add --no-cache libc6-compat
+RUN apk add --no-cache libc6-compat python3 make g++
 WORKDIR /app
 
 # 复制package.json
 COPY package.json ./
 
-# 安装依赖 - 使用npm install并忽略可选依赖
-RUN npm install --legacy-peer-deps --ignore-scripts
+# 安装依赖
+RUN npm install --legacy-peer-deps
 
 # 构建阶段
 FROM base AS builder
@@ -20,6 +20,7 @@ COPY . .
 
 # 设置环境变量
 ENV NEXT_TELEMETRY_DISABLED=1
+ENV NODE_ENV=production
 
 # 构建Next.js应用
 RUN npm run build
